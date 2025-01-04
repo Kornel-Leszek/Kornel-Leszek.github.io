@@ -96,5 +96,36 @@ deklaracji będą interpretowane normalnie, chyba że również przy nich postaw
 Nie należy jednak przesadzać ze stosowaniem tej metody, ponieważ jawnie łamie ona zasadę
 kaskadowości i po jakimś czasie może Ci znacznie utrudnić analizę sposobu formatowania
 elementów.
+           Przykład 100 → instrukcja umożliwiająca łamanie kaskadowości:
+Gdyby w arkuszu stylów tej strony została umieszczona następująca reguła to nastąpi łamanie
+kaskadowości:
+            <table width="65%" border="1" align="center">
+        <tr>
+            <td colspan="3" align="center">
+           h6 { color: blue !important; background-color: green }
+</td>
+        </tr>
+        </table>
+           Przykład 1001→zdefiniowanie stylu liniowego < h6 style="color: red; background-color:
+yellow"> nie będzie powodowało pisania kolorem czerwonym a niebieskim ( bo użytu
+<b>!important</b> w przykładzie 1000)
+            <table width="65%" border="1" align="center">
+        <tr>
+            <td colspan="3" align="center">
+           < h6 style="color: red; background-color: yellow">
+Ten tytuł nie jest napisany czcionką koloru czerwonego, lecz niebieskiego, mimo
+wstawienia stylu inline.
+Natomiast tło pozostaje żółte.
+< /h6>
+           </td>
+        </tr>
+        </table>
+           otrzymalibyśmy tytuł koloru niebieskiego (blue) jednak nadal na żółtym (yellow) tle.
+<h5>Dziedziczenie stylów</h5>
+Z drzewem dokumentu związana jest własność dziedziczności stylów. Polega ona na tym, że
+elementy leżące niżej w hierarchii (potomkowie), jeśli nie zaznaczymy inaczej, dziedziczą
+(przejmują) atrybuty formatowania, które zostały nadane ich przodkom.
+Niestety w niektórych przeglądarkach internetowych zdarza się błędna interpretacja
+dziedziczenia stylów. Dlatego zawsze sprawdzaj w praktyce zastosowanie tej własności.
 </body>
 </html>
