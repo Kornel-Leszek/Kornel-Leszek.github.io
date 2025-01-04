@@ -3,9 +3,50 @@
 <body>
   <table width="65%" border="1" align="center">
         <tr>
-            <td colspan="3" align="center"><head>
-<link rel="Stylesheet" type="text/css" href="style.css" />
-</head></td>
+            <td colspan="3" align="center">
+              <head>
+                <link rel="Stylesheet" type="text/css" href="style.css" /> 
+              </head>
+            </td>
+        </tr>
+        </table>
+  <table width="65%" border="1" align="center">
+        <tr>
+            <td colspan="3" align="center">
+<selektor style="cecha1: wartość1; cecha2: wartość2...">...</selektor>
+            </td>
+        </tr>
+        </table>
+  <table width="65%" border="1" align="center">
+        <tr>
+            <td colspan="3" align="center">
+<head>
+<style type="text/css">
+selektor1 { cecha: wartość; cecha2: wartość2... }
+selektor2 { cecha: wartość; cecha2: wartość2... }
+</style>
+</head>
+            </td>
+        </tr>
+        </table>
+  <table width="65%" border="1" align="center">
+        <tr>
+            <td colspan="3" align="center">
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css" title="Nazwa domyślna" />
+<link rel="Alternate stylesheet" type="text/css" href="style1.css" title="Nazwa 1" />
+<link rel="Alternate stylesheet" type="text/css" href="style2.css" title="Nazwa 2" />
+</head>
+            </td>
+        </tr>
+        </table>
+  <table width="65%" border="1" align="center">
+        <tr>
+            <td colspan="3" align="center">
+<style type="text/css">
+@import url(adres zewnętrznego arkusza stylów);
+</style>
+            </td>
         </tr>
         </table>
 </body>
