@@ -1,17 +1,21 @@
 <html>
 <head></head>
 <body>
-  <h6>Sposoby podłączania styli do strony (skrócone zestawienie).</h6>
-1)Zewnętrzny arkusz stylów.
+  <h1>Sposoby podłączania styli do strony (skrócone zestawienie).</h1>
+<h2>1)Zewnętrzny arkusz stylów.</h2>
   <table width="65%" border="1" align="center">
         <tr>
             <td colspan="3" align="center">
               < head>
+                <br>
                 < link rel="Stylesheet" type="text/css" href="style.css" /> 
+                <br>
               < /head>
             </td>
         </tr>
         </table>
+                2)Styl lokalny inaczej: (styl wpisany, liniowy, linijkowy, w linii) czyli
+dopisanie arkusza do wybranego bloku treści strony.
   <table width="65%" border="1" align="center">
         <tr>
             <td colspan="3" align="center">
@@ -19,6 +23,7 @@
             </td>
         </tr>
         </table>
+  3)Wewnętrzny arkusz stylów.
   <table width="65%" border="1" align="center">
         <tr>
             <td colspan="3" align="center">
@@ -31,17 +36,22 @@ selektor2 { cecha: wartość; cecha2: wartość2... }
             </td>
         </tr>
         </table>
+           4)Alternatywny arkusz stylów.
   <table width="65%" border="1" align="center">
         <tr>
             <td colspan="3" align="center">
-< head>
+< head> <br>
 < link rel="Stylesheet" type="text/css" href="style.css" title="Nazwa domyślna" />
+           <br>
 < link rel="Alternate stylesheet" type="text/css" href="style1.css" title="Nazwa 1" />
+           <br> 
 < link rel="Alternate stylesheet" type="text/css" href="style2.css" title="Nazwa 2" />
+           <br>
 < /head>
             </td>
         </tr>
         </table>
+           5)Import arkusza stylów.
   <table width="65%" border="1" align="center">
         <tr>
             <td colspan="3" align="center">
@@ -51,5 +61,41 @@ selektor2 { cecha: wartość; cecha2: wartość2... }
             </td>
         </tr>
         </table>
+           Kaskadowość stylów
+Kaskadowość stylów określa pierwszeństwo w oddziaływaniu na te same elementy strony
+stylów z różnych źródeł (lokalny, zewnętrzny, wewnętrzny itp.). Style tworzą hierarchię
+tworząc kaskadę dlatego taka nazwa.
+Kaskadowość stylów pozwala zatem pracować z kilkoma źródłami stylów, bez obawy o
+wystąpienie konfliktów.
+Priorytet ważności stylów (pierwszeństwo) wyglądałby tak:
+<p> 1. Styl lokalny,                                              →najważniejszy </p>
+<p> 2. Rozciąganie stylu (SPAN), </p>
+<p> 3. Wydzielone bloki (DIV), </p>
+<p> 4. Wewnętrzny arkusz stylów </p>
+<p> 5. Zewnętrzny arkusz stylów </p>
+<p> 6. Import arkusza stylów, </p>
+<p> 7. Domyślne ustawienia przeglarki                                →najmniejważny </p>
+Style o wyższym priorytecie ważności (na początku listy) mają pierwszeństwo w
+modyfikowaniu elementów dokumentu. Style niżej w hierarchii mogą zmienić formatowanie
+jakiegoś elementu, tylko jeśli style o wyższym priorytecie nie dotyczą tego konkretnego
+elementu. Na szczególną uwagę zasługuje również fakt, że style CSS z dowolnego źródła
+zawsze są ważniejsze niż atrybuty prezentacyjne przypisane elementom bezpośrednio w
+kodzie HTML, mimo iż wydawać by się mogło, że powinna tutaj zachodzić zasada taka jak w
+przypadku stylu lokalnego.
+UWAGA
+Polecenie dołączenia zewnętrznego arkusza powinno znajdować się w dokumencie wcześniej
+niż wewnętrzny arkusz. Odwrotna kolejność złamie zasady kaskadowości!
+Jeżeli natomiast chodzi o zasady kaskadowości wewnątrz tego samego arkusza CSS, tzn. w
+przypadku, kiedy znajduje się w nim kilka osobnych reguł CSS o jednakowej szczegółowości
+(ważności), odnoszących się do tej samej cechy tego samego elementu, to ostateczny wpływ
+na formatowanie będą miały reguły umieszczone na końcu.
+Łamanie kaskadowości
+Można świadomie zmienić zasady kaskadowości. Służy do tego polecenie !important. Jeżeli
+pojawi się ono w deklaracji stylu po wartości cechy, spowoduje to, że taka cecha będzie miała
+pierwszeństwo przed innymi, nawet jeśli ma niższy priorytet. Natomiast inne cechy takiej
+deklaracji będą interpretowane normalnie, chyba że również przy nich postawimy !important.
+Nie należy jednak przesadzać ze stosowaniem tej metody, ponieważ jawnie łamie ona zasadę
+kaskadowości i po jakimś czasie może Ci znacznie utrudnić analizę sposobu formatowania
+elementów.
 </body>
 </html>
