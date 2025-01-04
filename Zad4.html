@@ -67,13 +67,13 @@ tworząc <u>kaskadę</u> dlatego taka nazwa.
 Kaskadowość stylów pozwala zatem pracować z kilkoma źródłami stylów, bez obawy o
 wystąpienie konfliktów.
 Priorytet ważności stylów (pierwszeństwo) wyglądałby tak:
-<p> 1. Styl lokalny,  &nbsp; &nbsp; &nbsp;                                            <b>→najważniejszy</b> </p>
+<p> 1. Styl lokalny,  &nbsp; &nbsp; &nbsp;                     &nbsp; &nbsp; &nbsp;                       <b>→najważniejszy</b> </p>
 <p> 2. Rozciąganie stylu (SPAN), </p>
 <p> 3. Wydzielone bloki (DIV), </p>
 <p> 4. Wewnętrzny arkusz stylów </p>
 <p> 5. Zewnętrzny arkusz stylów </p>
 <p> 6. Import arkusza stylów, </p>
-<p> 7. Domyślne ustawienia przeglarki  &nbsp; &nbsp; &nbsp;                           <b>→najmniejważny</b> </p>
+<p> 7. Domyślne ustawienia przeglarki  &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp;                 <b>→najmniejważny</b> </p>
 Style o wyższym priorytecie ważności (na początku listy) mają pierwszeństwo w
 modyfikowaniu elementów dokumentu. Style niżej w hierarchii mogą zmienić formatowanie
 jakiegoś elementu, tylko jeśli style o wyższym priorytecie nie dotyczą tego konkretnego
@@ -81,27 +81,28 @@ elementu. Na szczególną uwagę zasługuje również fakt, że style CSS z dowo
 zawsze są ważniejsze niż atrybuty prezentacyjne przypisane elementom bezpośrednio w
 kodzie HTML, mimo iż wydawać by się mogło, że powinna tutaj zachodzić zasada taka jak w
 przypadku stylu lokalnego.
+           
 <h3>UWAGA</h3>
-<h4>Polecenie dołączenia zewnętrznego arkusza powinno znajdować się w dokumencie wcześniej
+Polecenie dołączenia zewnętrznego arkusza powinno znajdować się w dokumencie wcześniej
 niż wewnętrzny arkusz. Odwrotna kolejność złamie zasady kaskadowości!
 Jeżeli natomiast chodzi o zasady kaskadowości wewnątrz tego samego arkusza CSS, tzn. w
 przypadku, kiedy znajduje się w nim kilka osobnych reguł CSS o jednakowej szczegółowości
 (ważności), odnoszących się do tej samej cechy tego samego elementu, to ostateczny wpływ
-na formatowanie będą miały reguły umieszczone na końcu.<h4>
+na formatowanie będą miały reguły umieszczone na końcu.
            
 <h2>Łamanie kaskadowości</h2>
-<h4>Można świadomie zmienić zasady kaskadowości. Służy do tego polecenie !important. Jeżeli
+Można świadomie zmienić zasady kaskadowości. Służy do tego polecenie <u>!important<u>. Jeżeli
 pojawi się ono w deklaracji stylu po wartości cechy, spowoduje to, że taka cecha będzie miała
 pierwszeństwo przed innymi, nawet jeśli ma niższy priorytet. Natomiast inne cechy takiej
 deklaracji będą interpretowane normalnie, chyba że również przy nich postawimy !important.
 Nie należy jednak przesadzać ze stosowaniem tej metody, ponieważ jawnie łamie ona zasadę
 kaskadowości i po jakimś czasie może Ci znacznie utrudnić analizę sposobu formatowania
-elementów.</h4>
+elementów.
            <br><br>
-           <h4>
+           
            <u>Przykład 100 → instrukcja umożliwiająca łamanie kaskadowości:</u>
 Gdyby w arkuszu stylów tej strony została umieszczona następująca reguła to nastąpi łamanie
-kaskadowości:</h4>
+kaskadowości:
             <table width="65%" border="1" align="center">
         <tr>
             <td colspan="3" align="center">
@@ -109,31 +110,31 @@ kaskadowości:</h4>
 </td>
         </tr>
         </table>
-           <h4>
+           
            <u>Przykład 1001</u>→zdefiniowanie stylu liniowego < h6 style="color: red; background-color:
 yellow"> nie będzie powodowało pisania kolorem czerwonym a niebieskim ( bo użytu
-<b>!important</b> w przykładzie 1000)</h4>
+<b>!important</b> w przykładzie 1000)
            <br><br>
             <table width="65%" border="1" align="center">
         <tr>
-           <h4>
+           
             <td colspan="3" align="center">
            < h6 style="color: red; background-color: yellow">
 Ten tytuł nie jest napisany czcionką koloru czerwonego, lecz niebieskiego, mimo
 wstawienia stylu inline.
 Natomiast tło pozostaje żółte.
 < /h6>
-           </h4>
+           
            </td>
         </tr>
         </table>
            <br><br>
-           <h4>otrzymalibyśmy tytuł koloru niebieskiego (blue) jednak nadal na żółtym (yellow) tle.</h4>
-<h5>Dziedziczenie stylów</h5>
-<h4>Z drzewem dokumentu związana jest własność dziedziczności stylów. Polega ona na tym, że
+           otrzymalibyśmy tytuł koloru niebieskiego (blue) jednak nadal na żółtym (yellow) tle.
+<h2>Dziedziczenie stylów</h2>
+Z drzewem dokumentu związana jest własność dziedziczności stylów. Polega ona na tym, że
 elementy leżące niżej w hierarchii (potomkowie), jeśli nie zaznaczymy inaczej, dziedziczą
 (przejmują) atrybuty formatowania, które zostały nadane ich przodkom.
 Niestety w niektórych przeglądarkach internetowych zdarza się błędna interpretacja
-dziedziczenia stylów. Dlatego zawsze sprawdzaj w praktyce zastosowanie tej własności.</h4>
+dziedziczenia stylów. Dlatego zawsze sprawdzaj w praktyce zastosowanie tej własności.
 </body>
 </html>
