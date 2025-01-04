@@ -67,14 +67,15 @@ tworząc <u>kaskadę</u> dlatego taka nazwa.
 Kaskadowość stylów pozwala zatem pracować z kilkoma źródłami stylów, bez obawy o
 wystąpienie konfliktów.
 Priorytet ważności stylów (pierwszeństwo) wyglądałby tak:
-<p> 1. Styl lokalny,  &nbsp; &nbsp; &nbsp;            &nbsp; &nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;     &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;     <b>→najważniejszy</b> </p>
+<p> 1. Styl lokalny,  &nbsp; &nbsp; &nbsp;            &nbsp; &nbsp; &nbsp;           &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;     &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;     <b>→najważniejszy</b> </p>
 <p> 2. Rozciąganie stylu (SPAN), </p>
 <p> 3. Wydzielone bloki (DIV), </p>
 <p> 4. Wewnętrzny arkusz stylów </p>
 <p> 5. Zewnętrzny arkusz stylów </p>
 <p> 6. Import arkusza stylów, </p>
-<p> 7. Domyślne ustawienia przeglarki  &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp;                 <b>→najmniejważny</b> </p>
-Style o wyższym priorytecie ważności (na początku listy) mają pierwszeństwo w
+<p> 7. Domyślne ustawienia przeglarki  &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp;             &nbsp; &nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;           <b>→najmniejważny</b> </p>
+           
+Style o wyższym priorytecie <b><u>ważności (na początku listy)<u><b> mają pierwszeństwo w
 modyfikowaniu elementów dokumentu. Style niżej w hierarchii mogą zmienić formatowanie
 jakiegoś elementu, tylko jeśli style o wyższym priorytecie nie dotyczą tego konkretnego
 elementu. Na szczególną uwagę zasługuje również fakt, że style CSS z dowolnego źródła
