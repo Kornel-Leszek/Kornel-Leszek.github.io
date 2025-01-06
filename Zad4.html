@@ -1,141 +1,140 @@
 <html>
-<head></head>
+<head>
+  <title>Sposoby podłączania styli do strony</title>
+</head>
 <body>
   <h1>Sposoby podłączania styli do strony (skrócone zestawienie).</h1>
-<h2>1)<u>Zewnętrzny</u> arkusz stylów.</h2>
+
+  <h2>1)<u>Zewnętrzny</u> arkusz stylów.</h2>
   <table width="65%" border="1" align="center">
-        <tr>
-            <td colspan="3" align="center">
-                    &nbsp; &nbsp; &nbsp;  < head>
-                <br>
-                < link rel="Stylesheet" type="text/css" href="style.css" /> 
-                <br>
-                    &nbsp; &nbsp; &nbsp;  < /head>
-            </td>
-        </tr>
-        </table>
-                <h2>2)Styl <u>lokalny </u>inaczej: (styl wpisany, liniowy, linijkowy, w linii) czyli dopisanie arkusza do wybranego bloku treści strony.</h2>
+    <tr>
+      <td colspan="3" align="center">
+        &nbsp; &nbsp; &nbsp;  
+        <head>
+          <br>
+          <link rel="stylesheet" type="text/css" href="style.css" />
+          <br>
+        </head>
+      </td>
+    </tr>
+  </table>
+
+  <h2>2)Styl <u>lokalny</u> inaczej: (styl wpisany, liniowy, linijkowy, w linii) czyli dopisanie arkusza do wybranego bloku treści strony.</h2>
   <table width="65%" border="1" align="center">
-        <tr>
-            <td colspan="3" align="center">
-< selektor style="cecha1: wartość1; cecha2: wartość2...">...< /selektor>
-            </td>
-        </tr>
-        </table>
-  <h2>3)<u>Wewnętrzny </u>u>arkusz stylów.</h2>
+    <tr>
+      <td colspan="3" align="center">
+        <code>
+          &lt;selektor style="cecha1: wartość1; cecha2: wartość2..."&gt;...&lt;/selektor&gt;
+        </code>
+      </td>
+    </tr>
+  </table>
+
+  <h2>3)<u>Wewnętrzny</u> arkusz stylów.</h2>
   <table width="65%" border="1" align="center">
-        <tr>
-            <td colspan="3" align="center">
-            &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  < head>
-      &nbsp; &nbsp; &nbsp;  <b>< style type="text/css"></b>
-selektor1 { cecha: wartość; cecha2: wartość2... }
-selektor2 { cecha: wartość; cecha2: wartość2... }
-      &nbsp; &nbsp; &nbsp;  <b> < /style> </b>
-            &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  < /head>
-            </td>
-        </tr>
-        </table>
-           <h2>4)<u>Alternatywny</u> arkusz stylów.</h2>
+    <tr>
+      <td colspan="3" align="center">
+        &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  
+        <head>
+          &nbsp; &nbsp; &nbsp;  <b><style type="text/css"></b>
+          <br>
+          selektor1 { cecha: wartość; cecha2: wartość2... }
+          <br>
+          selektor2 { cecha: wartość; cecha2: wartość2... }
+          <br>
+          &nbsp; &nbsp; &nbsp;  <b></style></b>
+          &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  
+        </head>
+      </td>
+    </tr>
+  </table>
+
+  <h2>4)<u>Alternatywny</u> arkusz stylów.</h2>
   <table width="65%" border="1" align="center">
-        <tr>
-            <td colspan="3" align="center">
-      &nbsp; &nbsp; &nbsp;  < head> <br>
-< link rel="Stylesheet" type="text/css" href="style.css" title="Nazwa domyślna" />
-           <br>
-< link rel="Alternate stylesheet" type="text/css" href="style1.css" title="Nazwa 1" />
-           <br> 
-< link rel="Alternate stylesheet" type="text/css" href="style2.css" title="Nazwa 2" />
-           <br>
-      &nbsp; &nbsp; &nbsp;  < /head>
-            </td>
-        </tr>
-        </table>
-           <h2>5)<u>Import</u> arkusza stylów.</h2>
+    <tr>
+      <td colspan="3" align="center">
+        &nbsp; &nbsp; &nbsp;  
+        <head> 
+          <br>
+          <link rel="stylesheet" type="text/css" href="style.css" title="Nazwa domyślna" />
+          <br>
+          <link rel="alternate stylesheet" type="text/css" href="style1.css" title="Nazwa 1" />
+          <br> 
+          <link rel="alternate stylesheet" type="text/css" href="style2.css" title="Nazwa 2" />
+          <br>
+        </head>
+      </td>
+    </tr>
+  </table>
+
+  <h2>5)<u>Import</u> arkusza stylów.</h2>
   <table width="65%" border="1" align="center">
-        <tr>
-            <td colspan="3" align="center">
-< style type="text/css">
-@import url(adres zewnętrznego arkusza stylów);
-< /style>
-            </td>
-        </tr>
-        </table>
-           <h2>Kaskadowość stylów</h2>
-<b>Kaskadowość stylów</b> określa pierwszeństwo w oddziaływaniu na te same elementy strony
-stylów z różnych źródeł (lokalny, zewnętrzny, wewnętrzny itp.). Style tworzą hierarchię
-tworząc <u>kaskadę</u> dlatego taka nazwa.
-Kaskadowość stylów pozwala zatem pracować z kilkoma źródłami stylów, bez obawy o
-wystąpienie konfliktów.
-Priorytet ważności stylów (pierwszeństwo) wyglądałby tak:
-<p> 1. Styl lokalny,  &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;                 &nbsp; &nbsp; &nbsp;           &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;     &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;     <b>→najważniejszy</b> </p>
-<p> 2. Rozciąganie stylu (SPAN), </p>
-<p> 3. Wydzielone bloki (DIV), </p>
-<p> 4. Wewnętrzny arkusz stylów </p>
-<p> 5. Zewnętrzny arkusz stylów </p>
-<p> 6. Import arkusza stylów, </p>
-<p> 7. Domyślne ustawienia przeglarki  &nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp;             &nbsp; &nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;       &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;           <b>→najmniejważny</b> </p>
-           
-Style o wyższym priorytecie <b><u>ważności (na początku listy)<u><b> mają pierwszeństwo w
-modyfikowaniu elementów dokumentu. Style niżej w hierarchii mogą zmienić formatowanie
-jakiegoś elementu, tylko jeśli style o wyższym priorytecie nie dotyczą tego konkretnego
-elementu. Na szczególną uwagę zasługuje również fakt, że style CSS z dowolnego źródła
-zawsze są ważniejsze niż atrybuty prezentacyjne przypisane elementom bezpośrednio w
-kodzie HTML, mimo iż wydawać by się mogło, że powinna tutaj zachodzić zasada taka jak w
-przypadku stylu lokalnego.
-           
-<h3>UWAGA</h3>
-Polecenie dołączenia zewnętrznego arkusza powinno znajdować się w dokumencie wcześniej
-niż wewnętrzny arkusz. Odwrotna kolejność złamie zasady kaskadowości!
-Jeżeli natomiast chodzi o zasady kaskadowości wewnątrz tego samego arkusza CSS, tzn. w
-przypadku, kiedy znajduje się w nim kilka osobnych reguł CSS o jednakowej szczegółowości
-(ważności), odnoszących się do tej samej cechy tego samego elementu, to ostateczny wpływ
-na formatowanie będą miały reguły umieszczone na końcu.
-           
-<h2>Łamanie kaskadowości</h2>
-Można świadomie zmienić zasady kaskadowości. Służy do tego polecenie <u>!important<u>. Jeżeli
-pojawi się ono w deklaracji stylu po wartości cechy, spowoduje to, że taka cecha będzie miała
-pierwszeństwo przed innymi, nawet jeśli ma niższy priorytet. Natomiast inne cechy takiej
-deklaracji będą interpretowane normalnie, chyba że również przy nich postawimy !important.
-Nie należy jednak przesadzać ze stosowaniem tej metody, ponieważ jawnie łamie ona zasadę
-kaskadowości i po jakimś czasie może Ci znacznie utrudnić analizę sposobu formatowania
-elementów.
-           <br><br>
-           
-           <u>Przykład 100 → instrukcja umożliwiająca łamanie kaskadowości:</u>
-Gdyby w arkuszu stylów tej strony została umieszczona następująca reguła to nastąpi łamanie
-kaskadowości:
-            <table width="65%" border="1" align="center">
-        <tr>
-            <td colspan="3" align="center">
-           h6 { color: blue !important; background-color: green }
-</td>
-        </tr>
-        </table>
-           
-           <u>Przykład 1001</u>→zdefiniowanie stylu liniowego < h6 style="color: red; background-color:
-yellow"> nie będzie powodowało pisania kolorem czerwonym a niebieskim ( bo użytu
-<b>!important</b> w przykładzie 1000)
-           <br><br>
-            <table width="65%" border="1" align="center">
-        <tr>
-           
-            <td colspan="3" align="center">
-           < h6 style="color: red; background-color: yellow">
-Ten tytuł nie jest napisany czcionką koloru czerwonego, lecz niebieskiego, mimo
-wstawienia stylu inline.
-Natomiast tło pozostaje żółte.
-< /h6>
-           
-           </td>
-        </tr>
-        </table>
-           <br><br>
-           otrzymalibyśmy tytuł koloru niebieskiego (blue) jednak nadal na żółtym (yellow) tle.
-<h2>Dziedziczenie stylów</h2>
-Z drzewem dokumentu związana jest własność dziedziczności stylów. Polega ona na tym, że
-elementy leżące niżej w hierarchii (potomkowie), jeśli nie zaznaczymy inaczej, dziedziczą
-(przejmują) atrybuty formatowania, które zostały nadane ich przodkom.
-Niestety w niektórych przeglądarkach internetowych zdarza się błędna interpretacja
-dziedziczenia stylów. Dlatego zawsze sprawdzaj w praktyce zastosowanie tej własności.
+    <tr>
+      <td colspan="3" align="center">
+        <style type="text/css">
+          @import url('adres zewnętrznego arkusza stylów');
+        </style>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Kaskadowość stylów</h2>
+  <b>Kaskadowość stylów</b> określa pierwszeństwo w oddziaływaniu na te same elementy strony
+  stylów z różnych źródeł (lokalny, zewnętrzny, wewnętrzny itp.). Style tworzą hierarchię,
+  tworząc <u>kaskadę</u>, dlatego taka nazwa.
+  Kaskadowość stylów pozwala zatem pracować z kilkoma źródłami stylów, bez obawy o
+  wystąpienie konfliktów.
+
+  Priorytet ważności stylów (pierwszeństwo) wyglądałby tak:
+  <p> 1. Styl lokalny,  &nbsp; &nbsp; &nbsp;        <b>→najważniejszy</b> </p>
+  <p> 2. Rozciąganie stylu (SPAN), </p>
+  <p> 3. Wydzielone bloki (DIV), </p>
+  <p> 4. Wewnętrzny arkusz stylów </p>
+  <p> 5. Zewnętrzny arkusz stylów </p>
+  <p> 6. Import arkusza stylów, </p>
+  <p> 7. Domyślne ustawienia przeglądarki  &nbsp; &nbsp; &nbsp;        <b>→najmniej ważny</b> </p>
+
+  <h3>UWAGA</h3>
+  Polecenie dołączenia zewnętrznego arkusza powinno znajdować się w dokumencie wcześniej
+  niż wewnętrzny arkusz. Odwrotna kolejność złamie zasady kaskadowości!
+
+  <h2>Łamanie kaskadowości</h2>
+  Można świadomie zmienić zasady kaskadowości. Służy do tego polecenie <u>!important</u>. 
+  Jeżeli pojawi się ono w deklaracji stylu po wartości cechy, spowoduje to, że taka cecha będzie miała
+  pierwszeństwo przed innymi, nawet jeśli ma niższy priorytet.
+
+  <u>Przykład 100 → instrukcja umożliwiająca łamanie kaskadowości:</u>
+  <table width="65%" border="1" align="center">
+    <tr>
+      <td colspan="3" align="center">
+        h6 { color: blue !important; background-color: green }
+      </td>
+    </tr>
+  </table>
+
+  <u>Przykład 1001</u>→zdefiniowanie stylu liniowego 
+  <code>&lt;h6 style="color: red; background-color: yellow"&gt;</code> 
+  nie będzie powodowało pisania kolorem czerwonym, a niebieskim (bo użyto <b>!important</b> w przykładzie 1000).
+  <br><br>
+  <table width="65%" border="1" align="center">
+    <tr>
+      <td colspan="3" align="center">
+        <h6 style="color: red; background-color: yellow">
+          Ten tytuł nie jest napisany czcionką koloru czerwonego, lecz niebieskiego, mimo
+          wstawienia stylu inline.
+          Natomiast tło pozostaje żółte.
+        </h6>
+      </td>
+    </tr>
+  </table>
+  <br><br>
+  Otrzymalibyśmy tytuł koloru niebieskiego (blue), jednak nadal na żółtym (yellow) tle.
+
+  <h2>Dziedziczenie stylów</h2>
+  Z drzewem dokumentu związana jest własność dziedziczności stylów. Polega ona na tym, że
+  elementy leżące niżej w hierarchii (potomkowie), jeśli nie zaznaczymy inaczej, dziedziczą
+  (przejmują) atrybuty formatowania, które zostały nadane ich przodkom.
+  Niestety w niektórych przeglądarkach internetowych zdarza się błędna interpretacja
+  dziedziczenia stylów. Dlatego zawsze sprawdzaj w praktyce zastosowanie tej własności.
 </body>
 </html>
