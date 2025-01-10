@@ -1,59 +1,113 @@
 <!DOCTYPE html>
-<html lang="pl-PL">
-  <head>
-    <meta charset="utf-8">
-    <title> Opis stylu zewnętrznego </title>
-  </head>
-  <body>
-    Składnia teoretyczna:
-    <table width="50%" border="1" align="left">
-    <tr>
-      <td colspan="3" align="center">
-&lt;head&gt;
-    <br>
-(...)
-    <br>
-&lt;link rel="Stylesheet" type="text/css" href="style.css" /&gt;
-    <br>
-(...)
-    <br>
-&lt;/head&gt;
-        </td>
-    </tr>
-      </table>
-    gdzie <b>"style.css"</b> jest zewnętrznym arkuszem stylów. Natomiast znaki (...) oznaczają inne
-    <br>
-polecenia, które zwykle pojawiają się w nagłówku dokumentu, np. deklaracja strony kodowej.
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opis stylu zewnętrznego</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 16px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .answer {
+            margin-bottom: 20px;
+        }
+        .box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>10. Opis stylu zewnętrznego</h1>
 
-<b>Wstawienie</b> →wystarczy wpisać w treści nagłówkowej każdego z dokumentów (pomiędzy
-znacznikami &lt;head&gt; a &lt;/head&gt;),
-    <br>przedstawioną powyżej linijkę:
-    <table width="50%" border="1" align="left">
-    <tr>
-      <td colspan="3" align="center">
-&lt;link rel="Stylesheet" type="text/css" href="style.css" /&gt;
-    </td>
-    </tr>
-      </table>
-<ul>
-  <li>Znacznik LINK może znajdować się tylko i wyłącznie w nagłówku dokumentu.
-(sekcja <b>head</b> )</li>
-  <li>można dołączyć <b><u>dowolną liczbę</u></b> zewnętrznych arkuszy stylów
-- każdy jako osobny element <link rel="Stylesheet" />.</li>
-  <li>W przypadku <b><u>konfliktów</u></b>, ważniejsze będą deklaracje z arkusza dołączonego później.</li>
-  <li>Zewnętrzny arkusz stylów jest on zwykłym plikiem tekstowym. Do tworzenia i
-edytowania wystarczy zwykły edytor tekst.</li>
-  <li>Można się posłużyć specjalnym <b>edytorem CSS.</b><li>
-  <li>Należy jedynie pamiętać, że plik będący zewnętrznym arkuszem stylów musi mieć
-rozszerzenie <b>*.css</b></li>
-</ul>
-    <u>Zalety zewnętrznego arkusza styli:</u>
-1)wszystkie nasze strony w obrębie całego serwisu mogą mieć pewne wspólne cechy.
-    <br>
-2) jeśli w ostatniej chwili zdecydujemy się zmienić np. rodzaj czcionki na wszystkich
-    <br>
-stronach, możemy to zrobić, modyfikując jedynie zewnętrzny arkusz stylów, bez
-    <br>
-konieczności zmiany każdej strony osobno.
+    <div class="answer">
+        <h2 class="question">1. Składnia teoretyczna</h2>
+        <div class="box">
+            <pre>
+selector {
+    property: value;
+}
+            </pre>
+        </div>
+        <p>Składnia selektora CSS składa się z selektora, który wskazuje na element HTML, oraz deklaracji, która zawiera właściwości i ich wartości. Deklaracja jest otoczona nawiasami klamrowymi <code>{}</code>, a poszczególne właściwości oddziela się średnikami.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">2. Gdzie wstawiany jest styl zewnętrzny, jaki znacznik jest za to odpowiedzialny oraz ile razy może on występować w dokumencie, jako podłączenie stylu CSS?</h2>
+        <p>Styl zewnętrzny jest podłączany do dokumentu HTML za pomocą znacznika <code>&lt;link&gt;</code>. Zwykle wstawiamy go w sekcji <code>&lt;head&gt;</code> dokumentu HTML. Znacznik <code>&lt;link&gt;</code> może występować w dokumencie tylko raz, ponieważ powinien wskazywać na pojedynczy arkusz stylów.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">3. Jak jest najprostsza forma wstawiania stylu zewnętrznego?</h2>
+        <div class="box">
+            <pre>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+            </pre>
+        </div>
+        <p>Najprostsza forma wstawiania stylu zewnętrznego to użycie znacznika <code>&lt;link&gt;</code>, który wskazuje na zewnętrzny plik CSS (np. <code>style.css</code>).</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">4. Ile arkuszy styli może być dołączanych do jednego dokumentu HTML oraz jaka zasada musi być zachowana przy większej ilości dołączanych styli?</h2>
+        <p>Do jednego dokumentu HTML może być dołączonych wiele arkuszy styli. Jednak należy zachować odpowiednią kolejność ich wczytywania. Style zdefiniowane w późniejszych arkuszach będą miały wyższy priorytet i nadpiszą style zdefiniowane wcześniej, jeśli są sprzeczne.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">5. Co się dzieje w przypadku konfliktów?</h2>
+        <p>W przypadku konfliktu, gdy te same style są zdefiniowane w różnych arkuszach stylów, styl zdefiniowany w późniejszym arkuszu ma wyższy priorytet i nadpisuje wcześniejsze deklaracje. W przypadku tego samego priorytetu stosuje się zasady kaskadowości CSS, gdzie bardziej szczegółowe selektory mają pierwszeństwo.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">6. Jak są tworzone i edytowane pliki arkuszy z użyciem edytora tekstowego?</h2>
+        <p>Pliki arkuszy stylów można tworzyć i edytować za pomocą dowolnego edytora tekstowego, np. Notepad, Sublime Text czy Visual Studio Code. Plik powinien mieć rozszerzenie <code>.css</code>, a zawartość powinna zawierać odpowiednią składnię CSS.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">7. Jak są tworzone i edytowane pliki arkuszy z użyciem specjalnego edytora CSS?</h2>
+        <p>Specjalne edytory CSS, takie jak Adobe Dreamweaver, Brackets czy Webflow, oferują zaawansowane funkcje wspierające tworzenie arkuszy styli. Dzięki tym narzędziom można łatwiej pisać, testować i podglądać zmiany w czasie rzeczywistym, co ułatwia pracę z CSS.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">8. Jakie rozszerzenie posiadają pliki będące zewnętrznymi arkuszami styli?</h2>
+        <p>Pliki będące zewnętrznymi arkuszami styli posiadają rozszerzenie <code>.css</code>. Przykład: <code>style.css</code>.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">9. Jakie są zalety zewnętrznego arkusza styli?</h2>
+        <ul>
+            <li>Możliwość ponownego użycia tego samego arkusza w wielu dokumentach HTML, co umożliwia utrzymanie jednolitego wyglądu strony.</li>
+            <li>Łatwiejsze zarządzanie stylem strony, ponieważ wszystkie style są zgromadzone w jednym pliku, co ułatwia ich edytowanie i aktualizowanie.</li>
+        </ul>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">10. Uwagi na temat pisania w CSS</h2>
+        <p>Podczas pisania w CSS należy pamiętać o następujących zasadach:</p>
+        <ul>
+            <li>Używaj spójnej składni (np. jednolitych wcięć) w całym pliku CSS.</li>
+            <li>Staraj się unikać nadmiernych użyć selektorów uniwersalnych (<code>*</code>) i zbyt ogólnych, aby uniknąć niepotrzebnych konfliktów w stylach.</li>
+            <li>Używaj komentarzy, aby dokumentować złożone reguły CSS, co ułatwia późniejsze edytowanie kodu.</li>
+        </ul>
+        <p>Jeśli coś nie działa, sprawdź, czy plik CSS jest poprawnie połączony z HTML i czy nie występują błędy w składni.</p>
+    </div>
+
 </body>
 </html>
+
