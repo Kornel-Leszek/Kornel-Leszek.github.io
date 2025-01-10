@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budowa selektora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 16px;
+        }
+        ul {
+            font-size: 16px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .answer {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>10. Budowa selektora</h1>
+
+    <div class="answer">
+        <h2 class="question">1. Wymień oraz opisz dwie części selektora</h2>
+        <p><strong>Część identyfikująca</strong> – jest to część, która wskazuje, do jakiego elementu HTML odnosi się dany selektor. Może to być np. nazwa tagu HTML (np. <code>div</code>, <code>p</code>), klasa (np. <code>.nazwa-klasy</code>), identyfikator (np. <code>#nazwa-id</code>), a także bardziej zaawansowane kombinacje, jak selektory atrybutów czy pseudoklasy.</p>
+        <p><strong>Część deklaratywna</strong> – to zbiór par "właściwość: wartość", które określają, jak dany element ma być stylizowany. Przykładem może być zapis <code>color: red;</code> lub <code>font-size: 16px;</code>. Zawiera ona zasady stylizacji dla danego elementu.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">2. Znaczenie nawiasów klamrowych {...}</h2>
+        <p>Nawiasy klamrowe <code>{}</code> w selektorze CSS służą do zamknięcia części deklaracyjnej. Wszystkie właściwości i wartości, które mają zostać przypisane do elementu, muszą być zawarte wewnątrz tych nawiasów. Na przykład:</p>
+        <pre>
+div {
+  color: blue;
+  font-size: 14px;
+}
+        </pre>
+        <p>W tym przykładzie, nawiasy klamrowe obejmują właściwości <code>color</code> i <code>font-size</code>, które będą zastosowane do wszystkich elementów <code>div</code>.</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">3. Cechy selektora</h2>
+        <p><strong>Cechy selektora</strong> to właściwości, które pomagają w dokładnym określeniu, jakie elementy HTML mają być stylizowane. Mogą to być:</p>
+        <ul>
+            <li><strong>Uniwersalne</strong> – np. selektor typu, który wybiera wszystkie elementy danego typu.</li>
+            <li><strong>Identyfikatory</strong> – wybierają elementy o danym identyfikatorze (np. <code>#nazwa-id</code>).</li>
+            <li><strong>Klasy</strong> – wybierają elementy, które mają przypisaną daną klasę (np. <code>.nazwa-klasy</code>).</li>
+            <li><strong>Atrybuty</strong> – selektory atrybutów, które wybierają elementy na podstawie wartości atrybutu (np. <code>[type="text"]</code>).</li>
+        </ul>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">4. Wartości w selektorze</h2>
+        <p><strong>Wartości</strong> przypisywane w selektorach określają wygląd elementów HTML. Mogą to być różne typy danych:</p>
+        <ul>
+            <li><strong>Kolory</strong> – np. <code>color: red;</code>, <code>background-color: #fff;</code></li>
+            <li><strong>Jednostki miary</strong> – np. <code>width: 100px;</code>, <code>height: 50%</code></li>
+            <li><strong>Tekst</strong> – np. <code>font-family: Arial;</code>, <code>text-align: center;</code></li>
+            <li><strong>Czas</strong> – np. <code>transition: 0.5s ease;</code></li>
+        </ul>
+        <p>Wartości mogą być liczbami, słowami kluczowymi (jak <code>center</code>, <code>auto</code>), kolorami (np. <code>blue</code>, <code>#ff0000</code>) oraz jednostkami (np. <code>px</code>, <code>em</code>).</p>
+    </div>
+
+    <div class="answer">
+        <h2 class="question">5. Kiedy stosujemy znak średnika (;), a kiedy nie jest konieczny</h2>
+        <p>Znak średnika <code>;</code> służy do oddzielania kolejnych właściwości w deklaracji CSS. W przypadku wielu właściwości każda musi kończyć się średnikiem. Jednak średnik nie jest wymagany po ostatniej właściwości w danej deklaracji, chociaż zaleca się jego stosowanie, aby uniknąć błędów w przyszłości, szczególnie w przypadku edytowania kodu.</p>
+        <p>Przykład:</p>
+        <pre>
+div {
+  color: red;
+  font-size: 16px;
+}
+        </pre>
+        <p>W przypadku tylko jednej właściwości średnik po niej nie jest konieczny:</p>
+        <pre>
+div {
+  color: red
+}
+        </pre>
+    </div>
+
+</body>
+</html>
