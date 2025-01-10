@@ -1,14 +1,53 @@
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opis styl lokalny, liniowy, linijkowy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
   <ol>
-<li>Na co pozwala styl lokalny, który element będzie formatowany z użyciem stylu lokalnego</li>
+<li>Na co pozwala styl lokalny, który element będzie formatowany z użyciem stylu lokalnego?</li>
+Styl lokalny pozwala na nadanie formatowania konkretnemu pojedynczemu elementowi strony.
+    <br>
+Dlatego właśnie styl tego rodzaju nazywa się także styl inline (ang. "w linii"), ponieważ jest wstawiany w tej samej linii, w której znajduje się element formatowany.
 <li>Składnia teoretyczna (z użyciem ramki otaczającej → może być tabela o jednej komórce, zastosuj „znaki specjalne” do napisania definicji stylu lokalnego tak, aby instrukcja CSS nie wykonywała się a tylko wyświetlała wewnątrz ramki).</li>
+.frame {
+            border: 2px solid black;
+            padding: 10px;
+            width: fit-content;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="frame">
+        &lt;style&gt;<br>
+        body {<br>
+        &nbsp;&nbsp;color: blue;<br>
+        &nbsp;&nbsp;background-color: lightyellow;<br>
+        }<br>
+        &lt;/style&gt;
+    </div>
 <li>Co może być selektorem?</li>
+  Selektory to mechanizmy, które służą do znajdowania i interakcji z elementami w graficznym interfejsie użytkownika (GUI).
+  <br>
+  Elementy te często określane jako elementy sterujące mogą być dowolne z okien na przyciski do kombinacji pól.
+  <br>
+  Selektory korzystają z atrybutów wewnętrznych elementu w celu zidentyfikowania elementu.  
 <li>Co wypisujemy jako „cechę”? Jakie jest znaczenie średników?</li>
+<br>W kontekście CSS, "cecha" (czyli property) odnosi się do określonej właściwości,
+  <br>
+którą chcesz zmienić lub ustawić w elemencie HTML.
+  <br>
+Wartość przypisana do tej cechy określa, jak ta właściwość ma wyglądać.
 <li>Co wypisujemy jako „wartość” (w deklaracji stylu)?</li>
+  W deklaracji stylu CSS, wartość odnosi się do konkretnego ustawienia lub określenia,
+  <br>
+  jakie ma być zastosowanie dla danej cechy (właściwości).
+  <br>
+  Wartości mogą przyjmować różne formy, zależnie od tego, jaką właściwość ustawiamy.
 </ol>
   &lt;style&gt;
     p { color: red; }
