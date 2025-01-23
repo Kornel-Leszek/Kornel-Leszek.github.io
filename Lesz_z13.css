@@ -6,5 +6,5 @@ p {
     font-size: 38mm;
 }
 p:nth-child(even) {
-    color: blue;
+    color: violet;
 }
