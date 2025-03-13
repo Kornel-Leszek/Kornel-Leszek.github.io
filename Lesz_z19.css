@@ -1,0 +1,61 @@
+<html>
+<head></head>
+<body>
+<textarea rows="10" cols="50">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 19</title>
+    <style>
+        p {
+            color: red;
+            font-size: 40mm;
+        }
+        span {
+            color: green;
+            font-size: 25mm;
+        }
+        div {
+            background-color: silver;
+        }
+        ol li:nth-child(1) {
+            color: rgb(148, 0, 211); /* fioletowy */
+        }
+        ol li:nth-child(2) {
+            color: rgb(255, 105, 180); /* różowy */
+        }
+        ol li:nth-child(3) {
+            color: rgb(173, 216, 230); /* jasnoniebieski */
+        }
+    </style>
+</head>
+<body>
+    <h1>Zadanie 19</h1>
+
+    <div style="background-color: yellow">
+        <span style="color: red">
+            <b>To jest pogrubienie w ramach DIV oraz SPAN i dlatego jest czerwone na żółtym tle</b>,
+            a to jest zwykły tekst - również wewnątrz DIV i SPAN.
+        </span>
+        To jest zwykły tekst, ale tylko wewnątrz DIV - dlatego nie jest czerwony, ale ma żółte tło.
+        <p>A to jest akapit (element blokowy) w ramach DIV.</p>
+    </div>
+
+    <span style="color: red">
+        <b>To jest pogrubienie (element wyświetlany w linii) w ramach SPAN</b>,
+        a to jest zwykły tekst - również wewnątrz span.
+    </span>
+
+    <h2>Temat: Kolorowe wyliczenie z użyciem styli wpisanych</h2>
+    <ol>
+        <li><span style="color: black;">Punkt pierwszy</span></li>
+        <li><span style="color: black;">Punkt drugi</span></li>
+        <li><span style="color: black;">Punkt trzeci</span></li>
+    </ol>
+</body>
+</html>
+</textarea>
+</body>
+</html>
