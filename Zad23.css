@@ -1,0 +1,35 @@
+p#pogrubienie_kowalski {
+    font-size: 25px + 8px;
+    color: #7D32C8;
+}
+
+
+p#pochylona_kornel {
+    font-size: 30pt + 8pt;
+    color: #E1A766;
+}
+
+p#index_gorny_kornel {
+    font-size: 0.5cm + 0.1cm * 8;
+    color: #91A91E;
+}
+
+
+p#index_dolny_kornel {
+    font-size: 0.5cm + 0.2cm * 8; 
+    color: rgb(50%, 100%, 87%);
+}
+
+
+p#mono_kornel {
+    font-size: 35px + 8px;
+    color: #11B46E;
+}
+
+p#powiekszenie_kornel {
+    color: #4C8C8F;
+}
+
+p#pomniejszenie_kornel {
+    color: #AF7A32;
+}
