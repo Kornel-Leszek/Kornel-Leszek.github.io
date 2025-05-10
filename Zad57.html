@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie z klasami CSS</title>
+  <style>
+    /* Selektor uniwersalny dla całego dokumentu */
+    * {
+      font-size: 36pt;
+      color: red; /* numer nieparzysty */
+      background-color: silver; /* numer nieparzysty */
+      font-family: Arial, sans-serif;
+    }
+
+    /* Klasa nieuniwersalna */
+    p.klasa_nieuniwersalna_Nowak {
+      font-size: 31pt;
+      color: green; /* numer nieparzysty */
+    }
+
+    /* Klasa uniwersalna */
+    .klasa_uniwersalna_Nowak {
+      font-size: 32pt;
+      color: black; /* numer nieparzysty */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Akapit 1 – selektor uniwersalny -->
+<p>
+  <u>Akapit1</u> Nowak klasa 1P grupa 1<br>
+  Użyłem * gwiazdka dla selektora uniwersalnego,<br>
+  Parametry dla selektora uniwersalnego:<br>
+  wielkość 30+liczba_liter_imienia w [pt] = 30+3 (Jan)=33 [pt] ,<br>
+  mam numer w dzienniku 3 a więc nieparzysty, czyli kolor tła srebrny.<br>
+  kolor liter czerwony (dla numerów nieparzystych w dzienniku)
+</p>
+
+<!-- Akapit 2 – klasa nieuniwersalna -->
+<p class="klasa_nieuniwersalna_Nowak">
+  <u>Akapit2</u> Nowak klasa 1P grupa 1<br>
+  Użyłem p.klasa_nieuniwersalna_Nowak,<br>
+  Parametry dla klasy nieuniwersalnej:<br>
+  wielkość 25+liczba_liter_nazwiska w [pt] = 25+5 (Nowak)=30 [pt],<br>
+  kolor liter zielony (dla numerów nieparzystych w dzienniku)
+</p>
+
+<!-- Akapit 3 – klasa uniwersalna w znaczniku H1 -->
+<h1 class="klasa_uniwersalna_Nowak">
+  <u>Akapit3</u> Nowak klasa 1P grupa 1<br>
+  Użyłem .klasa_uniwersalna_Nowak dla H1,<br>
+  Parametry dla klasy uniwersalnej:<br>
+  wielkość 20+12 (grudzień) = 32 [pt],<br>
+  kolor liter czarny (dla numerów nieparzystych w dzienniku)
+</h1>
+
+<!-- Akapit 4 – klasa uniwersalna w znaczniku DIV -->
+<div class="klasa_uniwersalna_Nowak">
+  <u>Akapit4</u> Nowak klasa 1P grupa 1<br>
+  Użyłem .klasa_uniwersalna_Nowak dla DIV,<br>
+  Parametry dla klasy uniwersalnej:<br>
+  wielkość 20+12 (grudzień) = 32 [pt],<br>
+  kolor liter czarny (dla numerów nieparzystych w dzienniku)
+</div>
+
+</body>
+</html>
