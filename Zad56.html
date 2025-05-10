@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS – klasy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    td {
+      border: 1px solid #000;
+      padding: 10px;
+    }
+    strong {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>1) Składnia teoretyczna definiowania klasy</h1>
+<table>
+  <tr>
+    <td><code>selektor.nazwa_klasy { cecha: wartość; }</code></td>
+  </tr>
+</table>
+
+<h1>2) Opis dla: Klasa "cecha" oraz "wartość"</h1>
+<p>
+<strong>Klasa</strong> to wartość atrybutu <code>class="..."</code>, nadana znacznikowi HTML.<br>
+<strong>Cecha</strong> to właściwość CSS (np. <code>color</code>, <code>font-size</code>).<br>
+<strong>Wartość</strong> to przypisanie cechy, np. <code>red</code>, <code>14pt</code>.
+</p>
+
+<h1>3) Jaki znacznik może być selektorem? Trzy przykłady selektorów dla klas (ze znaczeniem)</h1>
+<ul>
+  <li><code>p.klasa</code> – akapit z przypisaną klasą</li>
+  <li><code>h1.tytul</code> – nagłówek z przypisaną klasą</li>
+  <li><code>td.komorka</code> – komórka tabeli z przypisaną klasą</li>
+</ul>
+
+<h1>4) Uwagi na temat nazwy klas</h1>
+<p>
+Nazwą może być <strong>dowolny pojedynczy wyraz</strong>, nie może on zawierać:<br>
+a) <strong>spacji</strong><br>
+b) <strong>kropek</strong><br>
+c) <strong>przecinków</strong><br>
+h) <strong>znaku równości</strong><br><br>
+Może zawierać:<br>
+a) <strong>litery (A-Z, a-z)</strong><br>
+b) <strong>cyfry (0-9)</strong><br>
+d) <strong>myślniki (-)</strong> i <strong>podkreślniki (_)</strong><br><br>
+Nazwa nie może zaczynać się od <strong>cyfry ani myślnika</strong>.<br>
+Gdy chcemy użyć "zakazanych" znaków, należy <strong>poprzedzić je odwróconym ukośnikiem (\)</strong>.
+</p>
+
+<h1>5) Jakie jest zastosowanie klas?</h1>
+<p>
+Klas używa się do nadawania stylów wybranym elementom HTML, szczególnie gdy te same style są wielokrotnie stosowane.
+</p>
+
+<h1>6) Kiedy ma zastosowanie lista klas?</h1>
+<p>
+Gdy chcemy przypisać kilka różnych stylów jednocześnie do jednego elementu.
+</p>
+
+<h1>7) Składnia teoretyczna listy klasy + uwagi</h1>
+<table>
+  <tr>
+    <td><code>&lt;selektor class="klasa1 klasa2 klasa3"&gt;...&lt;/selektor&gt;</code></td>
+  </tr>
+</table>
+<p>
+<strong>Uwagi:</strong><br>
+– Wszystkie klasy muszą być zdefiniowane w arkuszu stylów.<br>
+– Kolejność nazw nie wpływa na wygląd.<br>
+– Jeśli kilka klas definiuje tę samą właściwość, decyduje zasada kaskadowości.
+</p>
+
+<h1>8) Czym są podzbiory klas + składnia</h1>
+<p>
+Podzbiory klas umożliwiają zastosowanie stylu tylko dla elementów mających jednocześnie kilka klas.
+</p>
+<table>
+  <tr>
+    <td><code>selektor.klasa1.klasa2 { cecha: wartość; }</code></td>
+  </tr>
+</table>
+
+<h1>9) Co jest sygnałem, że należy zastosować klasy?</h1>
+<p>
+Powtarzalne formatowanie na wielu stronach to sygnał, że należy użyć klas – dla ułatwienia modyfikacji i zachowania spójności.
+</p>
+
+<h1>10) Kiedy i z jakiego powodu powinny być planowane klasy dla wykonywanej strony?</h1>
+<p>
+Już na etapie projektu – dla oszczędności czasu, ułatwienia stylizacji i późniejszych zmian.
+</p>
+
+<h1>11) Jaki jest cel stosowania komentarzy podczas definiowania klas?</h1>
+<p>
+Komentarze (<code>/* ... */</code>) pomagają opisać przeznaczenie klas i zwiększają czytelność arkusza stylów.
+</p>
+
+<h1>12) Przykład definiowania klasy i jej użycia</h1>
+<p><strong>CSS:</strong></p>
+<pre><code>p.przyklad {
+  color: red;
+}</code></pre>
+<p><strong>HTML:</strong></p>
+<pre><code>&lt;p class="przyklad"&gt;To jest akapit z klasą.&lt;/p&gt;</code></pre>
+
+<h1>13) Klasa odnosząca się tylko do jednego selektora + przykład</h1>
+<p><strong>CSS:</strong></p>
+<pre><code>p.moja {
+  color: green;
+  font-size: 14pt;
+}</code></pre>
+<p><strong>HTML:</strong></p>
+<pre><code>&lt;p class="moja"&gt;Treść akapitu&lt;/p&gt;</code></pre>
+
+<h1>14) Cel stosowania klasy uniwersalnej. Znaczenie „*”. Przykład</h1>
+<p>
+<strong>Cel:</strong> umożliwia użycie tej samej klasy w różnych znacznikach.<br>
+<strong>„*”</strong> – oznacza dowolny znacznik (uniwersalny selektor).
+</p>
+<p><strong>CSS:</strong></p>
+<pre><code>*.moja {
+  color: red;
+}</code></pre>
+<p>Lub bez „*” (zalecane):</p>
+<pre><code>.moja {
+  font-size: 12pt;
+  color: red;
+}</code></pre>
+<p><strong>HTML:</strong></p>
+<pre><code>&lt;p class="moja"&gt;Akapit&lt;/p&gt;
+&lt;h1 class="moja"&gt;Nagłówek&lt;/h1&gt;
+&lt;ol class="moja"&gt;&lt;li&gt;Lista&lt;/li&gt;&lt;/ol&gt;</code></pre>
+
+</body>
+</html>
