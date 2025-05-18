@@ -1,0 +1,87 @@
+div.pierwszy {
+    text-align: center;
+    background-color: #c0c0c0;
+}
+
+div.drogi {
+    text-align: center;
+    background-color: #ffff99;
+}
+
+div.trzeci {
+    text-align: right;
+    background-color: #800000;
+}
+
+div.czwarty {
+    text-align: left;
+    background-color: #ff99ff;
+}
+
+div {
+    background-color: #00ffff;
+}
+
+h1 {
+    color: #000080;
+    text-align: center;
+}
+
+h2 {
+    color: #00ffff;
+}
+
+h3 {
+    color: #808000;
+}
+
+h4 {
+    color: #0000ff;
+}
+
+i.pierwszy {
+    color: #ff0000;
+}
+
+i.drogi {
+    color: #008000;
+}
+
+i.trzeci {
+    color: #008080;
+}
+
+i.czwarty {
+    color: #800080;
+}
+
+/* Styl dla zwykłego <i> */
+i {
+    color: #ffff00;
+}
+
+ol ol li {
+    color: #008000;
+}
+
+a:link {
+    background-color: #000080;
+    color: #00ffff;
+}
+
+a:visited {
+    background-color: #00ffff;
+    color: #000080;
+}
+
+a:hover {
+    background-color: #ff0000;
+    color: #ffff00;
+    font-size: x-large;
+    font-style: italic;
+}
+
+a:active {
+    background-color: #000000;
+    color: #ffffff;
+}
