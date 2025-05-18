@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 58 - Pseudoklasy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            font-size: 24pt;
+        }
+        p {
+            font-size: 12pt;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .zadanie-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #0080ff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .zadanie-link:hover {
+            background-color: #0050aa;
+        }
+    </style>
+</head>
+<body>
+
+<a class="zadanie-link" href="#">Zadanie 58</a>
+
+<h1>1. Co to są pseudoklasyk?</h1>
+<p>
+CSS przewiduje kilka ściśle określonych klas pozwalających na formatowanie niektórych elementów dokumentu – są to pseudoklasy.
+</p>
+
+<h1>2. Uwaga dotycząca dwukropka:</h1>
+<p>
+Szalenie istotnym elementem w tej konstrukcji jest dwukropek występujący pomiędzy selektorem a nazwą klasy.
+</p>
+
+<h1>3. Tabela opisująca pseudoklasy:</h1>
+<table>
+    <tr>
+        <th>Pseudoklasa</th>
+        <th>Opis</th>
+    </tr>
+    <tr>
+        <td>a:link</td>
+        <td>Wygląd hiperłącza, jeżeli nie zostało jeszcze odwiedzone.</td>
+    </tr>
+    <tr>
+        <td>a:visited</td>
+        <td>Formatowanie hiperłącza już odwiedzonego.</td>
+    </tr>
+    <tr>
+        <td>a:hover</td>
+        <td>Zmiany wyglądu po najechaniu kursorem (np. na odsyłacz).</td>
+    </tr>
+    <tr>
+        <td>a:active</td>
+        <td>Styl dla elementu w chwili kliknięcia (przed puszczeniem przycisku myszy).</td>
+    </tr>
+    <tr>
+        <td>a:focus</td>
+        <td>Styl dla elementu, który uzyskał fokus (np. po naciśnięciu TAB).</td>
+    </tr>
+    <tr>
+        <td>:lang</td>
+        <td>Formatowanie dokumentów wielojęzykowych.</td>
+    </tr>
+    <tr>
+        <td>:first-child</td>
+        <td>Formatowanie pierwszego dziecka danego elementu.</td>
+    </tr>
+</table>
+
+<h1>4. Zastosowanie pseudoklasy :active</h1>
+<p>
+1) Może być używana jako uzupełnienie definicji odnośników.<br>
+2) Może poprawiać czytelność formularzy poprzez wizualne wskazanie aktywnego elementu.
+</p>
+
+<h1>5. Przykłady (trzy) kodów definiowania pseudoklas (wraz z tematem):</h1>
+
+<p><strong>Temat:</strong> Arkusz wykorzystujący <code>:link</code> oraz <code>:visited</code></p>
+<pre>
+a:link {
+    color: red;
+}
+a:visited {
+    color: green;
+}
+</pre>
+
+<p><strong>Temat:</strong> Formatowanie wyglądu wszystkich odnośników w HTML</p>
+<pre>
+a {
+    font-size: 12pt;
+    text-decoration: none;
+}
+a:link {
+    color: navy;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+</pre>
+
+<p><strong>Temat:</strong> Zastosowanie <code>:focus</code></p>
+<pre>
+a:focus {
+    color: brown;
+}
+</pre>
+
+</body>
+</html>
