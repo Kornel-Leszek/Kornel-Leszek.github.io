@@ -1,0 +1,47 @@
+p.akapit1 {
+  font-size: 18pt;
+  color: lightgreen;
+}
+p.akapit1::first-letter {
+  font-size: 113pt;
+  color: silver;
+  float: left;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Akapit 2 */
+p.akapit2 {
+  font-size: 21pt;
+  color: lightgreen;
+}
+p.akapit2::first-letter {
+  font-size: 113pt;
+  color: orange;
+  float: left; 
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+h1 {
+  font-size: 36pt;
+  color: purple;
+}
+h1::first-letter {
+  color: silver;
+  font-size: 60pt;
+  font-weight: bold;
+}
+
+.first-line-example::first-line {
+  font-weight: bold;
+  color: darkblue;
+  font-size: 18pt;
+}
+
+div#moja h1,
+div#moja ul {
+  color: green;
+  font-style: italic;
+  text-decoration: underline;
+}
