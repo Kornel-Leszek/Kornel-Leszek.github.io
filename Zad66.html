@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudoelementy CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    h2 {
+      color: #34495e;
+      margin-top: 40px;
+    }
+
+    code {
+      background-color: #eaeaea;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+
+    pre {
+      background-color: #eaeaea;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+    }
+
+    .example {
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+
+    .example::before {
+      content: "» ";
+      color: gray;
+    }
+
+    .example::after {
+      content: " «";
+      color: gray;
+    }
+
+    .first-line-demo::first-line {
+      color: darkblue;
+      font-weight: bold;
+      font-size: 18pt;
+    }
+
+    .first-letter-demo::first-letter {
+      font-size: 50pt;
+      color: darkred;
+      float: left;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pseudoelementy w CSS</h1>
+
+  <h2>:first-line</h2>
+  <p>Pseudoelement <code>::first-line</code> pozwala na zastosowanie stylów <strong>tylko do pierwszej linii tekstu</strong> w elemencie blokowym.</p>
+  <p><strong>Składnia teoretyczna:</strong></p>
+  <pre>selektor::first-line {
+  cecha: wartość;
+}</pre>
+  <p><strong>Przykład:</strong></p>
+  <pre>p::first-line {
+  font-weight: bold;
+  color: darkblue;
+  font-size: 18pt;
+}</pre>
+
+  <div class="example first-line-demo">
+    Kolejnym pseudoelementem jest :first-line, który w przeciwieństwie do poprzednika obejmuje formatowaniem całą pierwszą linię, a nie tylko pierwszą literę.
+  </div>
+
+  <h2>:before i :after</h2>
+  <p>Pseudoelementy <code>::before</code> i <code>::after</code> umożliwiają <strong>wstawienie dodatkowej treści</strong> przed lub po zawartości elementu.</p>
+  <p><strong>Składnia teoretyczna:</strong></p>
+  <pre>
+selektor::before {
+  content: "tekst lub znak";
+  cecha: wartość;
+}
+
+selektor::after {
+  content: "tekst lub znak";
+  cecha: wartość;
+}</pre>
+  <p><strong>Przykład:</strong></p>
+  <pre>
+p::before {
+  content: "» ";
+  color: grey;
+}
+
+p::after {
+  content: " «";
+  color: grey;
+}</pre>
+
+  <div class="example">
+    To jest przykład elementu z ::before oraz ::after.
+  </div>
+
+  <h2>:first-letter</h2>
+  <p>Pseudoelement <code>::first-letter</code> pozwala na stylizację <strong>pierwszej litery</strong> elementu blokowego (np. akapitu).</p>
+  <p><strong>Składnia teoretyczna:</strong></p>
+  <pre>selektor::first-letter {
+  cecha: wartość;
+}</pre>
+  <p><strong>Przykład:</strong></p>
+  <pre>p::first-letter {
+  font-size: 113pt;
+  color: silver;
+  font-weight: bold;
+  float: left;
+  margin-right: 8px;
+}</pre>
+
+  <div class="example first-letter-demo">
+    Programowanie jest podstawą nowoczesnych technologii cyfrowych.
+  </div>
+
+</body>
+</html>
