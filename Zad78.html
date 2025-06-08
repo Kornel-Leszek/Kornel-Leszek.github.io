@@ -9,8 +9,9 @@
             border: 0px;
             padding: 0px;
         }
-        div {
-            background-color: #ffffcc;
+
+        .blok {
+            background-color: #ffff99; /* Jasne tło */
             border: 5px solid black;
             color: red;
             font-size: 42px;
@@ -24,20 +25,27 @@
 </head>
 <body>
 
-    <div style="background-image:url('inicial_kl.png'); background-repeat: repeat;">
+    <!-- Powtarzanie w obu kierunkach -->
+    <div class="blok" style="background-image: url('inicial_kl.png'); background-repeat: repeat;">
         Powtarzanie grafiki dla całego obszaru
     </div>
 
-    <div style="background-image:url('inicial_kl.png'); background-repeat: repeat-y;">
+    <!-- Powtarzanie w pionie -->
+    <div class="blok" style="background-image: url('inicial_kl.png'); background-repeat: repeat-y;">
         Powtarzanie grafiki w pionie
     </div>
 
-    <div style="background-image:url('inicial_kl.png'); background-repeat: repeat-x;">
+    <!-- Powtarzanie w poziomie -->
+    <div class="blok" style="background-image: url('inicial_kl.png'); background-repeat: repeat-x;">
         Powtarzanie grafiki w poziomie
     </div>
 
-    <div style="background: url('inicial_kl.png') no-repeat center;
-                background-size: 400px 120px;">
+    <!-- Grafika centrowana o zadanej wielkości -->
+    <div class="blok" style="
+        background-image: url('inicial_kl.png');
+        background-repeat: no-repeat;
+        background-size: 400px 120px;
+        background-position: center;">
         Grafika centrowana o zadanej wielkości
     </div>
 
