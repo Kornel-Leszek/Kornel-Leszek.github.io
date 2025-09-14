@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 9 - Prompt Box</title>
+    <script type="text/javascript">
+        function show_prompt() {
+            var name = prompt("Napisz imię", "Imię Nazwisko");
+            if (name != null && name != "") {
+                document.write("Witaj " + name + "! Jak się masz?");
+            }
+        }
+    </script>
+</head>
+<body style="background-color: #999; color: black; font-family: Arial, sans-serif;">
+
+    <h3>Zastosowanie:</h3>
+    <p>
+        Jest używany, kiedy użytkownik ma wpisać jakąś wartość, np. zanim wejdzie w dany moduł strony (np. hasło).<br>
+        Użytkownik po wpisaniu wartości może nacisnąć <b>OK</b> albo <b>Cancel</b>.<br>
+        - Jeżeli użytkownik kliknie <b>OK</b>, metoda zwraca wpisaną wartość.<br>
+        - Jeżeli użytkownik kliknie <b>Cancel</b>, metoda zwraca <b>null</b>.
+    </p>
+
+    <input type="button" onclick="show_prompt()" value="Pokaż Prompt Box" />
+
+</body>
+</html>
