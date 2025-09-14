@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 8 - Confirm Box</title>
+    <script type="text/javascript">
+        function show_confirm() {
+            var r = confirm("Naciśnij klawisz");
+            if (r == true) {
+                document.write("Nacisnąłeś OK!");
+            } else {
+                document.write("Nacisnąłeś Cancel!");
+            }
+        }
+    </script>
+</head>
+<body style="background-color: #999; color: black; font-family: Arial, sans-serif;">
+
+    <h3>Zastosowanie:</h3>
+    <p>
+        Jest używany, jeśli chcemy zapytać użytkownika o weryfikację lub akceptację jakichś danych.<br>
+        Użytkownik musi nacisnąć <b>OK</b> w celu akceptacji bądź <b>Cancel</b> w celu odrzucenia.<br>
+        Jeżeli zostanie wybrane <b>OK</b>, metoda zwraca <b>true</b>, w przeciwnym wypadku <b>false</b>.
+    </p>
+
+    <input type="button" onclick="show_confirm()" value="Pokaż Confirm Box" />
+
+</body>
+</html>
