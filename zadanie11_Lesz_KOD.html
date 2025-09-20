@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Kod Zadanie 11 - Leszek</title>
+<script type="text/javascript">
+function okno_zamknij() {
+    window.close();
+}
+</script>
+</head>
+<body>
+<h2>Kod programu - Zadanie 11</h2>
+<form>
+<textarea name="kod" cols="90" rows="25" readonly>
+<html>
+<head>
+<title>Zadanie 11 - Leszek</title>
+<script type="text/javascript">
+function obliczSekundy() {
+    var D1_les = parseInt(document.getElementById("d1").value);
+    var D2_les = parseInt(document.getElementById("d2").value);
+
+    var roznicaDni = Math.abs(D1_kow - D2_kow);
+    var sekundy = roznicaDni * 24 * 60 * 60;
+
+    var wynik = "Między dniem " + D1_les + " a " + D2_les + " minęło " + sekundy + " sekund.";
+    document.getElementById("wynik").innerHTML = wynik.fontcolor("green").fontsize(30+5);
+}
+</script>
+</head>
+<body>
+<h2>Zadanie 11 - Leszek</h2>
+Podaj dzień 1: <input type="text" id="d1"><br><br>
+Podaj dzień 2: <input type="text" id="d2"><br><br>
+<input type="button" value="Oblicz sekundy" onclick="obliczSekundy()"><br><br>
+<div id="wynik"></div>
+</body>
+</html>
+</textarea>
+</form>
+<br>
+<input type="button" value="Zamknij okno" onclick="okno_zamknij()">
+</body>
+</html>
