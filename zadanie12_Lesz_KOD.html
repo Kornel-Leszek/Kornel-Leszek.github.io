@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie 12 - Lesz (KOD)</title>
+</head>
+<body>
+  <h2>Kod źródłowy zadania 12 (Lesz)</h2>
+  <pre style="color:green; font-size:18px;">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie 12 - Lesz</title>
+  <script>
+    function policzSekundy() {
+      let D1_les = parseInt(document.getElementById("D1_les").value);
+      let G1_les = parseInt(document.getElementById("G1_les").value);
+      let D2_les = parseInt(document.getElementById("D2_les").value);
+      let G2_les = parseInt(document.getElementById("G2_les").value);
+
+      let t1 = (D1_les - 1) * 24 + G1_les;
+      let t2 = (D2_les - 1) * 24 + G2_les;
+      let roznica = Math.abs(t1 - t2) * 3600;
+
+      let wynik = document.getElementById("wynik");
+      wynik.innerHTML = "Ilość sekund = " + roznica + " sekund";
+    }
+  </script>
+</head>
+<body>
+  <h2>Zadanie 12 - Ile sekund (Lesz)</h2>
+  <label>D1_les: <input type="number" id="D1_les"></label><br>
+  <label>G1_les: <input type="number" id="G1_les"></label><br>
+  <label>D2_les: <input type="number" id="D2_les"></label><br>
+  <label>G2_les: <input type="number" id="G2_les"></label><br><br>
+  <button onclick="policzSekundy()">Oblicz</button>
+  <p id="wynik" style="color:green; font-size:34px;"></p>
+</body>
+</html>
+  </pre>
+</body>
+</html>
