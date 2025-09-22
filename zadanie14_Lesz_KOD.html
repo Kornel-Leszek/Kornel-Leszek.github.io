@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <title>Kod — Rozkład na trzy ułamki</title>
+  <style>
+    body{font-family:Consolas,monospace; padding:20px; white-space:pre-wrap; background:#f7f7f7;}
+    .code {background:white; padding:16px; border:1px solid #ddd;}
+  </style>
+</head>
+<body>
+  <h1>Kod źródłowy (HTML + JS)</h1>
+  <div class="code">
+&lt;script&gt;
+  var input = prompt("Podaj liczbę naturalną m (m &gt; 0):", "4");
+  if (input === null) {
+    document.write("&lt;p&gt;Przerwano - nie podano wartości.&lt;/p&gt;");
+  } else {
+    var m = Number(input);
+    if (!Number.isFinite(m) || m &lt;= 0 || Math.floor(m) !== m) {
+      document.write("&lt;p style='color:red;'&gt;Błąd: proszę podać poprawną liczbę naturalną.&lt;/p&gt;");
+    } else {
+      var a = m + 1;
+      var b = m * (m + 1);
+      var c = b + 1;
+      var d = b * (b + 1);
+      document.write("1/" + m + " = 1/" + a + " + 1/" + c + " + 1/" + d);
+    }
+  }
+&lt;/script&gt;
+  </div>
+
+  <p><a href="Leszek-Zadanie14.html">Powrót</a></p>
+</body>
+</html>
