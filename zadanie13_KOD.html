@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <title>Kod — Rozkład ułamka egipskiego</title>
+  <style>
+    body{font-family:Consolas,monospace; padding:20px; white-space:pre-wrap; background:#f7f7f7;}
+    .code {background:white; padding:16px; border:1px solid #ddd;}
+  </style>
+</head>
+<body>
+  <h1>Kod źródłowy (HTML + JS)</h1>
+  <div class="code">
+&lt;!-- Kod z pliku zadanie13_Lesz.html --&gt;
+&lt;script&gt;
+  // Wczytanie liczby m
+  var input = prompt("Podaj liczbę naturalną m (m &gt; 0):", "4");
+  // sprawdzenie czy podano wartość
+  if (input === null) {
+    document.write("&lt;p&gt;Przerwano - nie podano wartości.&lt;/p&gt;");
+  } else {
+    var m = Number(input);
+    if (!Number.isFinite(m) || m &lt;= 0 || Math.floor(m) !== m) {
+      document.write("&lt;p style='color:red;'&gt;Błąd: proszę podać poprawną liczbę naturalną większą od 0.&lt;/p&gt;");
+    } else {
+      var a = m + 1;
+      var b = m * (m + 1);
+      document.write("&lt;p&gt;Wybrano m = &lt;strong&gt;" + m + "&lt;/strong&gt;&lt;/p&gt;");
+      document.write("&lt;p class='frac'&gt;Zatem: &lt;span style='font-size:1.2em;'&gt;1/" + m + " = 1/" + a + " + 1/" + b + "&lt;/span&gt;&lt;/p&gt;");
+      var left = 1 / m;
+      var right = 1 / a + 1 / b;
+      document.write("&lt;div class='example'&gt;");
+      document.write("&lt;p&gt;Wartości dziesiętnie: 1/" + m + " = " + left.toFixed(10) + "&lt;/p&gt;");
+      document.write("&lt;p&gt;1/" + a + " + 1/" + b + " = " + right.toFixed(10) + "&lt;/p&gt;");
+      if (Math.abs(left - right) &lt; 1e-12) {
+        document.write("&lt;p style='color:green;'&gt;&lt;strong&gt;Sprawdzenie: równość zachowana.&lt;/strong&gt;&lt;/p&gt;");
+      } else {
+        document.write("&lt;p style='color:orange;'&gt;&lt;strong&gt;Uwaga:&lt;/strong&gt; suma różni się minimalnie ze względu na arytmetykę zmiennoprzecinkową.&lt;/p&gt;");
+      }
+      document.write("&lt;/div&gt;");
+    }
+  }
+&lt;/script&gt;
+  </div>
+
+  <p><a href="Nazwisko_ucznia-Zadanie13.html">Powrót</a></p>
+</body>
+</html>
