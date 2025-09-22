@@ -1,13 +1,49 @@
-<html><body>
-  <div style="color:green;font-size:50px;>
-  <script language="JavaScript">
-  var m_bil=prompt("m=" ,"");
-  var b_bil;
-  var c_bil;
-  var a_bil=parseFloat(m_bil);
-      b_bil=a_bil+1;
-      c_bil=a_bil*(a_bil+1);
-    document.write("1/"+a_bil+"=1/"+b_bil+"+1/"+c_bil+"<br>");
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <title>Rozkład ułamka egipskiego - Zadanie13</title>
+  <style>
+    body{font-family: Arial, sans-serif; padding:30px; line-height:1.6;}
+    .frac {font-family: "Times New Roman", Times, serif;}
+    .example {margin-top:18px; padding:10px; border:1px solid #ddd; display:inline-block;}
+  </style>
+</head>
+<body>
+  <h1>Rozkład ułamka egipskiego na dwa ułamki</h1>
+  <p>Program wczytuje liczbę naturalną <strong>m</strong> (m &gt; 0) i pokazuje rozkład
+     \( \dfrac{1}{m} = \dfrac{1}{m+1} + \dfrac{1}{m(m+1)} \).</p>
+
+  <script>
+    var input = prompt("Podaj liczbę naturalną m (m > 0):", "4");
+    if (input === null) {
+      document.write("<p>Przerwano - nie podano wartości.</p>");
+    } else {
+      var m = Number(input);
+      if (!Number.isFinite(m) || m <= 0 || Math.floor(m) !== m) {
+        document.write("<p style='color:red;'>Błąd: proszę podać poprawną liczbę naturalną większą od 0.</p>");
+      } else {
+        var a = m + 1;
+        var b = m * (m + 1);
+
+        document.write("<p>Wybrano m = <strong>" + m + "</strong></p>");
+        document.write("<p class='frac'>Zatem: " +
+                       "<span style='font-size:1.2em;'>1/" + m + " = 1/" + a + " + 1/" + b + "</span></p>");
+
+        var left = 1 / m;
+        var right = 1 / a + 1 / b;
+        document.write("<div class='example'>");
+        document.write("<p>Wartości dziesiętnie: 1/" + m + " = " + left.toFixed(10) + "</p>");
+        document.write("<p>1/" + a + " + 1/" + b + " = " + right.toFixed(10) + "</p>");
+        if (Math.abs(left - right) < 1e-12) {
+          document.write("<p style='color:green;'><strong>Sprawdzenie: równość zachowana.</strong></p>");
+        } else {
+          document.write("<p style='color:orange;'><strong>Uwaga:</strong> suma różni się minimalnie ze względu na arytmetykę zmiennoprzecinkową.</p>");
+        }
+        document.write("</div>");
+      }
+    }
   </script>
-  </div>
-</body></html>
+  <p><a href="Leszek-Zadanie13.html">Powrót</a></p>
+</body>
+</html>
