@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kod — Zadanie16</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font-family:monospace;white-space:pre-wrap;padding:20px}</style>
+</head>
+<body>
+<h1>Kod źródłowy — Zadanie16</h1>
+<p>Poniżej znajduje się kod użyty w pliku <code>zadanie16_kow.html</code>.</p>
+<pre>
+&lt;!doctype html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Zadanie 16 — Sterowanie wydrukami&lt;/title&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+&lt;style&gt;
+body{font-family:system-ui,Arial;margin:30px;color:navy}
+.line2{font-size:20px;font-weight:bold;display:block;width:100%}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+var A = parseInt(prompt("Podaj pierwszą liczbę A="));
+var B = parseInt(prompt("Podaj drugą liczbę B="));
+document.write("wczytane liczby: A="+A+" B="+B+"&lt;br&gt;");
+var cz1 = Math.pow(A,3);
+var cz2 = 3*Math.pow(A,2)*B;
+var cz3 = 3*A*Math.pow(B,2);
+var cz4 = Math.pow(B,3);
+var suma = cz1+cz2+cz3+cz4;
+var tekst = "("+A+"+"+B+")^3 = "+A+"^3 + 3*("+A+")^2*("+B+") + 3*("+A+")*("+B+")^2 + "+B+"^3";
+tekst += " = "+cz1+" + "+cz2+" + "+cz3+" + "+cz4+" = "+suma;
+document.write("&lt;span class='line2'&gt;"+tekst+"&lt;/span&gt;");
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>
