@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Zadanie 16 — Sterowanie wydrukami</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:system-ui,Arial;margin:30px;color:navy}
+.line2{font-size:20px;font-weight:bold;display:block;width:100%}
+</style>
+</head>
+<body>
+<script>
+var A = parseInt(prompt("Podaj pierwszą liczbę A="));
+var B = parseInt(prompt("Podaj drugą liczbę B="));
+
+
+document.write("wczytane liczby: A="+A+" B="+B+"<br>");
+
+
+var cz1 = Math.pow(A,3);
+var cz2 = 3*Math.pow(A,2)*B;
+var cz3 = 3*A*Math.pow(B,2);
+var cz4 = Math.pow(B,3);
+var suma = cz1+cz2+cz3+cz4;
+
+
+var tekst = "("+A+"+"+B+")^3 = "+A+"^3 + 3*("+A+")^2*("+B+") + 3*("+A+")*("+B+")^2 + "+B+"^3";
+tekst += " = "+cz1+" + "+cz2+" + "+cz3+" + "+cz4+" = "+suma;
+
+
+document.write("<span class='line2'>"+tekst+"</span>");
+</script>
+</body>
+</html>
