@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kod — Zadanie15</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font-family:monospace;white-space:pre-wrap;padding:20px}</style>
+</head>
+<body>
+<h1>Kod źródłowy — Zadanie15</h1>
+<p>Poniżej znajduje się kod użyty w pliku <code>zadanie15_kow.html</code>.</p>
+<pre>
+<!-- Wklej tutaj cały kod pliku zadanie15_kow.html jako tekst, aby można było go poczytać -->
+&lt;!doctype html&gt;
+&lt;html lang="pl"&gt;
+<head>
+<meta charset="utf-8">
+<title>Zadanie 15 — Rozkład ułamka egipskiego</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:system-ui,Arial;margin:30px}
+input,button{font-size:16px;padding:8px;margin:6px}
+.result{margin-top:12px;padding:12px;border:1px dashed #666;border-radius:6px}
+</style>
+</head>
+<body>
+<h1>Zadanie 15</h1>
+<p>Temat: Rozkład ułamka egipskiego <code>1/m</code> na dwa takie same ułamki egipskie.</p>
+
+
+<label for="m">Podaj m (liczba naturalna &gt; 0): </label>
+<input id="m" type="number" min="1" value="3">
+<button id="compute">Oblicz rozkład</button>
+<button id="testExamples">Uruchom przykłady</button>
+
+
+<div class="result" id="result">Wynik pojawi się tutaj.</div>
+
+
+<script>
+function decomposeEqual(m){
+if(!Number.isInteger(m) || m <= 0) return {ok:false, msg:'m musi być liczbą naturalną większą od 0.'};
+const denom = 2*m;
+return {ok:true, m:m, a:denom, representation:`1/${m} = 1/${denom} + 1/${denom}`};
+}
+
+
+document.getElementById('compute').addEventListener('click', ()=>{
+const m = Number(document.getElementById('m').value);
+const r = decomposeEqual(m);
+const el = document.getElementById('result');
+if(!r.ok){ el.innerHTML = `<strong>Błąd:</strong> ${r.msg}`; return; }
+el.innerHTML = `Dla m = <strong>${r.m}</strong> rozkład to:<br><pre>${r.representation}</pre>`;
+});
+
+
+document.getElementById('testExamples').addEventListener('click', ()=>{
+const el = document.getElementById('result');
+const ex = [3,7];
+let out = '';
+ex.forEach(m=>{
+const r = decomposeEqual(m);
+out += `<strong>m=${m}:</strong> ${r.representation}<br>`;
+});
+el.innerHTML = out;
+});
+</script>
+</body>
+&lt;/html&gt;
+</pre>
+</body>
+</html>
