@@ -10,7 +10,6 @@
 <h1>Kod źródłowy — Zadanie15</h1>
 <p>Poniżej znajduje się kod użyty w pliku <code>zadanie15_kow.html</code>.</p>
 <pre>
-<!-- Wklej tutaj cały kod pliku zadanie15_kow.html jako tekst, aby można było go poczytać -->
 &lt;!doctype html&gt;
 &lt;html lang="pl"&gt;
 <head>
@@ -40,13 +39,13 @@ input,button{font-size:16px;padding:8px;margin:6px}
 <script>
 function decomposeEqual(m){
 if(!Number.isInteger(m) || m <= 0) return {ok:false, msg:'m musi być liczbą naturalną większą od 0.'};
-const denom = 2*m;
+                  const denom = 2*m;
 return {ok:true, m:m, a:denom, representation:`1/${m} = 1/${denom} + 1/${denom}`};
 }
 
 
 document.getElementById('compute').addEventListener('click', ()=>{
-const m = Number(document.getElementById('m').value);
+                      const m = Number(document.getElementById('m').value);
 const r = decomposeEqual(m);
 const el = document.getElementById('result');
 if(!r.ok){ el.innerHTML = `<strong>Błąd:</strong> ${r.msg}`; return; }
@@ -56,7 +55,7 @@ el.innerHTML = `Dla m = <strong>${r.m}</strong> rozkład to:<br><pre>${r.represe
 
 document.getElementById('testExamples').addEventListener('click', ()=>{
 const el = document.getElementById('result');
-const ex = [3,7];
+                  const ex = [3,7];
 let out = '';
 ex.forEach(m=>{
 const r = decomposeEqual(m);
@@ -66,7 +65,7 @@ el.innerHTML = out;
 });
 </script>
 </body>
-&lt;/html&gt;
-</pre>
-</body>
+                              &lt;/html&gt;
+            </pre>
+    </body>
 </html>
