@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 17</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f2f2f2;
+}
+h1 {
+    text-align: center;
+    color: #003366;
+}
+p {
+    font-size: 18px;
+}
+b, u {
+    color: #000;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+}
+table, th, td {
+    border: 1px solid #555;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #ddd;
+}
+button {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #004c99;
+}
+</style>
+</head>
+<body>
+
+<h1>Zadanie 17 – Teoria (Kowalski)</h1>
+
+<p><b><u>1. Wymień cztery sposoby wyprowadzania danych w JS:</u></b></p>
+<p>Odpowiedź:</p>
+<ul>
+<li><b>document.write()</b> – wyprowadza dane bezpośrednio na stronę, w treści dokumentu.</li>
+<li><b>alert()</b> – wyświetla dane w okienku dialogowym (alert).</li>
+<li><b>w okienkach formularza</b> – dane mogą być wyświetlane w elementach formularza np. input, textarea.</li>
+<li><b>w tabeli</b> – dane mogą być prezentowane w komórkach tabeli HTML.</li>
+</ul>
+
+<p><b><u>2. Czym jest funkcja w JS?</u></b></p>
+<p>Odpowiedź:</p>
+<ol>
+<li><b>Funkcja</b> to zbiór zgrupowanych instrukcji, które możemy uruchamiać poprzez podanie ich nazwy.</li>
+<li>Po wywołaniu funkcji, wykonywany jest jej wewnętrzny kod.</li>
+<li>Funkcja może przyjmować argumenty (np. <i>suma(a, b)</i>), które są przetwarzane wewnątrz funkcji.</li>
+<li>Funkcja może (ale nie musi) zwrócić wartość, używając słowa kluczowego <b>return</b>.</li>
+</ol>
+
+<p><b><u>3. Omów metody getElementsByName, getElementById, getElementsByTagName:</u></b></p>
+
+<table>
+<tr>
+<th>Nazwa metody</th>
+<th>Opis działania</th>
+</tr>
+<tr>
+<td><b>getElementById("id")</b></td>
+<td>Dostęp do elementu o określonym identyfikatorze (atrybut <b>id</b>).</td>
+</tr>
+<tr>
+<td><b>getElementsByTagName("znacznik")</b></td>
+<td>Dostęp do wszystkich elementów o danym typie znacznika, np. <b>p</b>, <b>div</b>.</td>
+</tr>
+<tr>
+<td><b>getElementsByName("nazwa")</b></td>
+<td>Dostęp do elementów o konkretnej wartości atrybutu <b>name</b>.</td>
+</tr>
+</table>
+
+<p><b><u>4. Omów właściwości innerHTML, innerText, className:</u></b></p>
+
+<ul>
+<li><b>innerHTML</b> – umożliwia odczyt, modyfikację, wstawienie lub usunięcie kodu HTML wewnątrz elementu.</li>
+<li><b>innerText</b> – określa ciąg znaków (tekst), który zostanie umieszczony w elemencie.</li>
+<li><b>className</b> – umożliwia określenie klasy CSS użytej do prezentacji elementu (np. zmiana koloru, stylu).</li>
+</ul>
+
+<hr>
+
+<h2>Test działania:</h2>
+<div id="test"></div>
+
+<script>
+document.getElementById("test").innerHTML = "✅ Test działania: Witaj użytkowniku!";
+document.getElementById("test").className = "wynikTestu";
+</script>
+
+<style>
+.wynikTestu {
+    color: green;
+    font-weight: bold;
+}
+</style>
+
+</body>
+</html>
