@@ -1,1 +1,72 @@
 
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kowalski – Zadanie 18</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef3f9;
+    color: navy;
+    text-align: center;
+    padding-top: 50px;
+}
+h1 {
+    color: #003366;
+}
+.wynik {
+    font-size: 28px;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Definiowanie i użycie funkcji w JS</h1>
+
+<div class="wynik">
+<script>
+// Pobranie danych od użytkownika
+var a = parseFloat(prompt("Podaj a:", ""));
+var b = parseFloat(prompt("Podaj b:", ""));
+
+// 1. Funkcja sumy
+function suma_kow(a, b) {
+    return a + b;
+}
+
+// 2. Funkcja odejmowania
+function odejmowanie_kow(a, b) {
+    return a - b;
+}
+
+// 3. Funkcja mnożenia
+function mnozenie_kow(a, b) {
+    return a * b;
+}
+
+// 4. Funkcja podnosząca do kwadratu obie liczby
+function od_kwadratu_kow(a, b) {
+    let a2 = a ** 2;
+    let b2 = b ** 2;
+    document.write("a² = " + a2 + "<br>");
+    document.write("b² = " + b2 + "<br>");
+}
+
+// 5. Funkcja reszty z dzielenia a przez b
+function reszta_z_dzielenia_a_przez_b_kow(a, b) {
+    return a % b;
+}
+
+// Wyprowadzenie wyników
+document.write("<b>suma = </b>" + suma_kow(a, b) + "<br>");
+document.write("<b>różnica = </b>" + odejmowanie_kow(a, b) + "<br>");
+document.write("<b>iloczyn = </b>" + mnozenie_kow(a, b) + "<br>");
+od_kwadratu_kow(a, b);
+document.write("<b>reszta z dzielenia a przez b = </b>" + reszta_z_dzielenia_a_przez_b_kow(a, b) + "<br>");
+</script>
+</div>
+
+</body>
+</html>
