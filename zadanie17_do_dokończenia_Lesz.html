@@ -70,7 +70,7 @@ button:hover {
 <li>Funkcja może (ale nie musi) zwrócić wartość, używając słowa kluczowego <b>return</b>.</li>
 </ol>
 
-<p><b><u>3. Omów metody getElementsByName, getElementById, getElementsByTagName:</u></b></p>
+<p><b><u>3. Metody getElementsByName, getElementById, getElementsByTagName:</u></b></p>
 
 <table>
 <tr>
@@ -84,18 +84,19 @@ button:hover {
 <tr>
 <td><b>getElementsByTagName("znacznik")</b></td>
 <td>Dostęp do wszystkich elementów o danym typie znacznika, np. <b>p</b>, <b>div</b>.</td>
-</tr>
+
+        </tr>
 <tr>
 <td><b>getElementsByName("nazwa")</b></td>
 <td>Dostęp do elementów o konkretnej wartości atrybutu <b>name</b>.</td>
 </tr>
-</table>
+        </table>
 
-<p><b><u>4. Omów właściwości innerHTML, innerText, className:</u></b></p>
+                        <p><b><u>4. Omów właściwości innerHTML, innerText, className:</u></b></p>
 
 <ul>
 <li><b>innerHTML</b> – umożliwia odczyt, modyfikację, wstawienie lub usunięcie kodu HTML wewnątrz elementu.</li>
-<li><b>innerText</b> – określa ciąg znaków (tekst), który zostanie umieszczony w elemencie.</li>
+                                        <li><b>innerText</b> – określa ciąg znaków (tekst), który zostanie umieszczony w elemencie.</li>
 <li><b>className</b> – umożliwia określenie klasy CSS użytej do prezentacji elementu (np. zmiana koloru, stylu).</li>
 </ul>
 
@@ -105,7 +106,7 @@ button:hover {
 <div id="test"></div>
 
 <script>
-document.getElementById("test").innerHTML = "✅ Test działania: Witaj użytkowniku!";
+document.getElementById("test").innerHTML = "Test działania: Witaj użytkowniku!";
 document.getElementById("test").className = "wynikTestu";
 </script>
 
