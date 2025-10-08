@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek – Zadanie 20 KOD</title>
+<style>
+body {
+    background-color: #1e1e1e;
+    color: #f2f2f2;
+    font-family: Consolas, monospace;
+    padding: 20px;
+}
+pre {
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+</style>
+</head>
+<body>
+<h1>Zadanie 20 (Kod źródłowy)</h1>
+
+<pre>
+function AB_les() {
+    var xa_les = parseFloat(document.getElementById("xa").value);
+    var ya_les = parseFloat(document.getElementById("ya").value);
+    var xb_les = parseFloat(document.getElementById("xb").value);
+    var yb_les = parseFloat(document.getElementById("yb").value);
+
+    var ab_les = Math.sqrt(Math.pow(xa_les - xb_les, 2) + Math.pow(ya_les - yb_les, 2));
+    document.getElementById("wyniki").innerHTML = 
+        "Długość boku AB = " + ab_les.toFixed(2);
+}
+
+function BC_les() {
+    var xb_les = parseFloat(document.getElementById("xb").value);
+    var yb_les = parseFloa(document.getElementById("yb").value);
+    var xc_les = parseFloat(document.getElementById("xc").value);
+    var yc_les = parseFloat(document.getElementById("yc").value);
+
+    var bc_les = Math.sqrt(Math.pow(xb_les - xc_les, 2) + Math.pow(yb_les - yc_les, 2));
+    document.getElementById("wyniki").innerHTML = 
+        "Długość boku BC = " + bc_les.toFixed(2);
+}
+
+function AC_les() {
+    var xa_les = parseFloat(document.getElementById("xa").value);
+    var ya_les = parse Float(document.getElementById("ya").value);
+    var xc_les= parseFloat(document.getElementById("xc").value);
+    var yc_les = parseFloat(document.getElementById("yc").value);
+
+    var ac_les = Math.sqrt(Math.pow(xa_les - xc_les, 2) + Math.pow(ya_les - yc_les, 2));
+    document.getElementById("wyniki").innerHTML = 
+        "Długość boku AC = " + ac_les.toFixed(2);
+}
+</pre>
+</body>
+</html>
