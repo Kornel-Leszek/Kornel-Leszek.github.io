@@ -1,1 +1,56 @@
-
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek – Zadanie 19</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+h1 {
+    color: black;
+    font-size: 36px;
+}
+input[type="text"] {
+    font-size: 18px;
+    padding: 5px;
+}
+input[type="button"] {
+    font-size: 16px;
+    margin: 10px;
+    padding: 8px 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+#nazwa {
+    color: red;
+    font-size: 40px;
+    margin-top: 20px;
+}
+</style>
+<script type="text/javascript">
+function pole_kowalski() {
+    var a_les = parseFloat(document.getElementById('dlugosc').value);
+    var b_les = a_les * a_les;
+    document.getElementById("nazwa").innerHTML = "Pole kwadratu = " + b_les.toFixed(2) + " cm^2";
+}
+function obwod_leszek() {
+    var a_les = parseFloat(document.getElementById('dlugosc').value);
+    var b_les = 4 * a_les;
+    document.getElementById("nazwa").innerHTML = "Obwód kwadratu = " + b_les.toFixed(2) + " cm";
+}
+</script>
+</head>
+<body>
+<h1>Wszystko o KWADRACIE</h1>
+<br>
+Podaj długość boku:
+<input type="text" id="dlugosc" value="5.67"> cm
+<br><br>
+<input type="button" value="Oblicz pole" onclick="pole_leszek()"><br>
+<input type="button" value="Oblicz obwód" onclick="obwod_leszek()"><br>
+<div id="nazwa"></div>
+</body>
+</html>
