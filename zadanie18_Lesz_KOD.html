@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Leszek – Zadanie 18 KOD</title>
+<style>
+body {
+    background-color: #1e1e1e;
+    color: #f2f2f2;
+    font-family: Consolas, monospace;
+    padding: 20px;
+}
+pre {
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+</style>
+</head>
+<body>
+
+<h1>Leszek – Zadanie 18 KOD</h1>
+
+<pre>
+var a = parseFloat(prompt("Podaj a:", ""));
+var b = parseFloat(prompt("Podaj b:", ""));
+
+function suma_les(a, b) {
+    return a + b;
+}
+
+function odejmowanie_les(a, b) {
+    return a - b;
+}
+
+function mnozenie_les(a, b) {
+    return a * b;
+}
+
+function od_kwadratu_les(a, b) {
+    let a2 = a ** 2;
+    let b2 = b ** 2;
+    document.write("a² = " + a2 + "&lt;br&gt;");
+    document.write("b² = " + b2 + "&lt;br&gt;");
+}
+
+function reszta_z_dzielenia_a_przez_b_les(a, b) {
+    return a % b;
+}
+
+document.write("suma = " + suma_les(a, b) + "&lt;br&gt;");
+document.write("różnica = " + odejmowanie_les(a, b) + "&lt;br&gt;");
+document.write("iloczyn = " + mnozenie_les(a, b) + "&lt;br&gt;");
+od_kwadratu_les(a, b);
+document.write("reszta z dzielenia a przez b = " + reszta_z_dzielenia_a_przez_b_les(a, b) + "&lt;br&gt;");
+</pre>
+
+</body>
+</html>
