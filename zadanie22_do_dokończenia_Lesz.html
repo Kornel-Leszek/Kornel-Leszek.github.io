@@ -1,49 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-<title>
-Przykład obliczenia V i Pc walca
-</title>
-<script language="JavaScript">
-function V(r,h)
-{
-d_liczba=parseFloat(r)
-x_liczba=parseFloat(h)
-V_wynik=Math.PI*r_liczba*r_liczba*h_liczba
-document.getElementsByName('obj')[0].value=V_wynik.toFixed(2); /* na dokument */
-alert("V="+V_wynik.toFixed(2)+" cm^3"); /*do okna Alert */
-pokaz1.innerHTML="V="+V_wynik.toFixed(2)+" cm^3"+"<br>"; /* do tabeli */
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 22</title>
+<script>
+function Pole_leszek(a_les, b_les) {
+  return a_les * b_les;
 }
-function Pc(r,h)
-{
-d_liczba=parseFloat(r)
-x_liczba=parseFloat(h)
-Pc_wynik=2*Math.PI*r_liczba*r_liczba+2*Math.PI*r_liczba*h_liczba
-document.getElementsByName('pole')[0].value=Pc_wynik.toFixed(2);
-alert("Pc="+Pc_wynik.toFixed(2)+" cm^2");
-pokaz2.innerHTML="Pc="+Pc_wynik.toFixed(2)+"cm^2";
+
+function obwod_leszek(a_les, b_les) {
+  return 2 * (a_les + b_les);
+}
+
+function oblicz_les() {
+  var a_les = parseFloat(document.getElementById("a_dana_les").value);
+  var b_les = parseFloat(document.getElementById("b_dana_les").value);
+
+  if (isNaN(a_les) || isNaN(b_les)) {
+    alert("Podaj liczby!");
+    return;
+  }
+
+  document.getElementById("wyprowadz_pole_les").value = Pole_leszek(a_les, b_les);
+  document.getElementById("wyprowadz_obwod_les").value = obwod_leszek(a_les, b_les);
 }
 </script>
 </head>
 <body>
-Pobliczanie wysokość i odległość oparcia drabiny
-<br> <br>
-<form name="formularz" action="..." onsubmit="V(this.promien.value,this.wysokosc.value);
-Pc(this.promien.value,this.wysokosc.value);return false">
-Podaj r=
-<input size="6" name="promien">
-Podaj h=
-<input size="6" name="wysokosc">
-<br> <br>
-<input TYPE="submit" Value="oblicz" >
-<br> <br>
-V=
-<input size="6" name="obj">
-Pc=
-<input size="6" name="pole">
-</form>
-<table>
-<tr id="pokaz1"></tr>
-<tr id="pokaz2"></tr>
-</table>
+
+<h3>Obliczanie pola i obwodu prostokąta</h3>
+
+a: <input id="a_dana_les" type="number"><br>
+b: <input id="b_dana_les" type="number"><br>
+
+<button onclick="oblicz_les()">Oblicz</button><br><br>
+
+Pole: <input id="wyprowadz_pole_les" readonly><br>
+Obwód: <input id="wyprowadz_obwod_les" readonly><br><br>
+
+<button onclick="window.location.href='zadanie22_les_KOD.html'">Leszek-Zadanie22-KOD</button>
+
 </body>
 </html>
