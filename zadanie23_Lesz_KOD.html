@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 23 - KOD</title>
+</head>
+<body>
+
+<h3>Leszek - Zadanie 23 - Kod programu</h3>
+
+<pre>
+function drabina_leszek(d_les, x_les) {
+  return Math.sqrt(d_les * d_les + x_les * x_les);
+}
+
+function kat_leszek(d_les, x_les) {
+  return Math.atan(d_les / x_les) * (180 / Math.PI);
+}
+
+function oblicz_les() {
+  var d_les = parseFloat(document.getElementById("d_dana_les").value);
+  var x_les = parseFloat(document.getElementById("x_dana_les").value);
+
+  if (isNaN(d_les) || isNaN(x_les) || d_les <= 0 || x_les <= 0) {
+    alert("Podaj poprawne dodatnie liczby!");
+    return;
+  }
+
+  var drabina = drabina_leszek(d_les, x_les);
+  var alfa = kat_leszek(d_les, x_les);
+
+  document.getElementById("wyprowadz_drabina_les").value = drabina.toFixed(2);
+  document.getElementById("wyprowadz_kat_les").value = alfa.toFixed(2);
+}
+</pre>
+
+<button onclick="window.location.href='zadanie23_les.html'">Powrót</button>
+
+</body>
+</html>
