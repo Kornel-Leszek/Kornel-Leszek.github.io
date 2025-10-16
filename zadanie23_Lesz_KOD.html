@@ -9,6 +9,12 @@
 <h3>Leszek - Zadanie 23 - Kod programu</h3>
 
 <pre>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 23</title>
+<script>
 function drabina_leszek(d_les, x_les) {
   return Math.sqrt(d_les * d_les + x_les * x_les);
 }
@@ -32,6 +38,22 @@ function oblicz_les() {
   document.getElementById("wyprowadz_drabina_les").value = drabina.toFixed(2);
   document.getElementById("wyprowadz_kat_les").value = alfa.toFixed(2);
 }
+</script>
+</head>
+<body>
+
+<h3>Obliczanie odległości od drabiny i kąta</h3>
+
+Podaj d: <input id="d_dana_les" type="number" step="any">
+Podaj x: <input id="x_dana_les" type="number" step="any"><br><br>
+
+<button onclick="oblicz_les()">oblicz</button><br><br>
+
+Drabina: <input id="wyprowadz_drabina_les" readonly>
+Alfa: <input id="wyprowadz_kat_les" readonly>
+
+</body>
+</html>
 </pre>
 
 <button onclick="window.location.href='zadanie23_les.html'">Powrót</button>
