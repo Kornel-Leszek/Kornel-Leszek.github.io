@@ -1,49 +1,27 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-<title>
-Przykład obliczenia V i Pc walca
-</title>
-<script language="JavaScript">
-function V(r,h)
-{
-r_liczba=parseFloat(r)
-h_liczba=parseFloat(h)
-V_wynik=Math.PI*r_liczba*r_liczba*h_liczba
-document.getElementsByName('obj')[0].value=V_wynik.toFixed(2);
-alert("V="+V_wynik.toFixed(2)+" cm^3");
-pokaz1.innerHTML="V="+V_wynik.toFixed(2)+" cm^3"+"<br>";
-}
-function Pc(r,h)
-{
-r_liczba=parseFloat(r)
-h_liczba=parseFloat(h)
-Pc_wynik=2*Math.PI*r_liczba*r_liczba+2*Math.PI*r_liczba*h_liczba
-document.getElementsByName('pole')[0].value=Pc_wynik.toFixed(2);
-alert("Pc="+Pc_wynik.toFixed(2)+" cm^2");
-pokaz2.innerHTML="Pc="+Pc_wynik.toFixed(2)+"cm^2";
-}
-</script>
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 24</title>
 </head>
 <body>
-Pobliczanie V i Pc walca
-<br> <br>
-<form name="formularz" action="..." onsubmit="V(this.promien.value,this.wysokosc.value);
-Pc(this.promien.value,this.wysokosc.value);return false">
-Podaj r=
-<input size="6" name="promien">
-Podaj h=
-<input size="6" name="wysokosc">
-<br> <br>
-<input TYPE="submit" Value="oblicz" >
-<br> <br>
-V=
-<input size="7" name="obj">
-Pc=
-<input size="7" name="pole">
-</form>
-<table>
-<tr id="pokaz1"></tr>
-<tr id="pokaz2"></tr>
-</table>
+
+<script>
+var x1_les = parseFloat(prompt("Podaj x1 (w stopniach):"));
+var x2_les = parseFloat(prompt("Podaj x2:"));
+
+var x1_rad_les = (x1_les * Math.PI) / 180;
+
+var y1_les = Math.sin(x1_rad_les) * x2_les + 30;
+var y2_les = Math.pow(x1_les, x2_les);
+var y3_les = Math.pow(x1_les, 3) + Math.pow(x2_les, 4);
+
+document.write("x1 = " + x1_les + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x2 = " + x2_les + "<br>");
+document.write("x1 = " + x1_les + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1 = " + x1_rad_les.toFixed(2) + "<br>");
+document.write("y1 = " + y1_les.toFixed(2) + "<br>");
+document.write("y2 = " + y2_les.toFixed(2) + "<br>");
+document.write("y3 = " + y3_les.toFixed(2) + "<br>");
+</script>
+
 </body>
 </html>
