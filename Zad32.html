@@ -1,23 +1,23 @@
 <html>
 <head>
 <script type="text/javascript">
-function wierzowiec(ile_pienter,ile_metrow,ile_schodow)//początek konstruktora
+function wiezowiec(ile_pienter,ile_metrow,ile_schodow)//początek konstruktora
 {
 this.pientra=ile_pienter;
 this.metry=ile_metrow;
 this.schody=ile_schodow;
 }//koniec konstruktora
-wierzowiec.prototype.wypisz = function () //definicja metody
+wiezowiec.prototype.wypisz = function () //definicja metody
 {
 alert(this.pientra + ' ' + this.metry+ ' ' + this.schody);
 };
-var budynek1 = new klient("30", "200", "254"); // nowy obiekt osoba1
-var budynek2 = new klient('7', '53', '407');
+var budynek1 = new wiezowiec("30", "200", "254"); // nowy obiekt osoba1
+var budynek2 = new wiezowiec('7', '53', '407');
 budynek1.wypisz(); // uruchomienie metody wypisz() dotyczącej osoby 1
 budynek2.wypisz();
 document.write("dostęp do właściwości"+"<br>");
 // poniżej dostęp do pól osoby1
-document.write("wierzowiec pierwszy"+" "+budynek1.pientra+" "+budynek1.metry+" "+budynek1.schody);
+document.write("wiezowiec pierwszy"+" "+budynek1.pientra+" "+budynek1.metry+" "+budynek1.schody);
 </script>
 </head>
 <body>
