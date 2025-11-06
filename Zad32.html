@@ -1,23 +1,23 @@
 <html>
 <head>
 <script type="text/javascript">
-function klient(nazwisko_k,imie_k,zawod_k)//początek konstruktora
+function wierzowiec(ile_pienter,ile_metrow,ile_schodow)//początek konstruktora
 {
-this.nazwisko=nazwisko_k;
-this.imie=imie_k;
-this.zawod=zawod_k;
+this.pientra=ile_pienter;
+this.metry=ile_metrow;
+this.schody=ile_schodow;
 }//koniec konstruktora
-klient.prototype.wypisz = function () //definicja metody
+wierzowiec.prototype.wypisz = function () //definicja metody
 {
-alert(this.nazwisko + ' ' + this.imie+ ' ' + this.zawod);
+alert(this.pientra + ' ' + this.metry+ ' ' + this.schody);
 };
-var osoba1 = new klient("Kowalski", "Jan", "kierowca"); // nowy obiekt osoba1
-var osoba2 = new klient('Nowak', 'Anna', 'sekretarka');
-osoba1.wypisz(); // uruchomienie metody wypisz() dotyczącej osoby 1
-osoba2.wypisz();
+var budynek1 = new klient("30", "200", "254"); // nowy obiekt osoba1
+var budynek2 = new klient('7', '53', '407');
+budynek1.wypisz(); // uruchomienie metody wypisz() dotyczącej osoby 1
+budynek2.wypisz();
 document.write("dostęp do właściwości"+"<br>");
 // poniżej dostęp do pól osoby1
-document.write("klient pierwszy"+" "+osoba1.nazwisko+" "+osoba1.imie+" "+osoba1.zawod);
+document.write("wierzowiec pierwszy"+" "+budynek1.pientra+" "+budynek1.metry+" "+budynek1.schody);
 </script>
 </head>
 <body>
