@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 29 – Programowanie obiektowe w JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #fafafa;
+            color: #222;
+        }
+        h1 {
+            font-size: 28px;
+            color: #003366;
+            margin-top: 40px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+        ul {
+            margin-left: 30px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>1. W jaki sposób można określić właściwość danego obiektu?</h1>
+<p>Właściwości (pola) obiektu można określić na dwa sposoby:</p>
+<ol>
+    <li><b>Bezpośrednio podczas tworzenia obiektu</b> – przy użyciu zapisu w nawiasach klamrowych:</li>
+</ol>
+<pre><code>let samochod = {
+    marka: "Toyota",
+    kolor: "Czerwony"
+};</code></pre>
+
+<ol start="2">
+    <li><b>Dynamicznie po utworzeniu obiektu</b> – dodając nowe właściwości w kodzie:</li>
+</ol>
+<pre><code>samochod.rok = 2020;
+samochod['przebieg'] = 15000;</code></pre>
+
+<p>W obu przypadkach tworzymy lub modyfikujemy właściwości obiektu.</p>
+
+<h1>2. W jaki sposób można odwołać się do pól (właściwości) i metod?</h1>
+<p>Do pól (właściwości) i metod obiektu odwołujemy się za pomocą operatora kropki (<b>.</b>) lub nawiasów kwadratowych.</p>
+<pre><code>console.log(samochod.kolor);      // dostęp przez kropkę
+console.log(samochod['marka']);   // dostęp przez nawiasy
+samochod.start();                 // wywołanie metody</code></pre>
+
+<h1>3. Cechy charakterystyczne konstruktora</h1>
+<ul>
+    <li>Jest to specjalna funkcja używana do tworzenia nowych obiektów.</li>
+    <li>Jej nazwa zwykle zaczyna się wielką literą.</li>
+    <li>Używa się jej razem ze słowem kluczowym <b>new</b>.</li>
+    <li>Może inicjalizować pola (właściwości) obiektu.</li>
+    <li>Może zawierać metody przypisywane obiektowi.</li>
+</ul>
+
+<h1>4. Konstruowanie obiektu – przykład</h1>
+<pre><code>let osoba = {
+    imie: "Jan",
+    nazwisko: "Kowalski",
+    wiek: 25,
+    przedstawSie: function() {
+        console.log("Cześć! Nazywam się " + this.imie + " " + this.nazwisko);
+    }
+};
+
+osoba.przedstawSie();</code></pre>
+<p>Obiekt <b>osoba</b> posiada trzy pola (<i>imie</i>, <i>nazwisko</i>, <i>wiek</i>) oraz jedną metodę <i>przedstawSie()</i>.</p>
+
+<h1>5. Znaczenie słowa this. Jak oddzielamy pola oraz metody?</h1>
+<p>
+Słowo kluczowe <b>this</b> odnosi się do bieżącego obiektu, w którym się znajduje.
+Używa się go, aby uzyskać dostęp do jego pól i metod.
+</p>
+<p>Pola oraz metody w obiekcie oddzielamy przecinkami.</p>
+<pre><code>let komputer = {
+    marka: "Dell",
+    model: "XPS",
+    pokaz: function() {
+        console.log(this.marka + " " + this.model);
+    }
+};</code></pre>
+
+<h1>6. Konstruktor w JavaScript – przykład</h1>
+<pre><code>function Samochod(marka, kolor) {
+    this.marka = marka;
+    this.kolor = kolor;
+    this.info = function() {
+        console.log("Samochód: " + this.marka + ", kolor: " + this.kolor);
+    }
+}
+
+let auto1 = new Samochod("BMW", "Czarny");
+auto1.info();</code></pre>
+<p>
+W powyższym przykładzie <b>Samochod</b> to konstruktor, który tworzy nowe obiekty z właściwościami <i>marka</i> i <i>kolor</i>.
+</p>
+
+<h1>7. Znaczenie słowa kluczowego new</h1>
+<p>
+Słowo kluczowe <b>new</b> tworzy nowy obiekt na podstawie funkcji konstruktora.  
+Automatycznie ustawia wartość <b>this</b> na nowo utworzony obiekt.
+</p>
+<pre><code>let auto2 = new Samochod("Audi", "Srebrny");</code></pre>
+
+<h1>8. Znaczenie słowa kluczowego prototype</h1>
+<p>
+Każda funkcja w JavaScript ma właściwość <b>prototype</b>.  
+Służy ona do dodawania metod i właściwości, które będą wspólne dla wszystkich obiektów utworzonych z danego konstruktora.
+</p>
+<pre><code>Samochod.prototype.zmienKolor = function(nowyKolor) {
+    this.kolor = nowyKolor;
+    console.log("Nowy kolor: " + this.kolor);
+}
+
+auto1.zmienKolor("Czerwony");</code></pre>
+<p>
+<b>Prototype</b> pozwala na dodawanie funkcji do wszystkich obiektów danego typu bez potrzeby modyfikacji ich definicji.
+</p>
+
+</body>
+</html>
