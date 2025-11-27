@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<head>
+<title>Sprawdzenie danych Twoje nazwisko </title>
+<meta charset="utf-8">
+</head>
+<body>
+<div style="color:red;font-size:50px;">
+<script language="JavaScript">
+do {
+var liczba1=prompt("wysokość=","");
+var h=parseFloat(liczba1);
+}
+while ( h<=0);
+do {
+var liczba1=prompt("podstawę=","");
+var a=parseFloat(liczba1);
+}
+while(!( a>0));
+var Pole=a*h/2;
+document.write("Pole="+Pole.toFixed(2)+" cm^2"+"<br>");
+</script>
+</div>
+</body>
+</html>
