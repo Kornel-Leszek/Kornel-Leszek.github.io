@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Wyświetlanie kodu</title>
+</head>
+<body>
+
+<h2>Kod źródłowy:</h2>
+
+<pre><code>
+&lt;script language="JavaScript"&gt;
+var x = prompt("Podaj liczbę x=", "");
+var a = parseFloat(x);
+
+document.write("Czytana liczba x = " + a + "&lt;br&gt;");
+
+if(a &gt; 0) {
+    document.write("Czytana liczba jest większa od 0&lt;br&gt;");
+}
+else if(a == 0) {
+    document.write("Czytana liczba jest równa 0&lt;br&gt;");
+}
+else if(a &lt; 0) {
+    document.write("Czytana liczba jest mniejsza od 0&lt;br&gt;");
+}
+&lt;/script&gt;
+</code></pre>
+
+</body>
+</html>
