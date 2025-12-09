@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<h2>Program sprawdzający rok powstania Leszek</h2>
+<div id="wynik"></div>
+<div id="rozdzielczosc"></div>
+<div id="okno"></div>
+<script>
+var rok_les = prompt("Podaj rok od kiedy działa JavaScript:", "");
+var rok = parseInt(rok_les);
+document.getElementById("wynik").innerHTML +=
+"Wczytany rok = " + rok + "<br>";
+if (rok == 1995) {
+document.getElementById("wynik").innerHTML += 
+"<span style='color:blue; font-size:40px;'>Brawo! Znasz rok powstania JavaScript.</span>";
+} else {
+    document.getElementById("wynik").innerHTML += 
+    "<span style='color:red; font-size:70px;'>Źle! Musisz jeszcze poczytać.</span>";
+}
+document.getElementById("rozdzielczosc").innerHTML =
+    "<br><br>Twoja rozdzielczość ekranu: " + screen.width + " x " + screen.height;
+
+var w = window.innerWidth;
+var h = window.innerHeight;
+document.getElementById("okno").innerHTML =
+    "Aktualny rozmiar okna przeglądarki: " + w + " x " + h;
+</script>
+</body>
+</html>
