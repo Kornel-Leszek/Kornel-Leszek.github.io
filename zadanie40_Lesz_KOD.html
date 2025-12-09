@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Zadanie40 — KOD — Leszek 2P</title>
+<style>
+body { font-family: monospace; font-size: 15px; }
+h1 { text-transform: uppercase; }
+pre { background:#f0f0f0; padding:20px; border:1px solid #aaa; }
+</style>
+</head>
+<body>
+
+<h1>Kod zadania 40 — Leszek 2P</h1>
+
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pl&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;Zadanie 40 - Leszek 2P&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;style&gt;
+h1 { text-transform: uppercase; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Proste działania — Leszek 2P&lt;/h1&gt;
+
+&lt;label for=&quot;a&quot;&gt;Podaj pierwszą liczbę:&lt;/label&gt;
+&lt;input type=&quot;number&quot; id=&quot;a&quot;&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;label for=&quot;b&quot;&gt;Podaj drugą liczbę:&lt;/label&gt;
+&lt;input type=&quot;number&quot; id=&quot;b&quot;&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;input type=&quot;button&quot; value=&quot;DODAWANIE&quot; onclick=&quot;suma_les()&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;ODEJMOWANIE&quot; onclick=&quot;roznica_les()&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;MNOŻENIE&quot; onclick=&quot;iloczyn_les()&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;DZIELENIE&quot; onclick=&quot;iloraz_les()&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;TEORIA-Leszek&quot; onclick=&quot;teoria_les()&quot;&gt;
+
+&lt;div id=&quot;wynik&quot; style=&quot;margin-top:20px;&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+function suma_les() {
+    var a = document.getElementById(&quot;a&quot;).value;
+    var b = document.getElementById(&quot;b&quot;).value;
+
+    if (a == &quot;&quot; || b == &quot;&quot;) {
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Proszę uzupełnić obie liczby.&quot;;
+    } else {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        var suma = (a + b).toFixed(2);
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Wynik działania wynosi: &quot; + suma;
+    }
+}
+
+function roznica_les() {
+    var a = document.getElementById(&quot;a&quot;).value;
+    var b = document.getElementById(&quot;b&quot;).value;
+
+    if (a == &quot;&quot; || b == &quot;&quot;) {
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Proszę uzupełnić obie liczby.&quot;;
+    } else {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        var roznica = (a - b).toFixed(2);
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Wynik działania wynosi: &quot; + roznica;
+    }
+}
+
+function iloczyn_les() {
+    var a = document.getElementById(&quot;a&quot;).value;
+    var b = document.getElementById(&quot;b&quot;).value;
+
+    if (a == &quot;&quot; || b == &quot;&quot;) {
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Proszę uzupełnić obie liczby.&quot;;
+    } else {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        var iloczyn = (a * b).toFixed(2);
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Wynik działania wynosi: &quot; + iloczyn;
+    }
+}
+
+function iloraz_les() {
+    var a = document.getElementById(&quot;a&quot;).value;
+    var b = document.getElementById(&quot;b&quot;).value;
+
+    if (a == &quot;&quot; || b == &quot;&quot;) {
+        document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Proszę uzupełnić obie liczby.&quot;;
+    } else {
+        a = parseFloat(a);
+        b = parseFloat(b);
+
+        if (b == 0) {
+            document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Nie wolno dzielić przez zero.&quot;;
+        } else {
+            var iloraz = (a / b).toFixed(2);
+            document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Wynik działania wynosi: &quot; + iloraz;
+        }
+    }
+}
+
+function teoria_les() {
+    document.getElementById(&quot;wynik&quot;).innerHTML =
+        &quot;&lt;font color=green size=4&gt;Pierwsza linia kodu&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;&amp;lt;label for=&amp;quot;a&amp;quot;&amp;gt;Podaj pierwszą liczbę:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;a&amp;quot;&amp;gt;&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=green size=4&gt;wytłumaczenie:&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;Tworzy opis pola formularza oraz pole do wpisania liczby.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&quot; +
+
+        &quot;&lt;font color=green size=4&gt;Druga linia kodu&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;&amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;DODAWANIE&amp;quot; onclick=&amp;quot;suma()&amp;quot;&amp;gt;&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=green size=4&gt;wytłumaczenie:&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;Przycisk wywołujący funkcję dodawania.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&quot; +
+
+        &quot;&lt;font color=green size=4&gt;Trzecia linia kodu&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;var a = document.getElementById(&amp;quot;a&amp;quot;).value;&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=green size=4&gt;wytłumaczenie:&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;Pobranie wartości z pola o id a.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&quot; +
+
+        &quot;&lt;font color=green size=4&gt;Czwarta linia kodu&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;if (a == &amp;quot;&amp;quot; || b == &amp;quot;&amp;quot;)&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=green size=4&gt;wytłumaczenie:&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;Sprawdza czy pola są puste.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&quot; +
+
+        &quot;&lt;font color=green size=4&gt;Piąta linia kodu&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;document.getElementById(&amp;quot;wynik&amp;quot;).innerHTML = &amp;quot;Wynik działania wynosi: &amp;quot; + suma;&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=green size=4&gt;wytłumaczenie:&lt;/font&gt;&lt;br&gt;&quot; +
+        &quot;&lt;font color=red size=4&gt;Wyświetla wynik działania w elemencie wynik.&lt;/font&gt;&quot;;
+}
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</body>
+</html>
