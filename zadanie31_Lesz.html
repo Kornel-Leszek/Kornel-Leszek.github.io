@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Zadanie 31 – Programowanie obiektowe</title>
+
+<script type="text/javascript">
+/* ===== OBIEKT ===== */
+var komputer = {
+    marka: "Dell",
+    procesor: "Intel i5",
+    ram: "16 GB",
+    komputer_pokaz_kowalski: function () {
+        document.getElementById("wynik").innerHTML =
+            "Obiekt: komputer<br>" +
+            "Pola:<br>" +
+            "marka: " + this.marka + "<br>" +
+            "procesor: " + this.procesor + "<br>" +
+            "ram: " + this.ram + "<br>" +
+            "Metoda: komputer_pokaz_kowalski()";
+    }
+};
+
+/* ===== NOWA WŁAŚCIWOŚĆ POZA CIAŁEM OBIEKTU ===== */
+komputer.rokProdukcji = 2022;
+
+/* ===== NOWA METODA POZA CIAŁEM OBIEKTU ===== */
+komputer.komputer_wyswietl_kowalski = function () {
+    document.getElementById("wynik").innerHTML +=
+        "<br>Nowe pole poza obiektem: rokProdukcji = " + this.rokProdukcji +
+        "<br>Nowa metoda poza obiektem: komputer_wyswietl_kowalski()";
+};
+
+/* ===== FUNKCJE PRZYCISKÓW ===== */
+function pokazZadanie() {
+    komputer.komputer_pokaz_kowalski();
+    komputer.komputer_wyswietl_kowalski();
+}
+
+function pokazKod() {
+    alert("Kod znajduje się w sekcji <script> w pliku HTML");
+}
+</script>
+</head>
+
+<body>
+<h2>Zadanie 31 – Programowanie obiektowe</h2>
+
+<button onclick="pokazZadanie()">Pokaż zadanie</button>
+<button onclick="pokazKod()">Pokaż KOD</button>
+
+<hr>
+<div id="wynik"></div>
+
+<hr>
+<b>Opis:</b><br>
+Obiekt: komputer<br>
+Pola: marka, procesor, ram<br>
+Metoda: komputer_pokaz_kowalski()<br>
+Nowe pole: rokProdukcji<br>
+Nowa metoda: komputer_wyswietl_kowalski()<br>
+
+</body>
+</html>
