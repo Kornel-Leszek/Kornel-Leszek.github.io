@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Funkcja kwadratowa</title>
+<style>
+    body {
+        font-size: 2cm;
+        color: green;
+        font-family: Arial;
+    }
+    input, button {
+        font-size: 1cm;
+        margin: 5px;
+    }
+    .sekcja {
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Funkcja kwadratowa</h1>
+
+<p>
+A: <input id="lesA" type="number">
+B: <input id="lesB" type="number">
+C: <input id="lesC" type="number">
+</p>
+
+<button onclick="lesLicz()">Oblicz</button>
+
+<div id="lesWynik"></div>
+
+<script>
+function lesLicz() {
+    let lesa = parseFloat(document.getElementById("lesA").value);
+    let lesb = parseFloat(document.getElementById("lesB").value);
+    let lesc = parseFloat(document.getElementById("lesC").value);
+
+    let lesOut = "";
+
+    if (lesa === 0) {
+        document.getElementById("lesWynik").innerHTML =
+            "<div class='sekcja'>To nie jest funkcja kwadratowa</div>";
+        return;
+    }
+
+    let lesWerX = -lesb / (2 * lesa);
+    let lesWerY = lesa * lesWerX * lesWerX + lesb * lesWerX + lesc;
+    let lesDel  = lesb * lesb - 4 * lesa * lesc;
+
+    lesOut += "<div class='sekcja'><b>Wierzchołek</b><br>";
+    lesOut += "(" + lesWerX + ", " + lesWerY + ")</div>";
+
+    lesOut += "<div class='sekcja'><b>Postać kanoniczna</b><br>";
+    lesOut += "f(x) = " + lesa + " * (x - " + lesWerX + ") * (x - " + lesWerX + ") + " + lesWerY + "</div>";
+
+    lesOut += "<div class='sekcja'><b>Miejsca zerowe</b><br>";
+    if (lesDel < 0) {
+        lesOut += "Brak miejsc zerowych";
+    } else if (lesDel === 0) {
+        let lesX0 = -lesb / (2 * lesa);
+        lesOut += "x = " + lesX0;
+    } else {
+        let lesX1 = (-lesb - Math.sqrt(lesDel)) / (2 * lesa);
+        let lesX2 = (-lesb + Math.sqrt(lesDel)) / (2 * lesa);
+        lesOut += "x1 = " + lesX1 + "<br>";
+        lesOut += "x2 = " + lesX2;
+    }
+    lesOut += "</div>";
+
+    if (lesDel > 0) {
+        let lesX1 = (-lesb - Math.sqrt(lesDel)) / (2 * lesa);
+        let lesX2 = (-lesb + Math.sqrt(lesDel)) / (2 * lesa);
+
+        lesOut += "<div class='sekcja'><b>Postać iloczynowa</b><br>";
+        lesOut += "f(x) = " + lesa + " * (x - " + lesX1 + ") * (x - " + lesX2 + ")";
+        lesOut += "</div>";
+    }
+
+    lesOut += "<div class='sekcja'><b>Monotoniczność</b><br>";
+    if (lesa > 0) {
+        lesOut += "Maleje: (-oo ; " + lesWerX + ")<br>";
+        lesOut += "Rośnie: (" + lesWerX + " ; +oo)";
+    } else {
+        lesOut += "Rośnie: (-oo ; " + lesWerX + ")<br>";
+        lesOut += "Maleje: (" + lesWerX + " ; +oo)";
+    }
+    lesOut += "</div>";
+
+    lesOut += "<div class='sekcja'><b>Zbiór wartości</b><br>";
+    if (lesa > 0) {
+        lesOut += "[" + lesWerY + " ; +oo)";
+    } else {
+        lesOut += "(-oo ; " + lesWerY + "]";
+    }
+    lesOut += "</div>";
+
+    lesOut += "<div class='sekcja'><b>Znak funkcji</b><br>";
+    if (lesDel < 0) {
+        lesOut += lesa > 0 ? "f(x) > 0 dla wszystkich x" : "f(x) < 0 dla wszystkich x";
+    } else if (lesDel === 0) {
+        let lesX0 = -lesb / (2 * lesa);
+        lesOut += "Zero w punkcie [" + lesX0 + "]";
+    } else {
+        let lesX1 = (-lesb - Math.sqrt(lesDel)) / (2 * lesa);
+        let lesX2 = (-lesb + Math.sqrt(lesDel)) / (2 * lesa);
+
+        if (lesa > 0) {
+            lesOut += "Dodatnia: (-oo ; " + lesX1 + ") oraz (" + lesX2 + " ; +oo)<br>";
+            lesOut += "Ujemna: (" + lesX1 + " ; " + lesX2 + ")";
+        } else {
+            lesOut += "Ujemna: (-oo ; " + lesX1 + ") oraz (" + lesX2 + " ; +oo)<br>";
+            lesOut += "Dodatnia: (" + lesX1 + " ; " + lesX2 + ")";
+        }
+    }
+    lesOut += "</div>";
+
+    document.getElementById("lesWynik").innerHTML = lesOut;
+}
+</script>
+
+</body>
+</html>
