@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Zadanie 39 – Leszek</title>
+</head>
+<body>
+
+<h3 style="color:green;">MENU:</h3>
+<p style="color:red;">1 – CZERWONY</p>
+<p style="color:blue;">2 – NIEBIESKI</p>
+
+<input type="button" value="Oblicz" onclick="fun_les()">
+
+<div id="wynik" style="margin-top:20px;"></div>
+
+<script>
+function fun_les() {
+    var opcja_dana_les = prompt("Podaj kolor (1, 2, czerwony, niebieski):", "");
+    if (opcja_dana_les === null) return;
+
+    opcja_dana_les = opcja_dana_les.toLowerCase();
+
+    if (opcja_dana_les == "1" || opcja_dana_les == "czerwony") {
+        document.getElementById("wynik").innerHTML =
+            '<font color="red" size="7">wczytałeś kolor czerwony</font>';
+    }
+    else if (opcja_dana_les == "2" || opcja_dana_les == "niebieski") {
+        document.getElementById("wynik").innerHTML =
+            '<font color="blue" size="1">wczytałeś kolor niebieski</font>';
+    }
+}
+</script>
+
+</body>
+</html>
