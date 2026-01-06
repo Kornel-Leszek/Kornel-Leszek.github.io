@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Zadanie 55 – Leszek</title>
+</head>
+<body>
+<script>
+do {
+    var l1_t_les = parseInt(prompt("Podaj liczbę l1 z przedziału <20,60>:", ""));
+    if (l1_t_les < 20 || l1_t_les > 60) {
+        document.write("Liczba l1 nie należy do przedziału <20,60><br>");
+    }
+} while (l1_t_les < 20 || l1_t_les > 60);
+
+do {
+    var l2_t_les = parseInt(prompt("Podaj liczbę l2 z przedziału <20,60>:", ""));
+    if (l2_t_les < 20 || l2_t_les > 60) {
+        document.write("Liczba l2 nie należy do przedziału <20,60><br>");
+    }
+} while (l2_t_les < 20 || l2_t_les > 60);
+
+var pocz_les = parseInt(prompt("Podaj początkową wielkość tekstu (px):", ""));
+
+var tekst_les = prompt("Podaj dowolny tekst:", "");
+
+if (l1_t_les < l2_t_les) {
+    for (var i = pocz_les; i <= 100; i += 5) {
+        document.write("<p style=\"font-size:" + i + "px; color:black;\">" + tekst_les + "</p>");
+    }
+}
+else if (l2_t_les < l1_t_les) {
+    for (var i = pocz_les; i >= 0; i -= 5) {
+        document.write("<p style=\"font-size:" + i + "px; color:black;\">" + tekst_les + "</p>");
+    }
+}
+else {
+    document.write("<p style=\"font-size:" + pocz_les + "px; color:black;\">" + tekst_les + "</p>");
+}
+</script>
+
+</body>
+</html>
