@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 45</title>
+</head>
+<body>
 
+<script language="JavaScript">
+var ile_razy_les = 12;
+var wielkosc_liter_les = 40;
+
+var dana_les = parseInt(prompt("Podaj liczbę:"));
+
+document.write("ilość wykonania pętli = " + ile_razy_les + "<br>");
+document.write("wielkość liter = " + wielkosc_liter_les + "px<br><br>");
+
+/* sprawdzenie parzystości */
+if (dana_les % 2 == 0) {
+  for (i_les = 1; i_les <= ile_razy_les; i_les++) {
+    document.write(
+      "<div style='color:blue;font-size:" + wielkosc_liter_les + "px;'>Leszek</div>"
+    );
+  }
+} else {
+  for (i_les = 1; i_les <= ile_razy_les; i_les++) {
+    document.write(
+      "<div style='color:green;font-size:" + wielkosc_liter_les + "px;'>Leszek</div>"
+    );
+  }
+}
+</script>
+</body>
+</html>
