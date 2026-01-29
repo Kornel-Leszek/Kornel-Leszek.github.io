@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Leszek - Zadanie 44</title>
+</head>
+<body>
+
+<script language="JavaScript">
+var ile_razy_les = 12;
+var wielkosc_liter_les = 40;
+
+document.write("ilość wykonania pętli = " + ile_razy_les + "<br>");
+document.write("wielkość liter = " + wielkosc_liter_les + "px<br><br>");
+
+for (i_les = 1; i_les <= ile_razy_les; i_les++) {
+
+  if (i_les % 2 == 1) {
+    /* nieparzysty raz – nazwisko */
+    document.write(
+      "<div style='font-size:" + wielkosc_liter_les + "px;'>Leszek</div>"
+    );
+  } else {
+    document.write(
+      "<div style='font-size:" + wielkosc_liter_les + "px;'>Leszek</div>"
+    );
+  }
+
+}
+</script>
+</body>
+</html>
