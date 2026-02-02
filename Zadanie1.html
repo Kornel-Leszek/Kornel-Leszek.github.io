@@ -1,0 +1,16 @@
+// Funkcja sumująca dwie liczby
+function suma(a, b) {
+    // Sprawdzenie, czy oba argumenty są liczbami
+    if (typeof a !== 'number' || typeof b !== 'number' || isNaN(a) || isNaN(b)) {
+        throw new Error('Oba parametry muszą być liczbami.');
+    }
+    return a + b;
+}
+
+// Przykładowe użycie
+try {
+    let wynik = suma(5, 7);
+    console.log("Suma:", wynik); // Suma: 12
+} catch (err) {
+    console.error("Błąd:", err.message);
+}
