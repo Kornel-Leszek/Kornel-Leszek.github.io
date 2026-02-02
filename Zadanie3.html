@@ -1,1 +1,28 @@
+/**
+ * Funkcja oblicza pole prostokąta.
+ * @param {number} a - długość pierwszego boku (musi być > 0)
+ * @param {number} b - długość drugiego boku (musi być > 0)
+ * @returns {number} pole prostokąta
+ * @throws {Error} jeśli dane wejściowe są niepoprawne
+ */
+function poleProstokata(a, b) {
+    // Sprawdzenie, czy argumenty są liczbami i większe od zera
+    if (typeof a !== 'number' || typeof b !== 'number' || isNaN(a) || isNaN(b)) {
+        throw new Error("Boki muszą być liczbami.");
+    }
+    if (a <= 0 || b <= 0) {
+        throw new Error("Boki muszą być większe od zera.");
+    }
 
+    return a * b;
+}
+
+// Przykład użycia:
+try {
+    let bokA = 5;
+    let bokB = 8;
+    let pole = poleProstokata(bokA, bokB);
+    console.log(`Pole prostokąta o bokach ${bokA} i ${bokB} wynosi: ${pole}`);
+} catch (err) {
+    console.error("Błąd:", err.message);
+}
