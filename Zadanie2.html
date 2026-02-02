@@ -1,0 +1,23 @@
+let numerek;
+
+let wyjscie;
+
+function czyParzysta(numer) {
+
+       let numerek = numer % 2 == 0; // Sprawdz czy liczba jest parzysta i podaj true albo false
+
+       let wyjscie = numerek ? 1 : -1; // Zmien true na 1 i false na -1
+
+       if (wyjscie === 1) {
+
+           alert("Liczba jest parzysta"); // Jezeli zmienna wyjscie jest rowna 1 wyświetl wiadomosc, ze liczba jest parzysta
+
+       } else {
+
+           alert("Liczba jest nie parzysta"); // Jezeli zmienna wyjscie jest rowna -1 wyświetl wiadomosc, ze liczba jest nieparzysta
+
+       }
+
+       return;
+
+}
