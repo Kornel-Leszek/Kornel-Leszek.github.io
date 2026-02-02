@@ -1,0 +1,30 @@
+Zadanie 1. 
+Napisz funkcję o nazwie dodajLiczby, która przyjmuje dwa parametry typu liczbowego i 
+zwraca ich sumę. 
+Zadanie 2. 
+Napisz funkcję czyParzysta, która przyjmuje jedną liczbę i zwraca wartość logiczną true, jeśli 
+liczba jest parzysta, lub false w przeciwnym przypadku. 
+Zadanie 3. 
+Napisz funkcję poleProstokata, która oblicza pole prostokąta na podstawie podanych 
+długości boków. 
+Zadanie 4. 
+Napisz funkcję odwrocTekst, która przyjmuje ciąg znaków i zwraca go w odwrotnej 
+kolejności. 
+Zadanie 5. 
+Napisz funkcję filtrujParzyste, która przyjmuje tablicę liczb i zwraca nową tablicę zawierającą 
+tylko liczby parzyste. 
+Zadanie 6. 
+Napisz funkcję czyEmailPoprawny, która sprawdza, czy podany ciąg znaków jest 
+poprawnym adresem e-mail (zawiera znak @ oraz kropkę po nim). 
+Zadanie 7. 
+Napisz funkcję generujHaslo, która generuje losowe hasło o zadanej długości. Hasło 
+powinno zawierać litery i cyfry. 
+Zadanie 8. 
+Napisz funkcję cToF, która przelicza temperaturę z Celsjusza na Fahrenheita według wzoru: 
+F = C × 1.8 + 32 
+Zadanie 9. 
+Napisz funkcję sumaTablicy, która oblicza sumę wszystkich elementów w tablicy liczb 
+całkowitych. 
+Zadanie 10. 
+Napisz funkcję najdluzszeSlowo, która przyjmuje ciąg znaków i zwraca najdłuższe słowo w 
+tym ciągu.
