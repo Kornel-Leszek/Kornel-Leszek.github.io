@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
 
+    <script>
+        const oceny = [2, 3, 5, 4, 1, 5];
+
+        let suma = 0;
+
+        for (let i = 0; i < oceny.length; i++) {
+            suma += oceny[i];
+        }
+
+        let srednia = suma / oceny.length;
+        console.log("Średnia ocen:", srednia);
+
+        console.log("Oceny pozytywne:");
+
+        for (let i = 0; i < oceny.length; i++) {
+            if (oceny[i] >= 3) {
+                console.log(oceny[i]);
+            }
+        }
+
+
+        function tylkoParzyste(tablica) {
+            let wynik = [];
+
+            for (let i = 0; i < tablica.length; i++) {
+                if (tablica[i] % 2 === 0) {
+                    wynik.push(tablica[i]);
+                }
+            }
+
+            return wynik;
+        }
+
+        const liczby = [1, 2, 3, 4, 5, 6, 7, 8];
+        console.log("Liczby parzyste:", tylkoParzyste(liczby));
+
+        const technologie = ["HTML", "CSS", "JS"];
+        let odwrocona = [];
+
+        for (let i = technologie.length - 1; i >= 0; i--) {
+            odwrocona.push(technologie[i]);
+        }
+
+        console.log("Odwrócona tablica:", odwrocona);
+
+        function czyZawiera(tablica, element) {
+            let znaleziono = false;
+
+            for (let i = 0; i < tablica.length; i++) {
+                if (tablica[i] === element) {
+                    znaleziono = true;
+                    break;
+                }
+            }
+
+            console.log(`Czy tablica zawiera "${element}"?`, znaleziono);
+        }
+
+        czyZawiera(["HTML", "CSS", "JS"], "CSS");
+        czyZawiera(["HTML", "CSS", "JS"], "PHP");
+
+    </script>
+
+</body>
+</html>
