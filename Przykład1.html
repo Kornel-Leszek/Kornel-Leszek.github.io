@@ -8,10 +8,33 @@
 const tab = ["Maciek", "Mikołaj", "Burek", "Miecia", "Żaneta"];
 
 console.log("Długość tablicy:", tab.length);
-
 console.log("Pierwsze imię:", tab[0]);
-
 console.log("Ostatnie imię:", tab[tab.length - 1]);
+
+function sumaTablicy(tablica) {
+    let suma = 0;
+    for (let i = 0; i < tablica.length; i++) {
+        suma += tablica[i];
+    }
+    return suma;
+}
+
+const liczby = [3, 7, 1, 9, 4];
+console.log("Suma elementów:", sumaTablicy(liczby));
+
+let najwieksza = liczby[0];
+for (let i = 1; i < liczby.length; i++) {
+    if (liczby[i] > najwieksza) {
+        najwieksza = liczby[i];
+    }
+}
+console.log("Największa liczba:", najwieksza);
+
+let mojaTablica = [10, 20, 30, 40, 50];
+mojaTablica.unshift(5);
+mojaTablica.push(60);
+console.log("Zmieniona tablica:", mojaTablica);
+
 </script>
 
 </body>
