@@ -1,5 +1,49 @@
-const ksiazka = {
-    tytul: "Tarzan",
-    autor: "",
-    rokWydania: 
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+let ksiazka = {
+    tytul: "Władca Pierścieni",
+    autor: "J.R.R. Tolkien",
+    rokWydania: 1954
+};
+console.log("=== Właściwości obiektu ksiazka ===");
+for (let klucz in ksiazka) {
+    console.log(klucz + ":", ksiazka[klucz]);
 }
+
+ksiazka.opis = function() {
+    return "Tytuł: " + this.tytul + ", Autor: " + this.autor;
+};
+
+console.log("=== Opis książki ===");
+console.log(ksiazka.opis());
+
+ksiazka.rokWydania = 2001;
+
+console.log("=== Po zmianie roku wydania ===");
+console.log(ksiazka);
+
+console.log("=== Czy istnieje wydawnictwo? ===");
+console.log("wydawnictwo" in ksiazka);
+
+console.log("=== Ilość właściwości ===");
+console.log(Object.keys(ksiazka).length);
+
+let produkty = [
+    { nazwa: "Laptop", cena: 3000 },
+    { nazwa: "Telefon", cena: 1500 },
+    { nazwa: "Myszka", cena: 100 }
+];
+console.log("=== Nazwy produktów ===");
+
+for (let i = 0; i < produkty.length; i++) {
+    console.log(produkty[i].nazwa);
+}
+</script>
+
+</body>
+</html>
