@@ -1,7 +1,58 @@
-<html>
-  <head>
-  </head>
-  <body>
-  
-  </body>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Metody String - JavaScript</title>
+<style>
+body{font-family:Arial, sans-serif;background:#f4f6f8;margin:0;padding:40px}
+.container{max-width:700px;margin:auto;background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,0.08)}
+h1{margin-top:0}
+button{padding:10px 18px;border:none;border-radius:10px;background:#2563eb;color:white;font-size:16px;cursor:pointer}
+button:hover{opacity:0.9}
+.result{margin-top:20px;padding:15px;background:#f1f5f9;border-radius:10px}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Zadanie: Metody String w JavaScript</h1>
+<p>Kliknij przycisk, aby wykonać operacje na tekście.</p>
+
+<button onclick="runTask()">Uruchom zadanie</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function runTask(){
+
+// 1. Zmienna tekst
+let tekst = " Programowanie jest super! ";
+
+// 2. Długość tekstu
+let length = tekst.length;
+
+// 3. Usunięcie spacji z początku i końca
+let trimmed = tekst.trim();
+
+// 4. Zamiana na wielkie litery
+let upper = tekst.toUpperCase();
+
+// 5. Sprawdzenie czy zawiera "super"
+let contains = tekst.includes("super");
+
+// Wyświetlenie wyników
+let output = document.getElementById("output");
+
+output.innerHTML = `
+<p><b>Oryginalny tekst:</b> ${tekst}</p>
+<p><b>Długość tekstu:</b> ${length}</p>
+<p><b>Po trim():</b> ${trimmed}</p>
+<p><b>Wielkie litery:</b> ${upper}</p>
+<p><b>Czy zawiera 'super':</b> ${contains}</p>
+`;
+}
+</script>
+
+</body>
 </html>
