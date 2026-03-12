@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Poziom 2 – Wycinanie i szukanie</title>
 
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    padding:40px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+button{
+    padding:10px 16px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.result{
+    margin-top:20px;
+    padding:15px;
+    background:#f1f5f9;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>POZIOM 2 – Wycinanie i szukanie</h1>
+
+<label>Email:</label>
+<input id="emailInput" placeholder="np. test@gmail.pl">
+
+<label>Imię:</label>
+<input id="nameInput" placeholder="np. Marcin">
+
+<button onclick="runTasks()">Uruchom zadania</button>
+
+<div class="result" id="output"></div>
+
+</div>
+
+<script>
+
+function runTasks(){
+
+// 6. Wyodrębnienie nazwiska
+let dane = "Marcin;Kowalski;30;Gdańsk";
+let nazwisko = dane.split(";")[1];
+
+// 7. Sprawdzenie czy mail kończy się na .pl
+let email = document.getElementById("emailInput").value;
+let czyPL = email.endsWith(".pl");
+
+// 8. Zamiana pierwszego "koty" na "psy"
+let zdanie = "Lubię koty, bo koty są puszyste";
+let noweZdanie = zdanie.replace("koty","psy");
+
+// 9. Pierwsza i ostatnia litera imienia
+let imie = document.getElementById("nameInput").value;
+let pierwszy = imie ? imie.at(0) : "-";
+let ostatni = imie ? imie.at(-1) : "-";
+
+document.getElementById("output").innerHTML = `
+<p><b>Nazwisko:</b> ${nazwisko}</p>
+<p><b>Email kończy się na .pl:</b> ${czyPL}</p>
+<p><b>Zdanie po zamianie:</b> ${noweZdanie}</p>
+<p><b>Pierwsza litera imienia:</b> ${pierwszy}</p>
+<p><b>Ostatnia litera imienia:</b> ${ostatni}</p>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
