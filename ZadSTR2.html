@@ -14,12 +14,12 @@ Imię:<br>
 <div id="output"></div>
 <script>
 function runTasks(){
-let dane = "Marcin;Kowalski;30;Gdańsk";
+let dane = "Kornel;Leszek;17;Gdańsk";
 let nazwisko = dane.split(";")[1];
 let email = document.getElementById("emailInput").value;
 let czyPL = email.endsWith(".pl");
-let zdanie = "Lubię koty, bo koty są puszyste";
-let noweZdanie = zdanie.replace("koty","psy");
+let zdanie = "Lubię lisy, bo wydają urocze dziwięki gdy się cieszą";
+let noweZdanie = zdanie.replace("lisy","lisy polarne");
 let imie = document.getElementById("nameInput").value;
 let pierwszy = imie ? imie[0] : "-";
 let ostatni = imie ? imie[imie.length-1] : "-";
