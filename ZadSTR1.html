@@ -4,34 +4,24 @@
 <meta charset="UTF-8">
 <title>String JS</title>
 </head>
-
 <body>
-
 <h2>Metody String</h2>
-
 <button onclick="runTask()">Uruchom</button>
-
 <div id="output"></div>
-
 <script>
 function runTask(){
-
 let tekst = " Programowanie jest super! ";
-
 let length = tekst.length;
 let trimmed = tekst.trim();
 let upper = tekst.toUpperCase();
 let contains = tekst.includes("super");
-
 document.getElementById("output").innerHTML =
 "Oryginalny tekst: " + tekst + "<br>" +
 "Długość: " + length + "<br>" +
 "Po trim(): " + trimmed + "<br>" +
 "Wielkie litery: " + upper + "<br>" +
 "Czy zawiera 'super': " + contains;
-
 }
 </script>
-
 </body>
 </html>
