@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
 
+<pre id="wynik"></pre>
+
+<script>
+
+const wynik = document.getElementById("wynik");
+const teraz = new Date();
+
+wynik.innerText += "Rok: " + teraz.getFullYear() + "\n";
+wynik.innerText += "Miesiąc: " + (teraz.getMonth() + 1) + "\n";
+wynik.innerText += "Dzień: " + teraz.getDate() + "\n";
+
+const urodziny = new Date(2000, 0, 1);
+
+const godzina = String(teraz.getHours()).padStart(2, '0');
+const minuty = String(teraz.getMinutes()).padStart(2, '0');
+wynik.innerText += `Jest godzina: ${godzina}:${minuty}\n`;
+
+const dni = ["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"];
+wynik.innerText += "Dzień urodzin: " + dni[urodziny.getDay()] + "\n";
+
+
+function dodaj7Dni(data) {
+const nowa = new Date(data);
+nowa.setDate(nowa.getDate() + 7);
+return nowa;
+}
+wynik.innerText += "Data za 7 dni: " + dodaj7Dni(teraz) + "\n";
+
+wynik.innerText += "Data (PL): " + teraz.toLocaleDateString('pl-PL') + "\n";
+
+const minutyOdPolnocy = teraz.getHours() * 60 + teraz.getMinutes();
+wynik.innerText += "Minuty od północy: " + minutyOdPolnocy + "\n";
+
+wynik.innerText += "Dzisiaj jest " + dni[teraz.getDay()] + "\n";
+
+</script>
+</body>
+</html>
