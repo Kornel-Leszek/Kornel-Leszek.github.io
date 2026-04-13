@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
@@ -14,14 +15,19 @@
   <label>Wpisz tekst:</label>
   <input type="text" id="textInput">
   <span id="charCount">0 znaków</span>
-  <br><br><label>
+
+  <br><br>
+
+  <label>
     <input type="checkbox" id="myCheckbox">
     Zaznacz mnie
   </label>
+
   <br><br>
 
   <label>Hasło:</label>
   <input type="password" id="passwordInput">
+
   <br><br>
 
   <label>Wybierz kolor:</label>
@@ -32,9 +38,15 @@
     <option value="blue">Niebieski</option>
     <option value="yellow">Żółty</option>
   </select>
+
   <br><br>
+
   <button type="submit">Wyślij</button>
-</form><script>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
   const form = document.getElementById('myForm');
   const textInput = document.getElementById('textInput');
   const checkbox = document.getElementById('myCheckbox');
@@ -43,16 +55,20 @@
   const colorSelect = document.getElementById('colorSelect');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); // blokuje odświeżenie
+    event.preventDefault();
     console.log("Wartość pola tekstowego:", textInput.value);
+
     if (checkbox.checked) {
       console.log("Checkbox jest zaznaczony");
     } else {
       console.log("Checkbox NIE jest zaznaczony");
     }
   });
+
   textInput.addEventListener('input', function() {
-    charCount.textContent = textInput.value.length + " znaków";});
+    charCount.textContent = textInput.value.length + " znaków";
+  });
+
   passwordInput.addEventListener('blur', function() {
     if (passwordInput.value.length < 8) {
       passwordInput.classList.add('error');
@@ -64,6 +80,8 @@
   colorSelect.addEventListener('change', function() {
     document.body.style.backgroundColor = colorSelect.value;
   });
+
+});
 </script>
 
 </body>
