@@ -57,7 +57,7 @@ const textInput = document.getElementById("textInput");
 const checkbox = document.getElementById("checkbox");
 
 form1.addEventListener("submit", function(event) {
-    event.preventDefault(); // blokuje odświeżanie
+    event.preventDefault();
 
     console.log("Wartość inputa:", textInput.value);
     console.log("Checkbox zaznaczony:", checkbox.checked);
