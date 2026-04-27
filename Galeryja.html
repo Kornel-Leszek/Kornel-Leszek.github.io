@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <img id="zdjecie" src="[picsum.photos](https://picsum.photos/id/1015/400/300)" alt="Zdjęcie" />
+  <img id="zdjecie" src="https://picsum.photos/id/1015/400/300" alt="Zdjęcie" />
   <div>
     <button onclick="zmienZdjecie()">Zmień zdjęcie</button>
     <button onclick="resetZdjecie()">Reset</button>
@@ -35,15 +35,15 @@
     const img = document.getElementById('zdjecie');
     const poczatkowe = img.src;
     function zmienZdjecie() {
-      img.src = "[picsum.photos](https://picsum.photos/id/1025/400/300)"; // nowy adres zdjęcia
+      img.src = "https://picsum.photos/id/1025/400/300";
     }
     function resetZdjecie() {
       img.src = poczatkowe;
     }
     const zdjecia = [
-      "[picsum.photos](https://picsum.photos/id/1015/400/300)",
-      "[picsum.photos](https://picsum.photos/id/1016/400/300)",
-      "[picsum.photos](https://picsum.photos/id/1025/400/300)"
+      "https://picsum.photos/id/1015/400/300",
+      "https://picsum.photos/id/1016/400/300",
+      "https://picsum.photos/id/1025/400/300"
     ];
     let index = 0;
     function nastepneZdjecie() {
