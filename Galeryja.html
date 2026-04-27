@@ -1,1 +1,58 @@
-
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeryjat</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border: 2px solid #ccc;
+      margin: 10px;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img id="zdjecie" src="[picsum.photos](https://picsum.photos/id/1015/400/300)" alt="Zdjęcie" />
+  <div>
+    <button onclick="zmienZdjecie()">Zmień zdjęcie</button>
+    <button onclick="resetZdjecie()">Reset</button>
+  </div>
+  <div>
+    <button onclick="nastepneZdjecie()">Następne</button>
+  </div>
+  <script>
+    const img = document.getElementById('zdjecie');
+    const poczatkowe = img.src;
+    function zmienZdjecie() {
+      img.src = "[picsum.photos](https://picsum.photos/id/1025/400/300)"; // nowy adres zdjęcia
+    }
+    function resetZdjecie() {
+      img.src = poczatkowe;
+    }
+    const zdjecia = [
+      "[picsum.photos](https://picsum.photos/id/1015/400/300)",
+      "[picsum.photos](https://picsum.photos/id/1016/400/300)",
+      "[picsum.photos](https://picsum.photos/id/1025/400/300)"
+    ];
+    let index = 0;
+    function nastepneZdjecie() {
+      index++;
+      if (index >= zdjecia.length) {
+        index = 0;
+      }
+      img.src = zdjecia[index];
+    }
+  </script>
+</body>
+</html>
