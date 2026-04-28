@@ -1,0 +1,59 @@
+Modelowanie systemu uzbrojenia w grze CS2
+1 stycznia 1970 00:00
+
+Cel zajęć: Praktyczne wykorzystanie klas abstrakcyjnych do definiowania cech wspólnych oraz interfejsów do implementacji specyficznych zachowań obiektów.
+1. Wprowadzenie teoretyczne
+
+W grach typu FPS (First-Person Shooter), system broni musi być elastyczny. Każdy przedmiot w ekwipunku ma cenę i wagę (cechy wspólne), ale nie każdy pozwala na przybliżenie (zoom) czy zmianę trybu ognia (zachowania specyficzne).
+
+    Klasa abstrakcyjna Weapon: posłuży jako fundament, którego nie można powołać do życia samodzielnie (nie można kupić "tylko broni", kupuje się konkretny model).
+    Interfejsy: pozwolą nam "doklejać" funkcjonalności do wybranych modeli.
+
+2. Architektura systemu
+
+    Klasa abstrakcyjna Weapon
+
+Zdefiniuj klasę bazową, która zawiera:
+
+        Pola/Właściwości:
+            Name (string)
+            Price (int)
+            ClipSize (int) - maksymalna pojemność magazynka.
+            CurrentAmmo (int) - aktualna liczba naboi w broni.
+        Metody:
+            DisplayStats() (abstrakcyjna) - wyświetla nazwę, cenę i stan amunicji.
+            RefillAmmo() (zwykła) – resetuje CurrentAmmo do wartości ClipSize.
+    Interfejsy (Zdolności)
+        IFireable
+            Metoda Shoot() – oddanie strzału (zmniejszenie CurrentAmmo).
+            Metoda Reload() – wywołuje RefillAmmo() z komunikatem o przeładowaniu.
+        IZoomable
+            Metoda ToggleScope() – zmienia stan przybliżenia (np. isZoomed = !isZoomed).
+        IModeSwitchable
+            Metoda SwitchMode() – zmienia tryb ognia (np. z Single na Burst).
+
+Zadanie
+Zadanie 1: Implementacja broni
+
+Stwórz klasy konkretne, inicjując ClipSize w konstruktorze:
+
+    Glock18: Cena 200$, magazynek 20. Implementuje IFireable i IModeSwitchable.
+    AWP: Cena 4750$, magazynek 10. Implementuje IFireable i IZoomable.
+    M4A1S: Cena 2900$, magazynek 20. Implementuje IFireable i IModeSwitchable (jako zdejmowanie tłumika).
+
+Zadanie 2: Logika strzelania i braku amunicji
+
+W metodzie Shoot() zaimplementuj prostą logikę:
+
+    Jeśli CurrentAmmo > 0: zmniejsz licznik amunicji i wypisz dźwięk wystrzału.
+    Jeśli CurrentAmmo == 0: wypisz "Click! (Brak amunicji)".
+
+Zadanie 3: Testowanie polimorfizmu
+
+Stwórz listę przedmiotów List<Weapon> myLoadout. Dodaj do niej Glocka i AWP.
+
+Napisz pętlę do listy, która:
+
+    Wyświetla statystyki broni.
+    Próbuje wystrzelić z każdej broni 5 razy.
+    Sprawdza: "Jeśli broń posiada lunetę, użyj jej przed strzałem". (Jeżeli dojdziesz do tego punktu to zapytaj nauczyciela)
