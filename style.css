@@ -9,7 +9,7 @@ body {
     background: #f4f4f4;
 }
 
-.rudy {
+.hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,12 +20,12 @@ body {
     text-align: center;
 }
 
-.rudy h1 {
+.hero h1 {
     font-size: 3rem;
     margin-bottom: 15px;
 }
 
-.rudy p {
+.hero p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
