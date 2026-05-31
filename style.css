@@ -9,8 +9,7 @@ body {
     background: #f4f4f4;
 }
 
-/* Strona główna */
-.hero {
+.rudy {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,12 +20,12 @@ body {
     text-align: center;
 }
 
-.hero h1 {
+.rudy h1 {
     font-size: 3rem;
     margin-bottom: 15px;
 }
 
-.hero p {
+.rudy p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
@@ -46,7 +45,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Strona ofert */
 header {
     text-align: center;
     padding: 30px;
