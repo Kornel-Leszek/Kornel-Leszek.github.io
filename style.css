@@ -9,7 +9,6 @@ body{
     background:#f5f5f5;
 }
 
-/* STRONA GŁÓWNA */
 
 .hero{
     min-height:100vh;
@@ -57,7 +56,7 @@ body{
     transform:translateY(-3px);
 }
 
-/* OFERTY */
+
 
 header{
     background:#6d28d9;
@@ -102,10 +101,6 @@ header{
     margin-bottom:10px;
 }
 
-.card p{
-    color:#555;
-    margin-bottom:15px;
-}
 
 .price{
     display:block;
