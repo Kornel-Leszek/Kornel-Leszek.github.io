@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        input, select {
+            margin: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Zadania z programowania obiektowego</h1>
+
+<section>
+    <h2>Zadanie 1 - Kwadrat</h2>
+
+    <label>Podaj długość boku:</label>
+    <input type="number" id="bok" step="any">
+
+    <button onclick="obliczKwadrat()">Oblicz</button>
+
+    <p id="wynikKwadrat"></p>
+</section>
+
+
+<section>
+    <h2>Zadanie 2 - Punkt</h2>
+
+    <p>Pierwszy punkt:</p>
+
+    <label>x:</label>
+    <input type="number" id="x1" step="any">
+
+    <label>y:</label>
+    <input type="number" id="y1" step="any">
+
+    <p>Drugi punkt:</p>
+
+    <label>x:</label>
+    <input type="number" id="x2" step="any">
+
+    <label>y:</label>
+    <input type="number" id="y2" step="any">
+
+    <br><br>
+
+    <button onclick="obliczPunkt()">Oblicz odległość</button>
+
+    <p id="wynikPunkt"></p>
+</section>
+
+
+<section>
+    <h2>Zadanie 3 - Wiatrak</h2>
+
+    <p>
+        <label>Prędkość:</label>
+
+        <select id="speed">
+            <option value="1">SLOW</option>
+            <option value="2">MEDIUM</option>
+            <option value="3">FAST</option>
+        </select>
+    </p>
+
+    <p>
+        <label>Wiatrak włączony:</label>
+
+        <select id="on">
+            <option value="true">Tak</option>
+            <option value="false">Nie</option>
+        </select>
+    </p>
+
+    <p>
+        <label>Promień:</label>
+        <input type="number" id="radius" step="any">
+    </p>
+
+    <p>
+        <label>Kolor:</label>
+        <input type="text" id="color">
+    </p>
+
+    <button onclick="pokazWiatrak()">Pokaż informacje</button>
+
+    <p id="wynikWiatrak"></p>
+</section>
+
+
+<script>
+
+    class Kwadrat {
+
+        constructor(bok) {
+            this.bok = bok;
+        }
+
+        obwod() {
+            return 4 * this.bok;
+        }
+
+        pole() {
+            return this.bok * this.bok;
+        }
+    }
+
+
+    function obliczKwadrat() {
+
+        let bok = Number(document.getElementById("bok").value);
+
+        if (bok <= 0) {
+            document.getElementById("wynikKwadrat").innerHTML =
+                "Podaj bok większy od 0.";
+            return;
+        }
+
+        let kwadrat = new Kwadrat(bok);
+
+        document.getElementById("wynikKwadrat").innerHTML =
+            "Bok: " + kwadrat.bok +
+            "<br>Obwód: " + kwadrat.obwod() +
+            "<br>Pole: " + kwadrat.pole();
+    }
+
+
+    class Punkt {
+
+        constructor(x = 0, y = 0) {
+            this.x = x;
+            this.y = y;
+        }
+
+        odleglosc(x, y) {
+
+            return Math.sqrt(
+                Math.pow(this.x - x, 2) +
+                Math.pow(this.y - y, 2)
+            );
+        }
+
+        odlegloscOdPunktu(punkt) {
+
+            return Math.sqrt(
+                Math.pow(this.x - punkt.x, 2) +
+                Math.pow(this.y - punkt.y, 2)
+            );
+        }
+    }
+
+
+    function obliczPunkt() {
+
+        let x1 = Number(document.getElementById("x1").value);
+        let y1 = Number(document.getElementById("y1").value);
+
+        let x2 = Number(document.getElementById("x2").value);
+        let y2 = Number(document.getElementById("y2").value);
+
+        let punkt1 = new Punkt(x1, y1);
+        let punkt2 = new Punkt(x2, y2);
+
+        let odleglosc = punkt1.odlegloscOdPunktu(punkt2);
+
+        document.getElementById("wynikPunkt").innerHTML =
+            "Odległość między punktami: " + odleglosc.toFixed(2);
+    }
+
+
+    class Wiatrak {
+
+        static SLOW = 1;
+        static MEDIUM = 2;
+        static FAST = 3;
+
+        constructor(speed, on, radius, color) {
+            this.speed = speed;
+            this.on = on;
+            this.radius = radius;
+            this.color = color;
+        }
+
+        informacje() {
+
+            let nazwaPredkosci;
+
+            if (this.speed === Wiatrak.SLOW) {
+                nazwaPredkosci = "SLOW";
+            }
+            else if (this.speed === Wiatrak.MEDIUM) {
+                nazwaPredkosci = "MEDIUM";
+            }
+            else {
+                nazwaPredkosci = "FAST";
+            }
+
+            return "Prędkość: " + nazwaPredkosci +
+                " (" + this.speed + ")" +
+                "<br>Włączony: " + (this.on ? "Tak" : "Nie") +
+                "<br>Promień: " + this.radius +
+                "<br>Kolor: " + this.color;
+        }
+    }
+
+
+    function pokazWiatrak() {
+
+        let speed = Number(
+            document.getElementById("speed").value
+        );
+
+        let on =
+            document.getElementById("on").value === "true";
+
+        let radius = Number(
+            document.getElementById("radius").value
+        );
+
+        let color =
+            document.getElementById("color").value;
+
+
+        if (radius <= 0 || color === "") {
+
+            document.getElementById("wynikWiatrak").innerHTML =
+                "Podaj poprawny promień i kolor.";
+
+            return;
+        }
+
+
+        let wiatrak = new Wiatrak(
+            speed,
+            on,
+            radius,
+            color
+        );
+
+
+        document.getElementById("wynikWiatrak").innerHTML =
+            wiatrak.informacje();
+    }
+
+</script>
+
+</body>
+</html>
