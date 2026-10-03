@@ -1,0 +1,100 @@
+// AnalizatorLiczb.java
+public class AnalizatorLiczb {
+
+    public double obliczSrednia(int... liczby) {
+
+        if (liczby.length == 0) {
+            return 0.0;
+        }
+
+        int suma = 0;
+
+        for (int liczba : liczby) {
+            suma += liczba;
+        }
+
+        return (double) suma / liczby.length;
+    }
+}
+
+// ZaawansowanyAnalizator.java
+public class ZaawansowanyAnalizator extends AnalizatorLiczb {
+
+    public void znajdzEkstrema(int... liczby) {
+
+        if (liczby.length == 0) {
+            System.out.println("Nie podano żadnych liczb.");
+            return;
+        }
+
+        int min = liczby[0];
+        int max = liczby[0];
+
+        for (int liczba : liczby) {
+
+            if (liczba < min) {
+                min = liczba;
+            }
+
+            if (liczba > max) {
+                max = liczba;
+            }
+        }
+
+        System.out.println("Najmniejsza liczba: " + min);
+        System.out.println("Największa liczba: " + max);
+    }
+
+    @Override
+    public double obliczSrednia(int... liczby) {
+
+        int ileNieujemnych = 0;
+
+        for (int liczba : liczby) {
+            if (liczba >= 0) {
+                ileNieujemnych++;
+            }
+        }
+
+        if (ileNieujemnych == 0) {
+            return 0.0;
+        }
+
+        int[] nieujemne = new int[ileNieujemnych];
+        int indeks = 0;
+
+        for (int liczba : liczby) {
+            if (liczba >= 0) {
+                nieujemne[indeks] = liczba;
+                indeks++;
+            }
+        }
+
+        return super.obliczSrednia(nieujemne);
+    }
+}
+
+// Main.java
+public class Main {
+
+    public static void main(String[] args) {
+
+        AnalizatorLiczb analizator = new AnalizatorLiczb();
+        ZaawansowanyAnalizator zaawansowany = new ZaawansowanyAnalizator();
+
+        // Klasa bazowa
+        System.out.println("Średnia: "
+                + analizator.obliczSrednia(10, 20, 30, 40));
+
+        // Klasa zaawansowana
+        System.out.println("Średnia: "
+                + zaawansowany.obliczSrednia(10, -5, 20, -15, 30));
+
+        // Znajdowanie minimum i maksimum
+        zaawansowany.znajdzEkstrema(10, -5, 20, 100, 3, -20);
+
+        // Brak liczb
+        System.out.println("Średnia bez liczb: "
+                + analizator.obliczSrednia());
+    }
+}
