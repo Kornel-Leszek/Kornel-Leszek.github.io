@@ -1,0 +1,55 @@
+// Logger.java
+public class Logger {
+
+    public void zapiszLogi(String... wiadomosci) {
+        for (String wiadomosc : wiadomosci) {
+            System.out.println("[LOG]: " + wiadomosc);
+        }
+    }
+}
+
+// BlednyLogger.java
+public class BlednyLogger extends Logger {
+
+    @Override
+    public void zapiszLogi(String... wiadomosci) {
+        for (String wiadomosc : wiadomosci) {
+            System.out.println("[BŁĄD KRYTYCZNY]: " + wiadomosc.toUpperCase());
+        }
+    }
+}
+// Main.java
+public class Main {
+
+    public static void main(String[] args) {
+
+        Logger logger = new Logger();
+        BlednyLogger blednyLogger = new BlednyLogger();
+
+        // Jeden komunikat
+        logger.zapiszLogi("Uruchomiono program.");
+
+        // Pięć komunikatów
+        logger.zapiszLogi(
+                "Logowanie użytkownika.",
+                "Pobrano dane.",
+                "Połączono z bazą danych.",
+                "Wykonano operację.",
+                "Program zakończony."
+        );
+
+        System.out.println();
+
+        // Jeden komunikat dla BlednyLogger
+        blednyLogger.zapiszLogi("Wystąpił błąd.");
+
+        // Pięć komunikatów dla BlednyLogger
+        blednyLogger.zapiszLogi(
+                "Brak połączenia.",
+                "Nie znaleziono pliku.",
+                "Błędne hasło.",
+                "Uszkodzone dane.",
+                "Krytyczny problem systemu."
+        );
+    }
+}
