@@ -1,0 +1,163 @@
+Zadanie 1 – System oceniania uczniów
+class Uczen {
+    constructor(imie) {
+        this._imie = imie;
+        this._oceny = [];
+    }
+
+    get imie() {
+        return this._imie;
+    }
+
+    set imie(noweImie) {
+        this._imie = noweImie;
+    }
+
+    get oceny() {
+        return this._oceny;
+    }
+
+    set oceny(noweOceny) {
+        this._oceny = noweOceny;
+    }
+
+    dodajOceny(...noweOceny) {
+        this._oceny.push(...noweOceny);
+    }
+
+    obliczSrednia() {
+        if (this._oceny.length === 0) {
+            return 0;
+        }
+
+        const suma = this._oceny.reduce((suma, ocena) => suma + ocena, 0);
+
+        return suma / this._oceny.length;
+    }
+}
+
+
+// Przykład użycia
+const uczen = new Uczen("Jan");
+
+uczen.dodajOceny(5, 4, 3, 5);
+
+console.log("Uczeń:", uczen.imie);
+console.log("Oceny:", uczen.oceny);
+console.log("Średnia:", uczen.obliczSrednia());
+
+W JavaScript ...noweOceny pełni rolę podobną do varargs z Javy.
+
+Zadanie 2 – Komunikator z różnymi kanałami
+class WysylaczWiadomosci {
+    wyslij(...wiadomosci) {
+        for (const wiadomosc of wiadomosci) {
+            console.log("[Ogólny]: " + wiadomosc);
+        }
+    }
+}
+
+
+class WysylaczEmail extends WysylaczWiadomosci {
+    wyslij(...wiadomosci) {
+        for (const wiadomosc of wiadomosci) {
+            console.log("[EMAIL]: " + wiadomosc.toUpperCase());
+        }
+    }
+}
+
+
+// Polimorfizm
+const wysylacz = new WysylaczEmail();
+
+wysylacz.wyslij(
+    "Witaj świecie!",
+    "To jest pierwsza wiadomość.",
+    "Spotkanie odbędzie się jutro."
+);
+
+Wynik:
+
+[EMAIL]: WITAJ ŚWIECIE!
+[EMAIL]: TO JEST PIERWSZA WIADOMOŚĆ.
+[EMAIL]: SPOTKANIE ODBĘDZIE SIĘ JUTRO.
+
+Tutaj:
+
+const wysylacz = new WysylaczEmail();
+
+oznacza, że korzystamy z obiektu klasy WysylaczEmail, która dziedziczy po WysylaczWiadomosci.
+
+Zadanie 3 – Mini-gra RPG – Ekwipunek Bohatera
+class Postac {
+    constructor(nazwa, zdrowie) {
+        this._nazwa = nazwa;
+        this.zdrowie = zdrowie;
+    }
+
+    get nazwa() {
+        return this._nazwa;
+    }
+
+    set nazwa(nowaNazwa) {
+        this._nazwa = nowaNazwa;
+    }
+
+    get zdrowie() {
+        return this._zdrowie;
+    }
+
+    set zdrowie(noweZdrowie) {
+        if (noweZdrowie < 0) {
+            this._zdrowie = 0;
+        } else {
+            this._zdrowie = noweZdrowie;
+        }
+    }
+
+    przedstawSie() {
+        console.log(
+            `Nazywam się ${this._nazwa}, moje zdrowie: ${this._zdrowie}`
+        );
+    }
+}
+
+
+class Mag extends Postac {
+    constructor(nazwa, zdrowie, mana) {
+        super(nazwa, zdrowie);
+        this._mana = mana;
+    }
+
+    get mana() {
+        return this._mana;
+    }
+
+    set mana(nowaMana) {
+        if (nowaMana < 0) {
+            this._mana = 0;
+        } else {
+            this._mana = nowaMana;
+        }
+    }
+
+    rzucCzar(...cele) {
+        console.log(
+            `[Mag] ${this.nazwa} rzuca czar na: ${cele.join(", ")}`
+        );
+    }
+}
+
+
+// Przykład użycia
+const mag = new Mag("Gandalf", 100, 80);
+
+mag.przedstawSie();
+
+console.log("Mana:", mag.mana);
+
+mag.rzucCzar("Ork", "Goblin", "Smok");
+
+mag.zdrowie = -50;
+
+console.log("Zdrowie po zmianie:", mag.zdrowie);
