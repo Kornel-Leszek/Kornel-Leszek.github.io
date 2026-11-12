@@ -1,15 +1,151 @@
 <!DOCTYPE html>
-<lang="pl">
-  <head>
-  <meta charset="utf-8">
-  <title>Podpowiedź: przycisk jest absolutnie biały</title>
-  </head>
-  <body>
-  <p>Witam! Ta strona internetowa będzie poświęcona zagadce...</p>  
-  <p>Lub mówiąc wprost, jest sama w sobie zagadką!</p>
-  <p>Będziesz musiał między innymi, bawić się trybem jasny/ciemny, szukać części kodów</p>
-  <p>oraz wiele więcej!</p>
-  <p>Więc powodzenia w przechodzeniu dalej!</p>
-  <p>Ps: By przejść na pierwszą stronę tej zagadki musisz znaleść ukryty gdzieś przyciski.</p>
-  </body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podpowiedź: przycisk jest absolutnie biały</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #151515;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .container {
+            max-width: 750px;
+            width: 90%;
+            padding: 45px;
+            background: #202020;
+            border: 1px solid #383838;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            animation: appear 1.2s ease;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #bdbdbd;
+        }
+
+        .warning {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-style: italic;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tryb jasny */
+        body.light {
+            background: #eeeeee;
+            color: #222222;
+        }
+
+        body.light .container {
+            background: #ffffff;
+            border-color: #cccccc;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light h1 {
+            color: #222222;
+        }
+
+        body.light p {
+            color: #444444;
+        }
+
+        body.light .warning {
+            border-color: #cccccc;
+            color: #777777;
+        }
+
+        body.light .highlight {
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Witaj, poszukiwaczu...</h1>
+
+        <p>
+            Witam! Ta strona internetowa będzie poświęcona zagadce...
+        </p>
+
+        <p>
+            Lub mówiąc wprost, <span class="highlight">jest sama w sobie zagadką!</span>
+        </p>
+
+        <p>
+            Będziesz musiał między innymi bawić się trybem jasnym i ciemnym,
+            szukać części kodów oraz odkrywać kolejne tajemnice.
+        </p>
+
+        <p>
+            A to dopiero początek...
+        </p>
+
+        <p>
+            Więc powodzenia w przechodzeniu dalej!
+        </p>
+
+        <p class="warning">
+            PS: By przejść na pierwszą stronę tej zagadki,
+            musisz znaleźć ukryty gdzieś przycisk.
+        </p>
+    </div>
+
+    <script>
+        // Przełączanie trybu jasnego i ciemnego
+        // Klawisz L zmienia aktualny motyw
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key.toLowerCase() === "l") {
+                document.body.classList.toggle("light");
+            }
+        });
+    </script>
+
+</body>
 </html>
