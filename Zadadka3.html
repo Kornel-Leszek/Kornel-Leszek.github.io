@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<lang="pl">
-  <head>
-  <meta charset="utf-8">
-  <title>Podpowiedź: Niektóre litery mają zły kolor...</title>
-  </head>
-  <body>
-    
-  </body>
-</html> 
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Podpowiedź: Niektóre litery mają zły kolor...</title>
+
+    <link rel="stylesheet" href="Zadadka3.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Coś tu nie pasuje...</h1>
+
+        <p>
+            Ko<span class="wrong-color">L</span>or może być mylący.
+        </p>
+
+        <p>
+            Św<span class="wrong-color">I</span>atło nie zawsze pomaga.
+        </p>
+
+        <p>
+            Nie ignoruj szczegółów, cza<span class="wrong-color">S</span>ami mówią najwięcej.
+        </p>
+
+        <form id="codeForm">
+            <input
+                type="text"
+                id="codeInput"
+                placeholder="Wpisz znaleziony kod..."
+                autocomplete="off"
+            >
+
+            <button type="submit">Sprawdź</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const poprawnyKod = "LIS";
+
+        document.getElementById("codeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const wpisanyKod = document.getElementById("codeInput").value.trim().toUpperCase();
+            const message = document.getElementById("message");
+
+            if (wpisanyKod === poprawnyKod) {
+                message.textContent = "Dobrze! Udało ci się dostrzec szczegóły.";
+                message.style.color = "#66dd88";
+
+                setTimeout(function() {
+                    window.location.href = "Zadadka4.html";
+                }, 1500);
+
+            } else {
+                message.textContent = "To nie jest właściwy kod. Spróbuj ponownie.";
+                message.style.color = "#dd6666";
+            }
+        });
+    </script>
+
+</body>
+</html>
