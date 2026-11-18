@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #151515;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+
+    background: #202020;
+    border: 1px solid #383838;
+    border-radius: 12px;
+
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
+    animation: appear 1s ease;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 27px;
+}
+
+.container > p {
+    margin-bottom: 20px;
+    color: #bdbdbd;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* Litery o nieprawidłowym kolorze */
+
+.wrong-color {
+    color: #ff4545;
+    font-weight: bold;
+}
+
+/* Pole kodu */
+
+input {
+    width: 100%;
+    padding: 13px;
+
+    background: #151515;
+    color: white;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+
+    outline: none;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #888;
+}
+
+/* Przycisk */
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+
+    background: #333;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 6px;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #454545;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Animacja */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
