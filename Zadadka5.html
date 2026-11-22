@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<lang="pl">
-  <head>
-  <meta charset="utf-8">
-  <title>Podpowiedź:</title>
-  </head>
-  <body>
-    
-  </body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podpowiedź: Matematyka...</title>
+
+    <link rel="stylesheet" href="Zadadka5.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Rozwiąż działanie:</h1>
+
+        <h2>2 + 2 = ?</h2>
+
+        <div id="secret" hidden>
+            <p>Twórca tej strony nie zdał matmy i poprawną odpowiedzią jest...</p>
+
+            <h1 class="answer">8462</h1>
+
+            <form id="answerForm">
+                <input type="text" id="answerInput"
+                    placeholder="Wpisz odpowiedź..."
+                    autocomplete="off">
+
+                <button type="submit">Sprawdź</button>
+            </form>
+
+            <p id="message"></p>
+
+            <a href="Zadadka6.html" id="nextLink" hidden>
+                Przejdź dalej
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        // Klawisz L zmienia motyw i odkrywa wiadomość
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key.toLowerCase() === "l"
+                && event.target.tagName !== "INPUT") {
+
+                document.body.classList.toggle("dark");
+
+                document.getElementById("secret").hidden =
+                    !document.body.classList.contains("dark");
+            }
+        });
+
+
+        document.getElementById("answerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const answer = document.getElementById("answerInput").value.trim();
+            const message = document.getElementById("message");
+
+            if (answer === "8462") {
+                message.textContent = "Brawo! Twórca jest z ciebie dumny.";
+                message.style.color = "#66dd88";
+
+                document.getElementById("nextLink").hidden = false;
+            } else {
+                message.textContent = "Niepoprawna odpowiedź!";
+                message.style.color = "#dd6666";
+            }
+        });
+    </script>
+
+</body>
 </html>
