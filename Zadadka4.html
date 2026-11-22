@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<lang="pl">
-  <head>
-  <meta charset="utf-8">
-  <title>Podpowiedź: </title>
-  </head>
-  <body>
-    
-  </body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podpowiedź: Klikaj, klikaj...</title>
+
+    <link rel="stylesheet" href="Zadadka4.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Mały clicker</h1>
+
+        <p>Zdobądź 30 punktów, aby przejść dalej!</p>
+
+        <h2 id="score">0 / 30</h2>
+
+        <div class="progress">
+            <div id="progressFill"></div>
+        </div>
+
+        <button id="clickButton">Kliknij mnie!</button>
+
+        <p id="message"></p>
+
+        <a href="Zadadka5.html" id="nextLink" hidden>
+            Przejdź dalej
+        </a>
+    </div>
+
+    <script>
+        let punkty = 0;
+        const cel = 30;
+
+        const score = document.getElementById("score");
+        const button = document.getElementById("clickButton");
+        const message = document.getElementById("message");
+        const progress = document.getElementById("progressFill");
+        const nextLink = document.getElementById("nextLink");
+
+        button.addEventListener("click", function() {
+            punkty++;
+
+            score.textContent = punkty + " / " + cel;
+            progress.style.width = (punkty / cel * 100) + "%";
+
+            if (punkty >= cel) {
+                button.disabled = true;
+                button.textContent = "Gotowe!";
+
+                message.textContent = "Gratulacje! Udało ci się!";
+                nextLink.hidden = false;
+            }
+        });
+    </script>
+
+</body>
 </html>
