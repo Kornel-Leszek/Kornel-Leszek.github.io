@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #eeeeee;
+    color: #222222;
+    font-family: Arial, sans-serif;
+
+    transition: 0.5s;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    text-align: center;
+    box-shadow: 0 0 25px #ccc;
+
+    transition: 0.5s;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+h2 {
+    margin: 25px 0;
+    font-size: 26px;
+}
+
+#secret {
+    margin-top: 35px;
+}
+
+#secret p {
+    line-height: 1.6;
+}
+
+.answer {
+    color: #269d55;
+    font-size: 40px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+
+    margin-top: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 12px;
+
+    background: #333;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 15px;
+}
+
+#nextLink {
+    display: inline-block;
+    margin-top: 20px;
+    color: #269d55;
+    text-decoration: none;
+}
+
+#nextLink[hidden] {
+    display: none;
+}
+
+
+body.dark {
+    background: #151515;
+    color: white;
+}
+
+body.dark .container {
+    background: #202020;
+    border-color: #444;
+    box-shadow: 0 0 25px #000;
+}
+
+body.dark input {
+    background: #151515;
+    color: white;
+    border-color: #555;
+}
+
+body.dark button {
+    background: #444;
+}
+
+body.dark .answer {
+    color: #66dd88;
+}
