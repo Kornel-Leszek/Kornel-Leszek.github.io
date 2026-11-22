@@ -1,0 +1,158 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: #151515;
+    color: #e0e0e0;
+
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 550px;
+
+    padding: 40px;
+
+    background: #202020;
+    border: 1px solid #383838;
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
+    animation: appear 1s ease;
+}
+
+h1 {
+    margin-bottom: 25px;
+
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.description {
+    color: #66dd88;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 20px;
+
+    color: #bdbdbd;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+input {
+    width: 100%;
+
+    padding: 14px;
+    margin-top: 10px;
+
+    background: #151515;
+    color: white;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+
+    outline: none;
+    font-size: 16px;
+
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: #66dd88;
+}
+
+button {
+    width: 100%;
+
+    padding: 14px;
+    margin-top: 15px;
+
+    background: #333;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 6px;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #454545;
+}
+
+#result {
+    margin-top: 30px;
+    animation: appear 0.8s ease;
+}
+
+#greeting {
+    margin-bottom: 20px;
+
+    color: #66dd88;
+    font-size: 27px;
+
+    overflow-wrap: anywhere;
+}
+
+.reward {
+    display: inline-block;
+
+    padding: 14px 25px;
+    margin-top: 10px;
+
+    background: #333;
+    color: #66dd88;
+
+    border: 1px solid #66dd88;
+    border-radius: 7px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.reward:hover {
+    background: #66dd88;
+    color: #151515;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
