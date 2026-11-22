@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #151515;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    padding: 40px;
+
+    background: #202020;
+    border: 1px solid #383838;
+    border-radius: 12px;
+
+    text-align: center;
+    box-shadow: 0 0 25px #000;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    color: #aaa;
+    margin: 15px 0;
+}
+
+h2 {
+    margin: 25px 0;
+    font-size: 30px;
+}
+
+.progress {
+    width: 100%;
+    height: 12px;
+
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: #66dd88;
+    transition: width 0.2s;
+}
+
+button {
+    margin-top: 25px;
+    padding: 15px 30px;
+
+    background: #333;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 7px;
+
+    font-size: 17px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #505050;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#message {
+    color: #66dd88;
+}
+
+#nextLink {
+    display: inline-block;
+    margin-top: 15px;
+    color: #66dd88;
+    text-decoration: none;
+}
+
+#nextLink:hover {
+    text-decoration: underline;
+}
+
+#nextLink[hidden] {
+    display: none;
+}
