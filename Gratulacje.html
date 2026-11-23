@@ -30,11 +30,16 @@
                 id="nameInput"
                 placeholder="Wpisz swoją nazwę..."
                 autocomplete="off"
+                maxlength="30"
                 required
             >
 
-            <button type="submit">Zatwierdź</button>
+            <button type="submit" id="submitButton">
+                Zatwierdź
+            </button>
         </form>
+
+        <p id="status"></p>
 
         <div id="result" hidden>
 
@@ -62,28 +67,84 @@
 
     </div>
 
+    <!-- Biblioteka Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
+
+        // DANE TWOJEGO PROJEKTU SUPABASE
+
+        const SUPABASE_URL = "TUTAJ_WKLEJ_PROJECT_URL";
+        const SUPABASE_PUBLISHABLE_KEY = "TUTAJ_WKLEJ_PUBLISHABLE_KEY";
+
+        const db = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+
+        // Elementy strony
+
         const form = document.getElementById("nameForm");
         const input = document.getElementById("nameInput");
 
         const result = document.getElementById("result");
         const greeting = document.getElementById("greeting");
 
-        form.addEventListener("submit", function(event) {
+        const status = document.getElementById("status");
+        const submitButton = document.getElementById("submitButton");
+
+        // Zapisywanie uczestnika
+
+        form.addEventListener("submit", async function(event) {
+
             event.preventDefault();
 
             const nazwa = input.value.trim();
 
-            if (nazwa === "") {
+            if (nazwa.length < 1 || nazwa.length > 30) {
+                status.textContent = "Nazwa musi mieć od 1 do 30 znaków.";
                 return;
             }
 
-            greeting.textContent = "Brawo, " + nazwa + "!";
+            submitButton.disabled = true;
+            status.textContent = "Zapisywanie nazwy...";
 
-            result.hidden = false;
+            try {
 
-            form.hidden = true;
+                // Wysyłanie nazwy do bazy danych
+
+                const { error } = await db
+                    .from("participants")
+                    .insert({
+                        name: nazwa
+                    });
+
+                if (error) {
+                    throw error;
+                }
+
+                // Wyświetlenie gratulacji
+
+                greeting.textContent = "Brawo, " + nazwa + "!";
+
+                status.textContent = "";
+
+                result.hidden = false;
+                form.hidden = true;
+
+            } catch (error) {
+
+                console.error("Błąd zapisu:", error);
+
+                status.textContent =
+                    "Nie udało się zapisać nazwy. Spróbuj ponownie.";
+
+                submitButton.disabled = false;
+
+            }
+
         });
+
     </script>
 
 </body>
