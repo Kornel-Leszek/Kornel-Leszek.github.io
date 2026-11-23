@@ -11,26 +11,36 @@
 
 <body>
 
-    <div class="container">
-        <div class="participants-bar">
+    <!-- Lista uczestników -->
 
-    <p class="participants-label">
-        🏆 Osoby, które ukończyły zagadkę:
-    </p>
+    <div class="participants-bar">
 
-    <div class="participants-window" id="participantsWindow">
+        <p class="participants-label">
+            🏆 Osoby, które ukończyły zagadkę:
+        </p>
 
-        <div class="participants-track" id="participantsTrack">
+        <div class="participants-window" id="participantsWindow">
 
-            <div class="participants-group" id="participantsGroup"></div>
+            <div class="participants-track" id="participantsTrack">
 
-            <div class="participants-group"
-                 id="participantsGroupCopy"
-                 aria-hidden="true">
-    </div>
-</div>
-    </div>
+                <div class="participants-group" id="participantsGroup"></div>
+
+                <div class="participants-group"
+                     id="participantsGroupCopy"
+                     aria-hidden="true">
+                </div>
+
+            </div>
+
         </div>
+
+    </div>
+
+
+    <!-- Główna zawartość strony -->
+
+    <div class="container">
+
         <h1>Witaj, poszukiwaczu...</h1>
 
         <p>
@@ -38,7 +48,8 @@
         </p>
 
         <p>
-            Lub mówiąc wprost, <span class="highlight">jest sama w sobie zagadką!</span>
+            Lub mówiąc wprost,
+            <span class="highlight">jest sama w sobie zagadką!</span>
         </p>
 
         <p>
@@ -62,12 +73,248 @@
         <a href="Zagadka1.html" id="nextButton" hidden>
             Przejdź dalej
         </a>
+
     </div>
 
-    <script>
-        const nextButton = document.getElementById("nextButton");
 
-        // Klawisz L zmienia aktualny motyw strony
+    <!-- Biblioteka Supabase -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <script>
+
+        // POŁĄCZENIE Z BAZĄ DANYCH
+
+        const SUPABASE_URL = "TUTAJ_WKLEJ_PROJECT_URL";
+        const SUPABASE_PUBLISHABLE_KEY = "TUTAJ_WKLEJ_PUBLISHABLE_KEY";
+
+        const db = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+
+
+        // ELEMENTY STRONY
+
+        const group = document.getElementById("participantsGroup");
+        const groupCopy = document.getElementById("participantsGroupCopy");
+
+        const track = document.getElementById("participantsTrack");
+        const tickerWindow = document.getElementById("participantsWindow");
+
+        let participants = [];
+        let lastId = null;
+        let isLoading = false;
+
+
+        // DODAWANIE NAZW DO PASKA
+
+
+        function appendNames(target, rows) {
+
+            rows.forEach(function(person) {
+
+                const name = document.createElement("span");
+
+                name.className = "participant-name";
+                name.textContent = person.name;
+
+                target.appendChild(name);
+
+                const separator = document.createElement("span");
+
+                separator.className = "participant-separator";
+                separator.textContent = "✦";
+
+                target.appendChild(separator);
+
+            });
+
+        }
+
+
+        // WYŚWIETLANIE UCZESTNIKÓW
+
+        function renderParticipants() {
+
+            group.replaceChildren();
+            groupCopy.replaceChildren();
+
+            if (participants.length === 0) {
+
+                const empty = document.createElement("span");
+
+                empty.textContent = "Jeszcze nikt nie ukończył zagadki...";
+                empty.className = "participant-name";
+
+                group.appendChild(empty);
+
+                track.classList.add("paused");
+
+                return;
+            }
+
+            track.classList.remove("paused");
+
+            appendNames(group, participants);
+
+            // Powtarzanie nazw, aby pasek wypełniał ekran
+
+            while (group.scrollWidth < tickerWindow.clientWidth * 1.2) {
+                appendNames(group, participants);
+            }
+
+            // Kopia listy potrzebna do płynnego zapętlenia
+
+            groupCopy.replaceChildren(
+                ...Array.from(group.childNodes, function(node) {
+                    return node.cloneNode(true);
+                })
+            );
+
+        }
+
+        // PIERWSZE POBRANIE WSZYSTKICH NAZW
+
+        async function loadAllParticipants() {
+
+            let offset = 0;
+            const pageSize = 500;
+            let allParticipants = [];
+
+            while (true) {
+
+                const { data, error } = await db
+                    .from("participants")
+                    .select("id, name")
+                    .order("id", { ascending: true })
+                    .range(offset, offset + pageSize - 1);
+
+                if (error) {
+                    throw error;
+                }
+
+                allParticipants.push(...data);
+
+                if (data.length < pageSize) {
+                    break;
+                }
+
+                offset += pageSize;
+
+            }
+
+            participants = allParticipants;
+
+            if (participants.length > 0) {
+                lastId = participants[participants.length - 1].id;
+            }
+
+            renderParticipants();
+
+        }
+
+        // POBIERANIE nowyh uczestników
+
+        async function loadNewParticipants() {
+
+            let newParticipants = [];
+            let currentLastId = lastId;
+
+            while (true) {
+
+                let query = db
+                    .from("participants")
+                    .select("id, name")
+                    .order("id", { ascending: true })
+                    .limit(500);
+
+                if (currentLastId !== null) {
+                    query = query.gt("id", currentLastId);
+                }
+
+                const { data, error } = await query;
+
+                if (error) {
+                    throw error;
+                }
+
+                newParticipants.push(...data);
+
+                if (data.length > 0) {
+                    currentLastId = data[data.length - 1].id;
+                }
+
+                if (data.length < 500) {
+                    break;
+                }
+
+            }
+
+            if (newParticipants.length > 0) {
+
+                participants.push(...newParticipants);
+
+                lastId = currentLastId;
+
+                renderParticipants();
+
+            }
+
+        }
+
+
+
+        // ODŚWIEŻANIE LIsty
+
+        async function updateParticipants() {
+
+            if (isLoading) {
+                return;
+            }
+
+            isLoading = true;
+
+            try {
+
+                if (lastId === null) {
+                    await loadAllParticipants();
+                } else {
+                    await loadNewParticipants();
+                }
+
+            } catch (error) {
+
+                console.error("Błąd pobierania uczestników:", error);
+
+            } finally {
+
+                isLoading = false;
+
+            }
+
+        }
+
+
+        // Pierwsze pobranie nazw
+
+        updateParticipants();
+
+        // Sprawdzanie nowych nazw co 15 sekund
+
+        setInterval(updateParticipants, 15000);
+
+        // Dopasowanie paska po zmianie rozmiaru okna
+
+        window.addEventListener("resize", function() {
+            renderParticipants();
+        });
+
+
+        // PRZEŁĄCZANIE TRYBU JASNEGO I CIEMNEGO
+
+        const nextButton = document.getElementById("nextButton");
 
         document.addEventListener("keydown", function(event) {
 
@@ -75,12 +322,15 @@
 
                 document.body.classList.toggle("light");
 
-                // Przycisk pojawia się tylko w trybie jasnym
+                // Przycisk widoczny tylko w trybie jasnym
 
-                nextButton.hidden = !document.body.classList.contains("light");
+                nextButton.hidden =
+                    !document.body.classList.contains("light");
+
             }
 
         });
+
     </script>
 
 </body>
