@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Podpowiedź: przycisk jest absolutnie biały</title>
 
     <link rel="stylesheet" href="index.css">
@@ -38,15 +39,28 @@
             PS: By przejść na pierwszą stronę tej zagadki,
             musisz znaleźć ukryty gdzieś przycisk.
         </p>
+
+        <a href="Zagadka1.html" id="nextButton" hidden>
+            Przejdź dalej
+        </a>
     </div>
 
     <script>
+        const nextButton = document.getElementById("nextButton");
+
         // Klawisz L zmienia aktualny motyw strony
 
         document.addEventListener("keydown", function(event) {
+
             if (event.key.toLowerCase() === "l") {
+
                 document.body.classList.toggle("light");
+
+                // Przycisk pojawia się tylko w trybie jasnym
+
+                nextButton.hidden = !document.body.classList.contains("light");
             }
+
         });
     </script>
 
