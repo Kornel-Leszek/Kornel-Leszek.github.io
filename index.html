@@ -84,18 +84,74 @@
 
     <script>
 
+        // ==========================================
+        // PRZEŁĄCZANIE TRYBU JASNEGO I CIEMNEGO
+        // ==========================================
+
+        const nextButton = document.getElementById("nextButton");
+
+        document.addEventListener("keydown", function(event) {
+
+            // Reagowanie wyłącznie na klawisz L
+            // Pominięcie powtarzania przy przytrzymaniu klawisza
+
+            if (event.code === "KeyL" && !event.repeat) {
+
+                document.body.classList.toggle("light");
+
+                // Przycisk widoczny tylko w trybie jasnym
+
+                nextButton.hidden =
+                    !document.body.classList.contains("light");
+
+            }
+
+        });
+
+
+        // ==========================================
         // POŁĄCZENIE Z BAZĄ DANYCH
+        // ==========================================
 
         const SUPABASE_URL = "TUTAJ_WKLEJ_PROJECT_URL";
         const SUPABASE_PUBLISHABLE_KEY = "TUTAJ_WKLEJ_PUBLISHABLE_KEY";
 
-        const db = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_PUBLISHABLE_KEY
-        );
+        let db = null;
+
+        // Sprawdzenie, czy dane zostały uzupełnione
+
+        if (
+            window.supabase &&
+            SUPABASE_URL !== "TUTAJ_WKLEJ_PROJECT_URL" &&
+            SUPABASE_PUBLISHABLE_KEY !== "TUTAJ_WKLEJ_PUBLISHABLE_KEY"
+        ) {
+
+            try {
+
+                db = window.supabase.createClient(
+                    SUPABASE_URL,
+                    SUPABASE_PUBLISHABLE_KEY
+                );
+
+            } catch (error) {
+
+                console.error("Błąd połączenia z Supabase:", error);
+
+            }
+
+        } else {
+
+            console.warn(
+                "Supabase nie jest skonfigurowany. " +
+                "Przełączanie motywu nadal będzie działać."
+            );
+
+        }
 
 
+        // ==========================================
         // ELEMENTY STRONY
+        // ==========================================
 
         const group = document.getElementById("participantsGroup");
         const groupCopy = document.getElementById("participantsGroupCopy");
@@ -108,8 +164,9 @@
         let isLoading = false;
 
 
+        // ==========================================
         // DODAWANIE NAZW DO PASKA
-
+        // ==========================================
 
         function appendNames(target, rows) {
 
@@ -134,7 +191,9 @@
         }
 
 
+        // ==========================================
         // WYŚWIETLANIE UCZESTNIKÓW
+        // ==========================================
 
         function renderParticipants() {
 
@@ -162,25 +221,34 @@
             // Powtarzanie nazw, aby pasek wypełniał ekran
 
             while (group.scrollWidth < tickerWindow.clientWidth * 1.2) {
+
                 appendNames(group, participants);
+
             }
 
             // Kopia listy potrzebna do płynnego zapętlenia
 
             groupCopy.replaceChildren(
                 ...Array.from(group.childNodes, function(node) {
+
                     return node.cloneNode(true);
+
                 })
             );
 
         }
 
+
+        // ==========================================
         // PIERWSZE POBRANIE WSZYSTKICH NAZW
+        // ==========================================
 
         async function loadAllParticipants() {
 
             let offset = 0;
+
             const pageSize = 500;
+
             let allParticipants = [];
 
             while (true) {
@@ -192,13 +260,17 @@
                     .range(offset, offset + pageSize - 1);
 
                 if (error) {
+
                     throw error;
+
                 }
 
                 allParticipants.push(...data);
 
                 if (data.length < pageSize) {
+
                     break;
+
                 }
 
                 offset += pageSize;
@@ -208,18 +280,24 @@
             participants = allParticipants;
 
             if (participants.length > 0) {
+
                 lastId = participants[participants.length - 1].id;
+
             }
 
             renderParticipants();
 
         }
 
-        // POBIERANIE nowyh uczestników
+
+        // ==========================================
+        // POBIERANIE NOWYCH UCZESTNIKÓW
+        // ==========================================
 
         async function loadNewParticipants() {
 
             let newParticipants = [];
+
             let currentLastId = lastId;
 
             while (true) {
@@ -231,23 +309,31 @@
                     .limit(500);
 
                 if (currentLastId !== null) {
+
                     query = query.gt("id", currentLastId);
+
                 }
 
                 const { data, error } = await query;
 
                 if (error) {
+
                     throw error;
+
                 }
 
                 newParticipants.push(...data);
 
                 if (data.length > 0) {
+
                     currentLastId = data[data.length - 1].id;
+
                 }
 
                 if (data.length < 500) {
+
                     break;
+
                 }
 
             }
@@ -265,13 +351,19 @@
         }
 
 
-
-        // ODŚWIEŻANIE LIsty
+        // ==========================================
+        // ODŚWIEŻANIE LISTY
+        // ==========================================
 
         async function updateParticipants() {
 
-            if (isLoading) {
+            // Nie próbujemy pobierać danych,
+            // jeżeli Supabase nie jest skonfigurowany
+
+            if (!db || isLoading) {
+
                 return;
+
             }
 
             isLoading = true;
@@ -279,9 +371,13 @@
             try {
 
                 if (lastId === null) {
+
                     await loadAllParticipants();
+
                 } else {
+
                     await loadNewParticipants();
+
                 }
 
             } catch (error) {
@@ -297,6 +393,10 @@
         }
 
 
+        // ==========================================
+        // URUCHOMIENIE POBIERANIA DANYCH
+        // ==========================================
+
         // Pierwsze pobranie nazw
 
         updateParticipants();
@@ -308,26 +408,8 @@
         // Dopasowanie paska po zmianie rozmiaru okna
 
         window.addEventListener("resize", function() {
+
             renderParticipants();
-        });
-
-
-        // PRZEŁĄCZANIE TRYBU JASNEGO I CIEMNEGO
-
-        const nextButton = document.getElementById("nextButton");
-
-        document.addEventListener("keydown", function(event) {
-
-            if (event.key.toLowerCase() === "l") {
-
-                document.body.classList.toggle("light");
-
-                // Przycisk widoczny tylko w trybie jasnym
-
-                nextButton.hidden =
-                    !document.body.classList.contains("light");
-
-            }
 
         });
 
