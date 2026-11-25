@@ -16,58 +16,62 @@
 
         <h2>2 + 2 = ?</h2>
 
+        <!-- UKRYTA PODPOWIEDŹ -->
+
         <div id="secret" hidden>
+
             <p>Twórca tej strony nie zdał matmy i poprawną odpowiedzią jest...</p>
 
             <h1 class="answer">8462</h1>
 
-            <form id="answerForm">
-                <input
-                    type="text"
-                    id="answerInput"
-                    placeholder="Wpisz odpowiedź..."
-                    autocomplete="off"
-                    inputmode="numeric"
-                    maxlength="4"
-                    required
-                >
-
-                <button type="submit">Sprawdź</button>
-            </form>
-
-            <p id="message"></p>
-
-            <a href="Gratulacje.html" id="nextLink" hidden>
-                Przejdź dalej
-            </a>
         </div>
+
+
+        <!-- FORMULARZ ZAWSZE WIDOCZNY -->
+
+        <form id="answerForm">
+
+            <input
+                type="text"
+                id="answerInput"
+                placeholder="Wpisz odpowiedź..."
+                autocomplete="off"
+                inputmode="numeric"
+                maxlength="4"
+                required
+            >
+
+            <button type="submit">Sprawdź</button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <a href="Gratulacje.html" id="nextLink" hidden>
+            Przejdź dalej
+        </a>
 
     </div>
 
+
     <script>
 
-        // PRZEŁĄCZANIE TRYBU
+        // PRZEŁĄCZANIE TRYBU I ODKRYWANIE PODPOWIEDZI
 
         const secret = document.getElementById("secret");
-        const answerInput = document.getElementById("answerInput");
 
         document.addEventListener("keydown", function(event) {
 
             if (
-                event.key.toLowerCase() === "l" &&
+                event.code === "KeyL" &&
                 !event.repeat &&
                 event.target.tagName !== "INPUT"
             ) {
 
                 document.body.classList.toggle("dark");
 
-                secret.hidden = !document.body.classList.contains("dark");
-
-                // Automatyczne ustawienie kursora w polu odpowiedzi
-
-                if (!secret.hidden) {
-                    answerInput.focus();
-                }
+                secret.hidden =
+                    !document.body.classList.contains("dark");
 
             }
 
@@ -80,13 +84,17 @@
 
             event.preventDefault();
 
-            const answer = answerInput.value.trim();
+            const answer = document.getElementById("answerInput").value.trim();
+
             const message = document.getElementById("message");
+
             const nextLink = document.getElementById("nextLink");
+
 
             if (answer === "8462") {
 
                 message.textContent = "Brawo! Twórca jest z ciebie dumny.";
+
                 message.style.color = "#66dd88";
 
                 nextLink.hidden = false;
@@ -94,6 +102,7 @@
             } else {
 
                 message.textContent = "Niepoprawna odpowiedź!";
+
                 message.style.color = "#dd6666";
 
                 nextLink.hidden = true;
